@@ -45,15 +45,15 @@ arasındadır.
 - UI ve animasyon tamamen tercihe bağlı olup farklı cihaz görünümleri
 gözetilmelidir.
 
-1- API - https://rawg.io/apidocs - Dokümantasyon Chrome ile açılmalıdır.
-2- Git reposu public gözüküyor ancak ödevler nasıl yükleniyorsa aynı sistem kullanılacaktır.
-3- ReadMe dosyası repoda olmalıdır.
-4- Liste ekranı için istenilen filtre kullanılabilir(2022 de çıkan oyunlar, platforma özel
+1. API - https://rawg.io/apidocs - Dokümantasyon Chrome ile açılmalıdır.
+2. Git reposu public gözüküyor ancak ödevler nasıl yükleniyorsa aynı sistem kullanılacaktır.
+3. ReadMe dosyası repoda olmalıdır.
+4. Liste ekranı için istenilen filtre kullanılabilir(2022 de çıkan oyunlar, platforma özel
 oyunlar veya popüler oyunlar olabilir.)
-5- Detay ekranında Fotoğraf ve en az 4 bilgi olacak.
-6- Listeden detaya gidildiğinde favorilere ekleme olacak başka bir editleme olmayacak.(2.
+5. Detay ekranında Fotoğraf ve en az 4 bilgi olacak.
+6. Listeden detaya gidildiğinde favorilere ekleme olacak başka bir editleme olmayacak.(2.
 Ekrandaki editleme maddesi)
-7- Favorilerin listelendiği bir ekran olacak.
-8- Liste şeklinde Notlar ekranı olacak. Oyunlara ait not ekleyebileceğim ve mevcut notları
+7. Favorilerin listelendiği bir ekran olacak.
+8. Liste şeklinde Notlar ekranı olacak. Oyunlara ait not ekleyebileceğim ve mevcut notları
 düzenleyebileceğim.(Dokümandaki 3. Ekran Yeni giriş ekranı bu kısımda olacak)
-9- Hatalar yakalanmalı ve alert şeklinde gösterilmelidir.
+9. Hatalar yakalanmalı ve alert şeklinde gösterilmelidir.
