@@ -36,3 +36,10 @@ En başta Local Notification ve Localization kavramlarını daha önce kullanmad
 Ekran görüntüsünü proje bitiminde koyacağım.
 
 Agile-Scrum metodolojisinde projeyi yönetmeye çalıştığım, Trello uygulamasında hazırladığım yol haritasını görüntülemek için [tıklayabilirsiniz](https://trello.com/invite/b/ks1phjdB/ATTI5093c6e9e92d387f878ac715a4fe56373521F70F/neworld).
+
+## UML Diagrams
+
+### GameList
+
+<img width="700" src="https://user-images.githubusercontent.com/56068905/206493841-6389a585-0a5f-4d3e-aef6-ec2baa9b8e9b.png"/>
+
