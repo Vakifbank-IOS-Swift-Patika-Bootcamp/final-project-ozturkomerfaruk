@@ -7,13 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        Client.getGameList(page: 1, pageSize: 1) { games, error in
+            print(games)
+        }
     }
-
 
 }
 
