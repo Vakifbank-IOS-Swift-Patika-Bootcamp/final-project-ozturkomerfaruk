@@ -9,6 +9,22 @@ import Foundation
 
 struct Stores: Decodable {
     let id: Int
+    let store: StoreModel
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case store
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try values.decodeIfPresent(Int.self, forKey: .id) ?? -1
+        self.store = try values.decode(StoreModel.self, forKey: .store)
+    }
+}
+
+struct StoreModel: Decodable {
+    let id: Int
     let name: String
     let slug: String
     let domain: String

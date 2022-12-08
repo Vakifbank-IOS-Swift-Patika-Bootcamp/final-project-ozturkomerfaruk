@@ -15,10 +15,10 @@ struct GameModel: Decodable {
     let backgroundImage: String
     let rating: Double
     let parentPlatforms: [ParentPlatforms]
-//    let genres: [Genres]
-//    let stores: [StoreBaseResponse]
-//    let tags: [Tags]
-//    let shortScreenshots: [ShortScreenshots]
+    let genres: [Genres]
+    let stores: [Stores]
+    let tags: [Tags]
+    let shortScreenshots: [ShortScreenshots]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -28,10 +28,10 @@ struct GameModel: Decodable {
         case backgroundImage = "background_image"
         case rating
         case parentPlatforms = "parent_platforms"
-//        case genres
-//        case stores
-//        case tags
-//        case shortScreenshots = "short_screenshots"
+        case genres
+        case stores
+        case tags
+        case shortScreenshots = "short_screenshots"
     }
     
     init(from decoder: Decoder) throws {
@@ -43,10 +43,10 @@ struct GameModel: Decodable {
         backgroundImage = try values.decodeIfPresent(String.self, forKey: .backgroundImage) ?? ""
         rating = try values.decodeIfPresent(Double.self, forKey: .rating) ?? 0.0
         parentPlatforms = try values.decodeIfPresent([ParentPlatforms].self, forKey: .parentPlatforms) ?? []
-//        genres = try values.decodeIfPresent([Genres].self, forKey: .genres) ?? []
-//        stores = try values.decodeIfPresent([StoreBaseResponse].self, forKey: .stores) ?? []
-//        tags = try values.decodeIfPresent([Tags].self, forKey: .tags) ?? []
-//        shortScreenshots = try values.decodeIfPresent([ShortScreenshots].self, forKey: .shortScreenshots) ?? []
+        genres = try values.decodeIfPresent([Genres].self, forKey: .genres) ?? []
+        stores = try values.decodeIfPresent([Stores].self, forKey: .stores) ?? []
+        tags = try values.decodeIfPresent([Tags].self, forKey: .tags) ?? []
+        shortScreenshots = try values.decodeIfPresent([ShortScreenshots].self, forKey: .shortScreenshots) ?? []
         
     }
 }
