@@ -8,7 +8,7 @@
 import Foundation
 
 struct ParentPlatforms: Decodable {
-    let platform: [PlatformModel]
+    let platform: PlatformModel
     
     enum CodingKeys: String, CodingKey {
         case platform
@@ -16,7 +16,7 @@ struct ParentPlatforms: Decodable {
   
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        platform = try values.decodeIfPresent([PlatformModel].self, forKey: .platform) ?? []
+        platform = try values.decode(PlatformModel.self, forKey: .platform)
     }
 }
 
