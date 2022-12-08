@@ -31,7 +31,7 @@ En başta Local Notification ve Localization kavramlarını daha önce kullanmad
 
 Örnek projeleri inceleyeceğim. Başta Steam olmak üzere bir çok oyun içeriği sunan örnek projelere bakarak, onlardan daha iyi neler yapabilirim, araştıracağım.
 
-## Trello
+## Trello
 
 Ekran görüntüsünü proje bitiminde koyacağım.
 
