@@ -27,6 +27,7 @@
 		043A7AA62941CAD300936AA3 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A7AA52941CAD300936AA3 /* Tags.swift */; };
 		043A7AA82941CB5300936AA3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A7AA72941CB5300936AA3 /* Endpoints.swift */; };
 		043A7AAA2941CB9200936AA3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A7AA92941CB9200936AA3 /* Constants.swift */; };
+		04A2EE662942009E0029E498 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A2EE652942009E0029E498 /* GameListViewModel.swift */; };
 		1D9FCD39EC826148EF4556AD /* Pods_NeworlD_NeworlDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16966CD5A8654CD08B23105E /* Pods_NeworlD_NeworlDUITests.framework */; };
 		3E9C5F525E7080C47CBA3D1C /* Pods_NeworlD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693DA54D68C363BDB8EA73B /* Pods_NeworlD.framework */; };
 		ACF3D42DE7E05B1E8ED1B186 /* Pods_NeworlDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85096C5803AF3AC925DF9976 /* Pods_NeworlDTests.framework */; };
@@ -74,6 +75,7 @@
 		043A7AA52941CAD300936AA3 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
 		043A7AA72941CB5300936AA3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		043A7AA92941CB9200936AA3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04A2EE652942009E0029E498 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameListViewModel.swift; path = NeworlD/App/GameListViewModel.swift; sourceTree = SOURCE_ROOT; };
 		16966CD5A8654CD08B23105E /* Pods_NeworlD_NeworlDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeworlD_NeworlDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3828B5390D1A6D6CF13CD3 /* Pods-NeworlD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeworlD.release.xcconfig"; path = "Target Support Files/Pods-NeworlD/Pods-NeworlD.release.xcconfig"; sourceTree = "<group>"; };
 		2C1B493D6ADFE7CAF4F4BC24 /* Pods-NeworlD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeworlD.debug.xcconfig"; path = "Target Support Files/Pods-NeworlD/Pods-NeworlD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		043A7A972941CA3300936AA3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04A2EE652942009E0029E498 /* GameListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				043A7A9A2941CA7E00936AA3 /* GameBaseResponse.swift in Sources */,
 				043A79F42941AAA400936AA3 /* AppDelegate.swift in Sources */,
 				043A7A9E2941CAB300936AA3 /* Genres.swift in Sources */,
+				04A2EE662942009E0029E498 /* GameListViewModel.swift in Sources */,
 				043A7AA22941CAC500936AA3 /* ShortScreenshots.swift in Sources */,
 				043A79F62941AAA400936AA3 /* SceneDelegate.swift in Sources */,
 				043A7A932941CA0500936AA3 /* Client.swift in Sources */,
