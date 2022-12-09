@@ -28,7 +28,7 @@ class GameListViewModel: GameListViewModelProtocol {
     private var games: [GameModel]?
     
     func fetchGameList() {
-        Client.getGameList(page: 1, pageSize: 5) { [weak self] games, error in
+        Client.getGameList(page: 1, pageSize: 10) { [weak self] games, error in
             guard let self = self else { return }
             if let error = error {
                 self.delegate?.gamesFailed(error: error)
