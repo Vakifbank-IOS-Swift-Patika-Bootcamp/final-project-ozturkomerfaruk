@@ -40,4 +40,10 @@ final class Client {
         }
     }
     
+    static func getGameDetail(gameID: Int, completion: @escaping (GameDetailModel?, Error?) -> Void) {
+        let urlString = EndPoints.getGameDetail(gameID).stringValue
+        handleResponse(urlString: urlString, responseType: GameDetailModel.self) { responseModel, error in
+            completion(responseModel, error)
+        }
+    }
 }
