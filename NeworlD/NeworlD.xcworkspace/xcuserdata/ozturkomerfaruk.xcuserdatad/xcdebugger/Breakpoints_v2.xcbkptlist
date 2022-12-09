@@ -20,5 +20,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1519634-2887-45A5-8A69-B380F23C9B8A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeworlD/Core/Client.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "getGameDetail(gameID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21029597-F7CB-4285-BD65-0B5903BA00DB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeworlD/Core/Client.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getGameDetail(gameID:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "21029597-F7CB-4285-BD65-0B5903BA00DB - aac0a0eb00372a6a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static NeworlD.Client.getGameDetail(gameID: Swift.Int, completion: (Swift.Optional&lt;NeworlD.GameDetailModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NeworlD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ozturkomerfaruk/Desktop/final-project-ozturkomerfaruk/NeworlD/NeworlD/Core/Client.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "21029597-F7CB-4285-BD65-0B5903BA00DB - 86501c292431fe47"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;NeworlD.GameDetailModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static NeworlD.Client.getGameDetail(gameID: Swift.Int, completion: (Swift.Optional&lt;NeworlD.GameDetailModel&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "NeworlD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ozturkomerfaruk/Desktop/final-project-ozturkomerfaruk/NeworlD/NeworlD/Core/Client.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
