@@ -16,27 +16,17 @@ class GameListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        viewModel.fetchGameList()
         viewModel.delegate = self
     }
     
     private func configureTableView() {
         gameListTableView.delegate = self
         gameListTableView.dataSource = self
+        viewModel.fetchGameList()
         gameListTableView.register(UINib(nibName: "GameCustomCell", bundle: nil), forCellReuseIdentifier: "gameCustomCell")
         
     }
     
-}
-
-extension GameListVC: GameListViewModelDelegate {
-    func gamesLoaded() {
-        gameListTableView.reloadData()
-    }
-    
-    func gamesFailed(error: Error) {
-        print("ERRORRRRRR ALERT")
-    }
 }
 
 extension GameListVC: UITableViewDelegate, UITableViewDataSource {
@@ -53,10 +43,22 @@ extension GameListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("did select")
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "gameDetailVC") as? GameDetailVC else { return }
+        vc.model = viewModel.getGame(at: indexPath.row)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
+    }
+}
+
+extension GameListVC: GameListViewModelDelegate {
+    func gamesLoaded() {
+        gameListTableView.reloadData()
+    }
+    
+    func gamesFailed(error: Error) {
+        print("ERRORRRRRR ALERT")
     }
 }
