@@ -20,6 +20,7 @@ final class GameDetailVC: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     
     @IBOutlet private weak var favouriteOutletButton: UIButton!
+    @IBOutlet private weak var setAddNoteOutletButton: UIButton!
     
     //MARK: ViewModel'den çekilecek bu - CoreData'dan gelecek
     private var isFavourite = Bool()
@@ -34,8 +35,7 @@ final class GameDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.barStyle = UIBarStyle.black
+                navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = .white
         
         guard let model = model else { return }
@@ -47,6 +47,8 @@ final class GameDetailVC: UIViewController {
         
         setNavigationItemButton()
         setFavouriteOutlet()
+        setAddNoteOutlet()
+        
     }
     
     private func setNavigationItemButton() {
@@ -95,6 +97,15 @@ extension GameDetailVC {
         isFavourite = !isFavourite
         
         print(isFavourite ? "Favoride" : "Değil")
+    }
+    
+    private func setAddNoteOutlet() {
+        setAddNoteOutletButton.layer.cornerRadius = setAddNoteOutletButton.frame.height / 2
+    }
+    
+    @IBAction func setAddNoteAction(_ sender: Any) {
+        
+        print("Not Ekleme Sayfası")
     }
 }
 
