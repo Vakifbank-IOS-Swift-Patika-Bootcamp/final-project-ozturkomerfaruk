@@ -9,22 +9,25 @@ import Foundation
 
 struct GameDetailModel: Decodable {
     
-    //GameListModelinden gelen bir de;
-    //shortScreenShots, tags
     let website: String
     let publishers: [PublisherModel]
     let descriptionRaw: String
+    let ratings: [RatingModel]
     
     enum CodingKeys: String, CodingKey {
         case website
         case publishers
         case descriptionRaw = "description_raw"
+        case ratings
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.website = try values.decodeIfPresent(String.self, forKey: .website) ?? ""
         self.publishers = try values.decodeIfPresent([PublisherModel].self, forKey: .publishers) ?? []
-        self.descriptionRaw = try values.decodeIfPresent(String.self, forKey: .descriptionRaw) ?? ""
+        self.descriptionRaw = try values.decodeIfPresent(String.self, forKey: .descriptionRaw) ?? "nil"
+        self.ratings = try values.decodeIfPresent([RatingModel].self, forKey: .ratings) ?? []
     }
 }
+
+    

@@ -8,9 +8,21 @@
 import UIKit
 import iCarousel
 
-class GameDetailVC: UIViewController {
-   
-    @IBOutlet private weak var name: UILabel!
+final class GameDetailVC: UIViewController {
+    
+    @IBOutlet private weak var tagsTableView: UITableView!
+    @IBOutlet private weak var ratingsTableView: UITableView!
+    
+    @IBOutlet private weak var descriptionRaw: UILabel!
+    @IBOutlet private weak var gameName: UILabel!
+    @IBOutlet private weak var gamePublisher: UILabel!
+    
+    @IBOutlet private weak var scrollView: UIScrollView!
+    
+    @IBOutlet private weak var favouriteOutletButton: UIButton!
+    
+    //MARK: ViewModel'den çekilecek bu - CoreData'dan gelecek
+    private var isFavourite = Bool()
     
     var model: GameModel?
     private var viewModel = GameDetailViewModel()
@@ -22,14 +34,42 @@ class GameDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.tintColor = .white
+        
         guard let model = model else { return }
         viewModel.fetchGameDetail(id: model.id)
         viewModel.delegate = self
         
-        
         setConfigureCarouselImages()
+        setConfigureTableView()
         
+        setNavigationItemButton()
+        setFavouriteOutlet()
+    }
+    
+    private func setNavigationItemButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Game Website", style: .plain, target: self, action: #selector(goToWebsite))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+    }
+    @objc func goToWebsite() {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "gameWebsiteVC") as? GameWebsiteVC else { return }
+        vc.gameWebsiteURLString = viewModel.getWebsiteURLString() ?? Constants.OPPSImageURL
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func setConfigureTableView() {
+        tagsTableView.backgroundColor = .clear
+        ratingsTableView.backgroundColor = .clear
+        
+        tagsTableView.delegate = self
+        tagsTableView.dataSource = self
+        tagsTableView.register(UINib(nibName: "TagsCustomCell", bundle: nil), forCellReuseIdentifier: "tagsCustomCell")
+        
+        ratingsTableView.delegate = self
+        ratingsTableView.dataSource = self
+        ratingsTableView.register(UINib(nibName: "RatingsCustomCell", bundle: nil), forCellReuseIdentifier: "ratingsCustomCell")
     }
     
     private func setConfigureCarouselImages() {
@@ -40,6 +80,50 @@ class GameDetailVC: UIViewController {
         myCarousel.type = .rotary
         myCarousel.autoscroll = -0.3
     }
+    
+    
+}
+
+extension GameDetailVC {
+    private func setFavouriteOutlet() {
+        favouriteOutletButton.layer.cornerRadius = favouriteOutletButton.frame.height / 2
+    }
+    
+    @IBAction func favouriteActionButton(_ sender: Any) {
+        
+        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart" : "heart.fill"), for: .normal)
+        isFavourite = !isFavourite
+        
+        print(isFavourite ? "Favoride" : "Değil")
+    }
+}
+
+extension GameDetailVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch tableView {
+        case tagsTableView:
+            return model?.tags.count ?? 0
+        case ratingsTableView:
+            return viewModel.getRatingTableCount()
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch tableView {
+        case tagsTableView:
+            guard let tagCell = tableView.dequeueReusableCell(withIdentifier: "tagsCustomCell", for: indexPath) as? TagsCustomCell else { return UITableViewCell() }
+            tagCell.configureTagsCustomCell(tagModel: (model?.tags[indexPath.row])!)
+            return tagCell
+        case ratingsTableView:
+            guard let ratingCell = tableView.dequeueReusableCell(withIdentifier: "ratingsCustomCell", for: indexPath) as? RatingsCustomCell else { return UITableViewCell() }
+            ratingCell.configureCustomCell(model: viewModel.getRating(index: indexPath.row)!)
+            return ratingCell
+        default:
+            return UITableViewCell()
+        }
+    }
 }
 
 extension GameDetailVC: iCarouselDataSource {
@@ -48,11 +132,11 @@ extension GameDetailVC: iCarouselDataSource {
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width/1.3, height: 250))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width/1.13, height: 250))
         view.backgroundColor = .systemGray
         let imageview = UIImageView(frame: view.bounds)
         view.addSubview(imageview)
-        imageview.contentMode = .scaleAspectFit
+        imageview.contentMode = .scaleToFill
         
         imageview.load(url: URL(string: viewModel.iCorouselImagesArray(model: model!)[index]) ?? URL(string: Constants.OPPSImageURL)!)
         
@@ -63,8 +147,12 @@ extension GameDetailVC: iCarouselDataSource {
 
 extension GameDetailVC: GameDetailViewModelDelegate {
     func gamesLoaded() {
-        name.text = model?.name
+        descriptionRaw.text = viewModel.getDescriptionRow()
+        gameName.text = model?.name
+        gamePublisher.text = viewModel.getPublisher()
         
+        tagsTableView.reloadData()
+        ratingsTableView.reloadData()
     }
     
     func gamesFailed(error: Error) {

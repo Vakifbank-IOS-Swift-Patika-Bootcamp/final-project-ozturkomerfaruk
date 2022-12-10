@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ParentPlatforms: Decodable {
+struct ParentPlatformsBaseModel: Decodable {
     let platform: PlatformModel
     
     enum CodingKeys: String, CodingKey {
