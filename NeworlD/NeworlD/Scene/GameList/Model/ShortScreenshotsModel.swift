@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ShortScreenshots: Decodable {
+struct ShortScreenshotsModel: Decodable {
     let id: Int
     let image: String
 }

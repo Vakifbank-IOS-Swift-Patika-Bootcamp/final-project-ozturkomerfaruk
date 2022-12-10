@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Genres: Decodable {
+struct GenresModel: Decodable {
     let id: Int
     let slug: String
     let name: String

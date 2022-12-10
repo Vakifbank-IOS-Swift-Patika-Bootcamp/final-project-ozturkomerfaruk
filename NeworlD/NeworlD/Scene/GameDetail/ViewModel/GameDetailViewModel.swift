@@ -13,6 +13,14 @@ protocol GameDetailViewModelProtocol {
     func fetchGameDetail(id: Int)
     func iCorouselImagesCount(model: GameModel) -> Int
     func iCorouselImagesArray(model: GameModel) -> [String]
+    
+    func getDescriptionRow() -> String
+    func getPublisher() -> String
+    
+    func getRatingTableCount() -> Int
+    func getRating(index: Int) -> RatingModel?
+    
+    func getWebsiteURLString() -> String?
 }
 
 protocol GameDetailViewModelDelegate: AnyObject {
@@ -50,4 +58,25 @@ final class GameDetailViewModel {
         }
         return ssArray
     }
+    
+    func getDescriptionRow() -> String {
+        return viewModelGame?.descriptionRaw ?? "nil"
+    }
+    
+    func getPublisher() -> String {
+        return viewModelGame?.publishers.first?.name ?? "nil"
+    }
+
+    func getRatingTableCount() -> Int {
+        return viewModelGame?.ratings.count ?? 0
+    }
+    
+    func getRating(index: Int) -> RatingModel? {
+        return viewModelGame?.ratings[index]
+    }
+    
+    func getWebsiteURLString() -> String? {
+        return viewModelGame?.website
+    }
 }
+

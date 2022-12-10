@@ -17,6 +17,9 @@ class GameListVC: UIViewController {
         super.viewDidLoad()
         configureTableView()
         viewModel.delegate = self
+        
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.tintColor = .white
     }
     
     private func configureTableView() {
