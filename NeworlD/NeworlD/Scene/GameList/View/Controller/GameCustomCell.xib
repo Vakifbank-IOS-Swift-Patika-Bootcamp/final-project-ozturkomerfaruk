@@ -23,8 +23,8 @@
                             <constraint firstAttribute="height" constant="200" id="be1-kt-0vh"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReleaseDate: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yO0-hn-yTa">
-                        <rect key="frame" x="11.999999999999993" y="286.33333333333331" width="104.33333333333331" height="20.333333333333314"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yO0-hn-yTa">
+                        <rect key="frame" x="12.000000000000007" y="286.33333333333331" width="108.66666666666669" height="20.333333333333314"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.83072918653488159" green="0.83072918653488159" blue="0.83072918653488159" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
