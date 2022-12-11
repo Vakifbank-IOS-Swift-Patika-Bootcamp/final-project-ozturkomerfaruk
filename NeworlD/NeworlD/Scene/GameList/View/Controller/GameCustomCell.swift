@@ -7,12 +7,6 @@
 
 import UIKit
 
-//MARK: Yapılacaklar Listesi Bu Sayfaya
-///image yoksa opps yazdır.
-///Tags boşsa tableview ı gizle
-///Ratings boşsa ratingsi gizle
-///Webview link boşsa başka bir siteye yönlendir
-
 final class GameCustomCell: UITableViewCell {
     
     @IBOutlet private weak var androidIcon: UIImageView!

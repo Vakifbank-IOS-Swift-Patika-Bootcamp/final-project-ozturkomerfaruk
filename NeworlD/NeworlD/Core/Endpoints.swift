@@ -18,6 +18,7 @@ enum EndPoints {
     case getGameListOrderingHighest(Int, Int)
     case getGameListOrderingLowest(Int, Int)
     case getGameListOrderingRecentlyAdded(Int, Int)
+    case getGameListBySearch(String)
     
     var stringValue: String {
         switch self {
@@ -35,6 +36,8 @@ enum EndPoints {
             return EndPoints.BASE_GAME + "/games" + EndPoints.API_KEY + "&page=\(page)&page_size=\(pageSize)" + "&ordering=rating"
         case .getGameListOrderingRecentlyAdded(let page, let pageSize):
             return EndPoints.BASE_GAME + "/games" + EndPoints.API_KEY + "&page=\(page)&page_size=\(pageSize)" + "&ordering=added"
+        case .getGameListBySearch(let searchGameName):
+            return EndPoints.BASE_GAME + "/games" + EndPoints.API_KEY + "&search=" + searchGameName
         }
     }
     

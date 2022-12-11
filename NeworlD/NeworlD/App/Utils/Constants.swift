@@ -10,5 +10,6 @@ import Foundation
 struct Constants {
     static let API_KEY = "##API_KEY##"
     static let OPPSImageURL = "https://thumbs.dreamstime.com/z/oops-sticky-note-yellow-pinned-red-push-pin-cork-board-92680037.jpg"
+    static let APIWebNilURL = "http://dreampainterssoft.com/wp/white-heaven-new-game-from-dreampainters"
 }
     

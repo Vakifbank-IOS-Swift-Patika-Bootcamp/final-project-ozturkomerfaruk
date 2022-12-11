@@ -21,6 +21,7 @@ protocol GameListViewModelProtocol {
     func fetchGameListOrderingHighest()
     func fetchGameListOrderingLowest()
     func fetchGameListOrderingRecentlyAdded()
+    func fetchGameListSearchByName(searchGameName: String)
 }
 
 protocol GameListViewModelDelegate: AnyObject {
@@ -127,6 +128,16 @@ class GameListViewModel: GameListViewModelProtocol {
             self.games = []
             self.games = games
             self.delegate?.gamesLoaded()
+        }
+    }
+    
+    func fetchGameListSearchByName(searchGameName: String) {
+        Client.getGameListBySearch(searchGameName: searchGameName) { [weak self] games, error in
+            guard let self = self else { return }
+            if let error = error {
+                self.delegate?.gamesFailed(error: error)
+            }
+            self.games = games
         }
     }
 }
