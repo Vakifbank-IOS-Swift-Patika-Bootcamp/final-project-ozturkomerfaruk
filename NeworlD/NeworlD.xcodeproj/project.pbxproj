@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0407BCA62945206C003E80D9 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407BCA52945206C003E80D9 /* FilterView.swift */; };
+		0407BCA829452076003E80D9 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0407BCA729452076003E80D9 /* FilterView.xib */; };
 		042F640729424D18008FA670 /* GameCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F640529424D18008FA670 /* GameCustomCell.swift */; };
 		042F640829424D18008FA670 /* GameCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042F640629424D18008FA670 /* GameCustomCell.xib */; };
 		043A79F42941AAA400936AA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A79F32941AAA400936AA3 /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0407BCA52945206C003E80D9 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		0407BCA729452076003E80D9 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		042F640529424D18008FA670 /* GameCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCustomCell.swift; sourceTree = "<group>"; };
 		042F640629424D18008FA670 /* GameCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCustomCell.xib; sourceTree = "<group>"; };
 		043A79F02941AAA400936AA3 /* NeworlD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeworlD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,8 @@
 			children = (
 				042F640529424D18008FA670 /* GameCustomCell.swift */,
 				042F640629424D18008FA670 /* GameCustomCell.xib */,
+				0407BCA52945206C003E80D9 /* FilterView.swift */,
+				0407BCA729452076003E80D9 /* FilterView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				042F640829424D18008FA670 /* GameCustomCell.xib in Resources */,
 				043A7A032941AAA500936AA3 /* LaunchScreen.storyboard in Resources */,
 				043A7A002941AAA500936AA3 /* Assets.xcassets in Resources */,
+				0407BCA829452076003E80D9 /* FilterView.xib in Resources */,
 				04DCE0922944EDE90086AB20 /* RatingsCustomCell.xib in Resources */,
 				043A79FB2941AAA400936AA3 /* Main.storyboard in Resources */,
 				046A29D42943D7E500DDDAF8 /* TagsCustomCell.xib in Resources */,
@@ -596,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0407BCA62945206C003E80D9 /* FilterView.swift in Sources */,
 				043A7AA82941CB5300936AA3 /* Endpoints.swift in Sources */,
 				047585FD29434C940083205A /* GameDetailViewModel.swift in Sources */,
 				043A79F82941AAA400936AA3 /* GameListVC.swift in Sources */,

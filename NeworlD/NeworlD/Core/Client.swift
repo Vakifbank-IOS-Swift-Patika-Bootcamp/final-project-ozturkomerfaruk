@@ -46,4 +46,39 @@ final class Client {
             completion(responseModel, error)
         }
     }
+    
+    static func getGameListOrderingNewest(page: Int, pageSize: Int, completion: @escaping ([GameModel]?, Error?) -> Void) {
+        let urlString = EndPoints.getGameListOrderingNewest(page, pageSize).stringValue
+        handleResponse(urlString: urlString, responseType: GameBaseResponse.self) { responseModel, error in
+            completion(responseModel?.results, error)
+        }
+    }
+    
+    static func getGameListOrderingOldest(page: Int, pageSize: Int, completion: @escaping ([GameModel]?, Error?) -> Void) {
+        let urlString = EndPoints.getGameListOrderingOldest(page, pageSize).stringValue
+        handleResponse(urlString: urlString, responseType: GameBaseResponse.self) { responseModel, error in
+            completion(responseModel?.results, error)
+        }
+    }
+    
+    static func getGameListOrderingHighest(page: Int, pageSize: Int, completion: @escaping ([GameModel]?, Error?) -> Void) {
+        let urlString = EndPoints.getGameListOrderingHighest(page, pageSize).stringValue
+        handleResponse(urlString: urlString, responseType: GameBaseResponse.self) { responseModel, error in
+            completion(responseModel?.results, error)
+        }
+    }
+    
+    static func getGameListOrderingLowest(page: Int, pageSize: Int, completion: @escaping ([GameModel]?, Error?) -> Void) {
+        let urlString = EndPoints.getGameListOrderingLowest(page, pageSize).stringValue
+        handleResponse(urlString: urlString, responseType: GameBaseResponse.self) { responseModel, error in
+            completion(responseModel?.results, error)
+        }
+    }
+    
+    static func getGameListOrderingRecentlyAdded(page: Int, pageSize: Int, completion: @escaping ([GameModel]?, Error?) -> Void) {
+        let urlString = EndPoints.getGameListOrderingRecentlyAdded(page, pageSize).stringValue
+        handleResponse(urlString: urlString, responseType: GameBaseResponse.self) { responseModel, error in
+            completion(responseModel?.results, error)
+        }
+    }
 }

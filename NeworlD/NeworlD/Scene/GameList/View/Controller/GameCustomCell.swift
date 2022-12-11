@@ -7,6 +7,12 @@
 
 import UIKit
 
+//MARK: Yapılacaklar Listesi Bu Sayfaya
+///image yoksa opps yazdır.
+///Tags boşsa tableview ı gizle
+///Ratings boşsa ratingsi gizle
+///Webview link boşsa başka bir siteye yönlendir
+
 final class GameCustomCell: UITableViewCell {
     
     @IBOutlet private weak var androidIcon: UIImageView!
@@ -112,7 +118,7 @@ final class GameCustomCell: UITableViewCell {
         }
         
         gameName.text = model.name
-        gameReleaseDate.text = model.released
+        gameReleaseDate.text = model.released.formattedDateFromString(dateString: model.released, withFormat: "MMM dd, yyyy")
         gameRating.text = String(model.rating)
         
         gameImageView.load(url: URL(string: model.backgroundImage) ?? URL(string: Constants.OPPSImageURL)!)

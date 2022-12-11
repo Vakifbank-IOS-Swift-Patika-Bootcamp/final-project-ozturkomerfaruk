@@ -10,6 +10,7 @@ import UIKit
 class GameListVC: UIViewController {
     
     private var viewModel = GameListViewModel()
+    private var filterView: FilterView?
     
     @IBOutlet weak var gameListTableView: UITableView!
     
@@ -30,6 +31,50 @@ class GameListVC: UIViewController {
         
     }
     
+    
+    @IBAction func filterAction(_ sender: Any) {
+        
+        filterView = FilterView(frame: CGRect(origin: CGPointMake(view.center.x - 110, 100), size: CGSize(width: 300, height: 430)))
+        filterView!.backgroundColor = .lightGray
+        filterView!.delegate = self
+        view.addSubview(filterView!)
+        
+    }
+}
+
+extension GameListVC: FilterViewDelegate {
+    
+    func didTapped() {
+        print("didTapped Function FilterViewDelegate")
+    }
+    
+    func sortAtoZ() {
+        viewModel.sortedAtoZ()
+    }
+    
+    func sortZtoA() {
+        viewModel.sortedZtoA()
+    }
+    
+    func sortNewest() {
+        viewModel.fetchGameListOrderingNewest()
+    }
+    
+    func sortOldest() {
+        viewModel.fetchGameListOrderingOldest()
+    }
+    
+    func sortHighest() {
+        viewModel.fetchGameListOrderingHighest()
+    }
+    
+    func sortLowest() {
+        viewModel.fetchGameListOrderingLowest()
+    }
+    
+    func sortRecentlyAdded() {
+        viewModel.fetchGameListOrderingRecentlyAdded()
+    }
 }
 
 extension GameListVC: UITableViewDelegate, UITableViewDataSource {
@@ -61,6 +106,7 @@ extension GameListVC: GameListViewModelDelegate {
         gameListTableView.reloadData()
     }
     
+    //MARK: Alert Eklenecek
     func gamesFailed(error: Error) {
         print("ERRORRRRRR ALERT")
     }
