@@ -21,6 +21,14 @@ class GameListVC: UIViewController {
         
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = .white
+        
+        //MARK: SearchController
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.searchBar.placeholder = "Search game by name"
+        navigationItem.searchController = search
+        
+        title = "Game List"
     }
     
     private func configureTableView() {
@@ -34,13 +42,25 @@ class GameListVC: UIViewController {
     
     @IBAction func filterAction(_ sender: Any) {
         
-        filterView = FilterView(frame: CGRect(origin: CGPointMake(view.center.x - 110, 100), size: CGSize(width: 300, height: 430)))
+        filterView = FilterView(frame: CGRect(origin: CGPointMake(view.center.x - 110, 150), size: CGSize(width: 300, height: 430)))
         filterView!.backgroundColor = .lightGray
         filterView!.delegate = self
         view.addSubview(filterView!)
         
     }
 }
+
+//MARK: SearchController with Endpoint
+extension GameListVC: UISearchResultsUpdating {
+    internal func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        print(text)
+        let newString = text.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+        viewModel.fetchGameListSearchByName(searchGameName: newString)
+        gameListTableView.reloadData()
+    }
+}
+
 
 extension GameListVC: FilterViewDelegate {
     

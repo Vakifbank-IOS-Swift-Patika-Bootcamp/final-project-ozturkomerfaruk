@@ -8,6 +8,9 @@
 import UIKit
 import iCarousel
 
+//MARK: Yapılacaklar Listesi Bu Sayfaya
+///Webview link boşsa başka bir siteye yönlendir
+
 final class GameDetailVC: UIViewController {
     
     @IBOutlet private weak var tagsTableView: UITableView!
@@ -18,6 +21,9 @@ final class GameDetailVC: UIViewController {
     @IBOutlet private weak var gamePublisher: UILabel!
     
     @IBOutlet private weak var scrollView: UIScrollView!
+
+    @IBOutlet private weak var oppsImage: UIImageView!
+    
     
     @IBOutlet private weak var favouriteOutletButton: UIButton!
     @IBOutlet private weak var setAddNoteOutletButton: UIButton!
@@ -48,16 +54,22 @@ final class GameDetailVC: UIViewController {
         setNavigationItemButton()
         setFavouriteOutlet()
         setAddNoteOutlet()
-        
+        print(viewModel.iCorouselImagesCount(model: model))
+        oppsImage.isHidden = true
+        if viewModel.iCorouselImagesCount(model: model) == 0 {
+            oppsImage.isHidden = false
+            oppsImage.load(url: URL(string: Constants.OPPSImageURL)!)
+        }
     }
     
     private func setNavigationItemButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Game Website", style: .plain, target: self, action: #selector(goToWebsite))
         navigationItem.rightBarButtonItem?.tintColor = .white
     }
+    
     @objc func goToWebsite() {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "gameWebsiteVC") as? GameWebsiteVC else { return }
-        vc.gameWebsiteURLString = viewModel.getWebsiteURLString() ?? Constants.OPPSImageURL
+        vc.gameWebsiteURLString = viewModel.getWebsiteURLString()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -72,6 +84,14 @@ final class GameDetailVC: UIViewController {
         ratingsTableView.delegate = self
         ratingsTableView.dataSource = self
         ratingsTableView.register(UINib(nibName: "RatingsCustomCell", bundle: nil), forCellReuseIdentifier: "ratingsCustomCell")
+        
+        //Boş olduğu zaman tableview boşa yer kaplamaması için hidden yaptım.
+        if ((model?.tags.isEmpty) != nil) {
+            tagsTableView.isHidden = true
+        }
+        if viewModel.getRatingTableCount() == 0 {
+            ratingsTableView.isHidden = true
+        }
     }
     
     private func setConfigureCarouselImages() {
@@ -82,7 +102,6 @@ final class GameDetailVC: UIViewController {
         myCarousel.type = .rotary
         myCarousel.autoscroll = -0.3
     }
-    
     
 }
 
@@ -139,6 +158,7 @@ extension GameDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 extension GameDetailVC: iCarouselDataSource {
     func numberOfItems(in carousel: iCarousel) -> Int {
+        
         return viewModel.iCorouselImagesCount(model: self.model!)
     }
     
@@ -148,12 +168,9 @@ extension GameDetailVC: iCarouselDataSource {
         let imageview = UIImageView(frame: view.bounds)
         view.addSubview(imageview)
         imageview.contentMode = .scaleToFill
-        
-        imageview.load(url: URL(string: viewModel.iCorouselImagesArray(model: model!)[index]) ?? URL(string: Constants.OPPSImageURL)!)
-        
+        imageview.load(url: URL(string: viewModel.iCorouselImagesArray(model: model!)[index])!)
         return view
     }
-    
 }
 
 extension GameDetailVC: GameDetailViewModelDelegate {

@@ -76,7 +76,7 @@ final class GameDetailViewModel {
     }
     
     func getWebsiteURLString() -> String? {
-        return viewModelGame?.website
+        return viewModelGame?.website == Constants.APIWebNilURL ? Constants.OPPSImageURL : viewModelGame?.website
     }
 }
 

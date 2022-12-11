@@ -14,7 +14,7 @@ final class RatingsCustomCell: UITableViewCell {
     @IBOutlet private weak var percentLbl: UILabel!
     
     func configureCustomCell(model: RatingModel) {
-        titleLbl.text = model.title
+        titleLbl.text = model.title.capitalized
         countLbl.text = String(model.count) + " Count"
         percentLbl.text = String(model.percent) + "%"
     }

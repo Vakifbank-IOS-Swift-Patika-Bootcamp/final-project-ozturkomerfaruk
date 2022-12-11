@@ -81,4 +81,11 @@ final class Client {
             completion(responseModel?.results, error)
         }
     }
+    
+    static func getGameListBySearch(searchGameName: String, completion: @escaping ([GameModel]?, Error?) -> Void) {
+        let urlString = EndPoints.getGameListBySearch(searchGameName).stringValue
+        handleResponse(urlString: urlString, responseType: GameBaseResponse.self) { responseModel, error in
+            completion(responseModel?.results, error)
+        }
+    }
 }
