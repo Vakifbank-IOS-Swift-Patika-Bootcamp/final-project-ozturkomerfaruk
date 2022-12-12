@@ -86,11 +86,8 @@ final class GameDetailVC: UIViewController {
         ratingsTableView.register(UINib(nibName: "RatingsCustomCell", bundle: nil), forCellReuseIdentifier: "ratingsCustomCell")
         
         //Boş olduğu zaman tableview boşa yer kaplamaması için hidden yaptım.
-        if ((model?.tags.isEmpty) != nil) {
+        if model?.tags.count == 0 {
             tagsTableView.isHidden = true
-        }
-        if viewModel.getRatingTableCount() == 0 {
-            ratingsTableView.isHidden = true
         }
     }
     
@@ -181,6 +178,11 @@ extension GameDetailVC: GameDetailViewModelDelegate {
         
         tagsTableView.reloadData()
         ratingsTableView.reloadData()
+        
+        if viewModel.getRatingTableCount() == 0 {
+            self.tagsTableView.isHidden = true
+            print("if de")
+        }
     }
     
     func gamesFailed(error: Error) {

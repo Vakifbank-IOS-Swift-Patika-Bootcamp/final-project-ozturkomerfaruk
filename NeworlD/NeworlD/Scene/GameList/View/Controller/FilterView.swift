@@ -25,10 +25,7 @@ class FilterView: UIView {
     private var isDetailedNow = false
     
     @IBOutlet private weak var closePopOutlet: UIButton!
-    @IBOutlet private weak var detailedSortedFilterOutlet: UIButton!
     
-    @IBOutlet weak var firstStackView: UIStackView!
-    @IBOutlet weak var secondStackView: UIStackView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,24 +39,6 @@ class FilterView: UIView {
         
         configureFilterView()
     }
-    
-    
-    @IBAction func DetailedFilterAction(_ sender: Any) {
-        delegate?.didTapped()
-        removeFromSuperview()
-    }
-    
-    @IBAction func detailSortedFilterAction(_ sender: Any) {
-        isDetailedNow = !isDetailedNow
-        firstStackView.isHidden = isDetailedNow ? true : false
-        secondStackView.isHidden = isDetailedNow ? false : true
-        detailedSortedFilterOutlet.setTitle(isDetailedNow ? "Close Detail Sort By" : "Detail Sort By", for: .normal)
-        detailedSortedFilterOutlet.setImage(UIImage(systemName: isDetailedNow ? "arrow.up" : "arrow.down"), for: .normal)
-    }
-    
-    
-   
-    
 }
 
 extension FilterView {
@@ -102,7 +81,6 @@ extension FilterView {
 extension FilterView {
     func configureFilterView() {
         closePopOutlet.layer.cornerRadius = closePopOutlet.frame.height / 2
-        secondStackView.isHidden = true
     }
     
     @IBAction func closePopAction(_ sender: Any) {
