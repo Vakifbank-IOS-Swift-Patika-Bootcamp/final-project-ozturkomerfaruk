@@ -42,7 +42,7 @@ class GameListVC: UIViewController {
     
     @IBAction func filterAction(_ sender: Any) {
         
-        filterView = FilterView(frame: CGRect(origin: CGPointMake(view.center.x - 110, 150), size: CGSize(width: 300, height: 430)))
+        filterView = FilterView(frame: CGRect(origin: CGPointMake(view.center.x - 110, 150), size: CGSize(width: 300, height: 360)))
         filterView!.backgroundColor = .lightGray
         filterView!.delegate = self
         view.addSubview(filterView!)

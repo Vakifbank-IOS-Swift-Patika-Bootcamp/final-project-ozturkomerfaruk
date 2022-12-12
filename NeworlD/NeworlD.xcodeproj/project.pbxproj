@@ -42,6 +42,10 @@
 		04DCE0922944EDE90086AB20 /* RatingsCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DCE0902944EDE90086AB20 /* RatingsCustomCell.xib */; };
 		04DCE0982944F94F0086AB20 /* GameWebsiteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DCE0972944F94F0086AB20 /* GameWebsiteVC.swift */; };
 		04DED7B429428AE100B9CCDD /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DED7B329428AE100B9CCDD /* Extension.swift */; };
+		04DEFB18294676740082ED02 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEFB17294676740082ED02 /* CoreDataManager.swift */; };
+		04DEFB1F294678F10082ED02 /* GameNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEFB1E294678F10082ED02 /* GameNotesVC.swift */; };
+		04DEFB2429467C510082ED02 /* AddNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEFB2329467C510082ED02 /* AddNoteVC.swift */; };
+		04DEFB26294684940082ED02 /* GameNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEFB25294684940082ED02 /* GameNotesViewModel.swift */; };
 		04F77FEC2942048F00A311CC /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F77FEB2942048F00A311CC /* GameListViewModel.swift */; };
 		1D9FCD39EC826148EF4556AD /* Pods_NeworlD_NeworlDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16966CD5A8654CD08B23105E /* Pods_NeworlD_NeworlDUITests.framework */; };
 		3E9C5F525E7080C47CBA3D1C /* Pods_NeworlD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693DA54D68C363BDB8EA73B /* Pods_NeworlD.framework */; };
@@ -105,6 +109,10 @@
 		04DCE0902944EDE90086AB20 /* RatingsCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingsCustomCell.xib; sourceTree = "<group>"; };
 		04DCE0972944F94F0086AB20 /* GameWebsiteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWebsiteVC.swift; sourceTree = "<group>"; };
 		04DED7B329428AE100B9CCDD /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		04DEFB17294676740082ED02 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		04DEFB1E294678F10082ED02 /* GameNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNotesVC.swift; sourceTree = "<group>"; };
+		04DEFB2329467C510082ED02 /* AddNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVC.swift; sourceTree = "<group>"; };
+		04DEFB25294684940082ED02 /* GameNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNotesViewModel.swift; sourceTree = "<group>"; };
 		04F77FEB2942048F00A311CC /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		16966CD5A8654CD08B23105E /* Pods_NeworlD_NeworlDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeworlD_NeworlDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3828B5390D1A6D6CF13CD3 /* Pods-NeworlD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeworlD.release.xcconfig"; path = "Target Support Files/Pods-NeworlD/Pods-NeworlD.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,6 +233,7 @@
 			children = (
 				043A7A922941CA0500936AA3 /* Client.swift */,
 				043A7AA72941CB5300936AA3 /* Endpoints.swift */,
+				04DEFB17294676740082ED02 /* CoreDataManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -232,6 +241,8 @@
 		043A7A942941CA2600936AA3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				04DEFB2029467C280082ED02 /* AddNote */,
+				04DEFB19294678B40082ED02 /* GameNotes */,
 				047585F229432FF70083205A /* GameDetail */,
 				043A7A982941CA5800936AA3 /* GameList */,
 			);
@@ -327,6 +338,55 @@
 				04DED7B329428AE100B9CCDD /* Extension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		04DEFB19294678B40082ED02 /* GameNotes */ = {
+			isa = PBXGroup;
+			children = (
+				04DEFB1C294678D50082ED02 /* ViewModel */,
+				04DEFB1B294678CC0082ED02 /* View */,
+			);
+			path = GameNotes;
+			sourceTree = "<group>";
+		};
+		04DEFB1B294678CC0082ED02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04DEFB1E294678F10082ED02 /* GameNotesVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04DEFB1C294678D50082ED02 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04DEFB25294684940082ED02 /* GameNotesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04DEFB2029467C280082ED02 /* AddNote */ = {
+			isa = PBXGroup;
+			children = (
+				04DEFB2229467C380082ED02 /* ViewModel */,
+				04DEFB2129467C340082ED02 /* View */,
+			);
+			path = AddNote;
+			sourceTree = "<group>";
+		};
+		04DEFB2129467C340082ED02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04DEFB2329467C510082ED02 /* AddNoteVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04DEFB2229467C380082ED02 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		04F77FEA2942048500A311CC /* ViewModel */ = {
@@ -605,14 +665,18 @@
 			files = (
 				0407BCA62945206C003E80D9 /* FilterView.swift in Sources */,
 				043A7AA82941CB5300936AA3 /* Endpoints.swift in Sources */,
+				04DEFB26294684940082ED02 /* GameNotesViewModel.swift in Sources */,
 				047585FD29434C940083205A /* GameDetailViewModel.swift in Sources */,
 				043A79F82941AAA400936AA3 /* GameListVC.swift in Sources */,
 				043A7A9A2941CA7E00936AA3 /* GameBaseResponse.swift in Sources */,
 				048257FC2943970700E2135B /* RatingModel.swift in Sources */,
+				04DEFB18294676740082ED02 /* CoreDataManager.swift in Sources */,
 				043A79F42941AAA400936AA3 /* AppDelegate.swift in Sources */,
+				04DEFB1F294678F10082ED02 /* GameNotesVC.swift in Sources */,
 				043A7A9E2941CAB300936AA3 /* GenresModel.swift in Sources */,
 				042F640729424D18008FA670 /* GameCustomCell.swift in Sources */,
 				04F77FEC2942048F00A311CC /* GameListViewModel.swift in Sources */,
+				04DEFB2429467C510082ED02 /* AddNoteVC.swift in Sources */,
 				047585F9294344DC0083205A /* GameDetailModel.swift in Sources */,
 				043A7AA22941CAC500936AA3 /* ShortScreenshotsModel.swift in Sources */,
 				043A79F62941AAA400936AA3 /* SceneDelegate.swift in Sources */,
