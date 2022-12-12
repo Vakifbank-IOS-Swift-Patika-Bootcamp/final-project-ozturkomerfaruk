@@ -19,17 +19,16 @@ class GameNotesVC: UIViewController {
         super.viewDidLoad()
         
         viewModel.delegate = self
-
-        addNoteOutlet.layer.cornerRadius = addNoteOutlet.frame.height / 2
-        notesTableView.backgroundColor = .purple
-        
-        viewModel.fetchGameNotes()
-        configureTableView()
+        configure()
     }
     
-    private func configureTableView() {
+    private func configure() {
+        viewModel.fetchGameNotes()
         notesTableView.delegate = self
         notesTableView.dataSource = self
+        
+        addNoteOutlet.layer.cornerRadius = addNoteOutlet.frame.height / 2
+        notesTableView.backgroundColor = .clear
     }
 
     @IBAction func addNoteAction(_ sender: Any) {
@@ -45,11 +44,10 @@ extension GameNotesVC: GameNotesViewModelDelegate {
     }
     
     func notesFailed(error: Error) {
-        
+        print("error!")
     }
 }
 
-//Mantıken buranın viewmodel üzerinde gerçekleşmesi lazım.
 extension GameNotesVC: AddNoteVCDelegate {
     func saveCoreData(title: String, body: String, gameId: Int) {
         viewModel.appendGameNote(title: title, body: body, gameId: gameId)

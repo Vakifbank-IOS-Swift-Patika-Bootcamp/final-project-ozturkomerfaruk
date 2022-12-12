@@ -22,18 +22,21 @@ class AddNoteVC: UIViewController {
     
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var bodyTextView: UITextView!
-    @IBOutlet private weak var gameButtonOutlet: UIButton!
+    
+    @IBOutlet private weak var cancelButtonOutlet: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleTextField.layer.cornerRadius = 15
-        bodyTextView.layer.cornerRadius = 15
-        
+        titleTextField.layer.cornerRadius = titleTextField.frame.height / 3
+        bodyTextView.layer.cornerRadius = 20
+      
         if gameNote != nil {
             titleTextField.text = gameNote?.title
             bodyTextView.text = gameNote?.body
             saveOutlet.setTitle("Update", for: .normal)
+            
         }
     }
     
@@ -50,9 +53,4 @@ class AddNoteVC: UIViewController {
         
         dismiss(animated: true)
     }
-    
-    @IBAction func gameButtonAction(_ sender: Any) {
-        print((gameButtonOutlet.titleLabel?.text!)!)
-    }
-    
 }
