@@ -26,7 +26,6 @@ class FilterView: UIView {
     
     @IBOutlet private weak var closePopOutlet: UIButton!
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))

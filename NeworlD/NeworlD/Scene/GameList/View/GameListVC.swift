@@ -11,7 +11,6 @@ class GameListVC: UIViewController {
     
     private var viewModel = GameListViewModel()
     private var filterView: FilterView?
-    
     @IBOutlet weak var gameListTableView: UITableView!
     
     override func viewDidLoad() {

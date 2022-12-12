@@ -53,7 +53,6 @@ final class GameDetailVC: UIViewController {
         
         setNavigationItemButton()
         setFavouriteOutlet()
-        setAddNoteOutlet()
         print(viewModel.iCorouselImagesCount(model: model))
         oppsImage.isHidden = true
         if viewModel.iCorouselImagesCount(model: model) == 0 {
@@ -113,15 +112,6 @@ extension GameDetailVC {
         isFavourite = !isFavourite
         
         print(isFavourite ? "Favoride" : "Değil")
-    }
-    
-    private func setAddNoteOutlet() {
-        setAddNoteOutletButton.layer.cornerRadius = setAddNoteOutletButton.frame.height / 2
-    }
-    
-    @IBAction func setAddNoteAction(_ sender: Any) {
-        
-        print("Not Ekleme Sayfası")
     }
 }
 
