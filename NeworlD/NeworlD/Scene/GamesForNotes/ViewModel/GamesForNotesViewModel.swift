@@ -34,6 +34,7 @@ class GamesForNotesViewModel: GamesForNotesViewModelProtocol {
                 self.delegate?.gamesFailed(error: error)
             }
             self.searchGames = games
+            self.delegate?.gamesLoaded()
         }
     }
     

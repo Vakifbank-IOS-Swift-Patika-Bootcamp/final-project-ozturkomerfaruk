@@ -88,4 +88,11 @@ final class Client {
             completion(responseModel?.results, error)
         }
     }
+    
+    static func getAddNoteModel(gameId: Int, completion: @escaping (AddNoteModel?, Error?) -> Void) {
+        let urlString = EndPoints.getGameDetail(gameId).stringValue
+        handleResponse(urlString: urlString, responseType: AddNoteModel.self) { responseModel, error in
+            completion(responseModel, error)
+        }
+    }
 }

@@ -37,3 +37,12 @@ extension String {
         return nil
     }
 }
+
+extension UITextField {
+    func changeColorPlaceholder(tf myTextField: UITextField, string: String, color: UIColor) {
+        myTextField.attributedPlaceholder = NSAttributedString(
+            string: string,
+            attributes: [NSAttributedString.Key.foregroundColor: color]
+        )
+    }
+}
