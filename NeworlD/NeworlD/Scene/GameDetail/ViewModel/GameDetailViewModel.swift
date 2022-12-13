@@ -32,6 +32,15 @@ final class GameDetailViewModel {
     
     weak var delegate: GameDetailViewModelDelegate?
     private var viewModelGame: GameDetailModel?
+    private var favourites: [FavouritesEntity]?
+    
+    func fetchFavourites() {
+        favourites = CoreDataManager.shared.getFavourites()
+    }
+    
+    func getFavourites() -> [FavouritesEntity] {
+        return favourites ?? []
+    }
     
     func fetchGameDetail(id: Int) {
         Client.getGameDetail(gameID: id) { [weak self] viewModelDetail, error in

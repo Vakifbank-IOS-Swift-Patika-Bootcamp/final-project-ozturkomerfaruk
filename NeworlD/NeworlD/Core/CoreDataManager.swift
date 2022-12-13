@@ -83,7 +83,7 @@ final class CoreDataManager {
         }
     }
     
-    func getNotes() -> [FavouritesEntity] {
+    func getFavourites() -> [FavouritesEntity] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouritesEntity")
         do {
             let favourites = try managedContext.fetch(fetchRequest)
@@ -110,7 +110,7 @@ final class CoreDataManager {
         return nil
     }
     
-    func deleteNote(favourite: FavouritesEntity) {
+    func deleteFavourite(favourite: FavouritesEntity) {
         managedContext.delete(favourite)
         do {
             try managedContext.save()

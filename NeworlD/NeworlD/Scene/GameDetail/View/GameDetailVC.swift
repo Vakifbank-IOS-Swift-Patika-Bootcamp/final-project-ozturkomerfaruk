@@ -19,17 +19,14 @@ final class GameDetailVC: UIViewController {
     @IBOutlet private weak var descriptionRaw: UILabel!
     @IBOutlet private weak var gameName: UILabel!
     @IBOutlet private weak var gamePublisher: UILabel!
-    
     @IBOutlet private weak var scrollView: UIScrollView!
-
     @IBOutlet private weak var oppsImage: UIImageView!
     
     
     @IBOutlet private weak var favouriteOutletButton: UIButton!
-    @IBOutlet private weak var setAddNoteOutletButton: UIButton!
     
     //MARK: ViewModel'den çekilecek bu - CoreData'dan gelecek
-    private var isFavourite = Bool()
+    private var isFavourite = false
     
     var model: GameModel?
     private var viewModel = GameDetailViewModel()
@@ -48,12 +45,19 @@ final class GameDetailVC: UIViewController {
         viewModel.fetchGameDetail(id: model.id)
         viewModel.delegate = self
         
+        viewModel.fetchFavourites()
+        for i in viewModel.getFavourites() {
+            if i.gameId == model.id {
+                isFavourite = true
+            }
+        }
+        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
+        
         setConfigureCarouselImages()
         setConfigureTableView()
         
         setNavigationItemButton()
         setFavouriteOutlet()
-        print(viewModel.iCorouselImagesCount(model: model))
         oppsImage.isHidden = true
         if viewModel.iCorouselImagesCount(model: model) == 0 {
             oppsImage.isHidden = false
@@ -108,10 +112,15 @@ extension GameDetailVC {
     
     @IBAction func favouriteActionButton(_ sender: Any) {
         
-        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart" : "heart.fill"), for: .normal)
+        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
         isFavourite = !isFavourite
-        
         print(isFavourite ? "Favoride" : "Değil")
+        if isFavourite {
+            //MARK: Buraya emin misiniz tarzında bir alert gelecek
+            CoreDataManager.shared.saveFavourite(gameId: model!.id)
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "favouriteListVC") as? FavouriteListVC else { return }
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -145,7 +154,6 @@ extension GameDetailVC: UITableViewDelegate, UITableViewDataSource {
 
 extension GameDetailVC: iCarouselDataSource {
     func numberOfItems(in carousel: iCarousel) -> Int {
-        
         return viewModel.iCorouselImagesCount(model: self.model!)
     }
     

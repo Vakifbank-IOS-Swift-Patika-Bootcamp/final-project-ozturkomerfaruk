@@ -11,6 +11,9 @@
 		0407BCA829452076003E80D9 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0407BCA729452076003E80D9 /* FilterView.xib */; };
 		042F640729424D18008FA670 /* GameCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F640529424D18008FA670 /* GameCustomCell.swift */; };
 		042F640829424D18008FA670 /* GameCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042F640629424D18008FA670 /* GameCustomCell.xib */; };
+		04358B1B2948825600E96399 /* FavouriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04358B1A2948825600E96399 /* FavouriteListVC.swift */; };
+		04358B1D2948826700E96399 /* FavouriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04358B1C2948826700E96399 /* FavouriteListViewModel.swift */; };
+		04358B1F2948835D00E96399 /* FavouriteCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04358B1E2948835D00E96399 /* FavouriteCustomCell.swift */; };
 		043A79F42941AAA400936AA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A79F32941AAA400936AA3 /* AppDelegate.swift */; };
 		043A79F62941AAA400936AA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A79F52941AAA400936AA3 /* SceneDelegate.swift */; };
 		043A79F82941AAA400936AA3 /* GameListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A79F72941AAA400936AA3 /* GameListVC.swift */; };
@@ -80,6 +83,9 @@
 		0407BCA729452076003E80D9 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		042F640529424D18008FA670 /* GameCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCustomCell.swift; sourceTree = "<group>"; };
 		042F640629424D18008FA670 /* GameCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCustomCell.xib; sourceTree = "<group>"; };
+		04358B1A2948825600E96399 /* FavouriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListVC.swift; sourceTree = "<group>"; };
+		04358B1C2948826700E96399 /* FavouriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListViewModel.swift; sourceTree = "<group>"; };
+		04358B1E2948835D00E96399 /* FavouriteCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCustomCell.swift; sourceTree = "<group>"; };
 		043A79F02941AAA400936AA3 /* NeworlD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeworlD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043A79F32941AAA400936AA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043A79F52941AAA400936AA3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +182,48 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		04358B15294881A700E96399 /* FavouriteList */ = {
+			isa = PBXGroup;
+			children = (
+				04358B18294881BA00E96399 /* ViewModel */,
+				04358B17294881B700E96399 /* View */,
+				04358B16294881B200E96399 /* Model */,
+			);
+			path = FavouriteList;
+			sourceTree = "<group>";
+		};
+		04358B16294881B200E96399 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04358B17294881B700E96399 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04358B192948824100E96399 /* Controller */,
+				04358B1A2948825600E96399 /* FavouriteListVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04358B18294881BA00E96399 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04358B1C2948826700E96399 /* FavouriteListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04358B192948824100E96399 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04358B1E2948835D00E96399 /* FavouriteCustomCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		043A79E72941AAA400936AA3 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +301,7 @@
 		043A7A942941CA2600936AA3 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				04358B15294881A700E96399 /* FavouriteList */,
 				049517BA2947741900225544 /* GamesForNotes */,
 				04DEFB2029467C280082ED02 /* AddNote */,
 				04DEFB19294678B40082ED02 /* GameNotes */,
@@ -730,9 +779,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				049517C02947753500225544 /* GamesForNotesViewModel.swift in Sources */,
+				04358B1B2948825600E96399 /* FavouriteListVC.swift in Sources */,
 				0407BCA62945206C003E80D9 /* FilterView.swift in Sources */,
 				043A7AA82941CB5300936AA3 /* Endpoints.swift in Sources */,
 				04DEFB26294684940082ED02 /* GameNotesViewModel.swift in Sources */,
+				04358B1F2948835D00E96399 /* FavouriteCustomCell.swift in Sources */,
 				047585FD29434C940083205A /* GameDetailViewModel.swift in Sources */,
 				043A79F82941AAA400936AA3 /* GameListVC.swift in Sources */,
 				0465900D294854AF00DF9E51 /* AddNoteViewModel.swift in Sources */,
@@ -756,6 +807,7 @@
 				047585F7294330260083205A /* GameDetailVC.swift in Sources */,
 				043A7A9C2941CAAC00936AA3 /* GameModel.swift in Sources */,
 				04659010294855A200DF9E51 /* AddNoteModel.swift in Sources */,
+				04358B1D2948826700E96399 /* FavouriteListViewModel.swift in Sources */,
 				047585FB294346D70083205A /* PublisherModel.swift in Sources */,
 				0465900B2948477E00DF9E51 /* GamesForNotesCustomCell.swift in Sources */,
 				043A7AA62941CAD300936AA3 /* TagsModel.swift in Sources */,
