@@ -8,8 +8,7 @@
 import UIKit
 import iCarousel
 
-//MARK: Yapılacaklar Listesi Bu Sayfaya
-///Webview link boşsa başka bir siteye yönlendir
+
 
 final class GameDetailVC: UIViewController {
     
@@ -36,22 +35,27 @@ final class GameDetailVC: UIViewController {
         return view
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = .white
         
         guard let model = model else { return }
-        viewModel.fetchGameDetail(id: model.id)
         viewModel.delegate = self
-        
+        viewModel.fetchGameDetail(id: model.id)
         viewModel.fetchFavourites()
         for i in viewModel.getFavourites() {
             if i.gameId == model.id {
                 isFavourite = true
             }
         }
-        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
+        
         
         setConfigureCarouselImages()
         setConfigureTableView()
@@ -112,15 +116,23 @@ extension GameDetailVC {
     
     @IBAction func favouriteActionButton(_ sender: Any) {
         
-        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
-        isFavourite = !isFavourite
-        print(isFavourite ? "Favoride" : "Değil")
         if isFavourite {
+            //MARK: Buraya emin misiniz tarzında bir alert gelecek
+            isFavourite = false
+            print("Şuan favori değil")
+            for i in viewModel.getFavourites() {
+                if i.gameId == Int(model!.id) {
+                    CoreDataManager.shared.deleteFavourite(favourite: i)
+                }
+            }
+        } else {
+            isFavourite = true
             //MARK: Buraya emin misiniz tarzında bir alert gelecek
             CoreDataManager.shared.saveFavourite(gameId: model!.id)
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "favouriteListVC") as? FavouriteListVC else { return }
             navigationController?.pushViewController(vc, animated: true)
         }
+        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
     }
 }
 

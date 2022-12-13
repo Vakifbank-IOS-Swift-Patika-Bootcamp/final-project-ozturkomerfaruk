@@ -16,21 +16,22 @@ class FavouriteCustomCell: UICollectionViewCell {
     weak var delegate: FavouriteCustomCellDelegate?
     
     @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var favouriteButtonOutlet: UIButton!
     
     var index: Int?
     
     func configureCustomCell(fav: FavouritesEntity?) {
-//        imageView.load(url: URL(string: Constants.OPPSImageURL)!)
-//        titleLabel.text = model.name
-        titleLabel.text = String(fav?.gameId ?? -1)
-        
+        Client.getBasicGameModel(gameId: Int(fav!.gameId)) { [weak self] model, error in
+            guard let self = self else { return }
+            self.imageView.load(url: URL(string: model!.backgroundImage) ?? URL(string: Constants.OPPSImageURL)!)
+        }
         
         favouriteButtonOutlet.layer.cornerRadius = favouriteButtonOutlet.frame.width / 2
         
         self.layer.cornerRadius = 30
         self.layer.masksToBounds = true
+        self.imageView.layer.cornerRadius = 15
+        self.imageView.layer.masksToBounds = true
     }
     
     override func prepareForReuse() {
@@ -38,7 +39,6 @@ class FavouriteCustomCell: UICollectionViewCell {
     }
     
     @IBAction func favouriteButtonAction(_ sender: Any) {
-        print("Custom Celldeyim")
         delegate?.deleteFavourite(index: index!)
     }
     

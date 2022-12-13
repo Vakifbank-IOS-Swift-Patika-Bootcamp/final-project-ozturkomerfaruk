@@ -11,7 +11,7 @@ class FavouriteListVC: UIViewController {
     
     @IBOutlet weak var favouritesCollectionView: UICollectionView!
     
-    private var viewModel = FavouriteListViewModel()
+    var viewModel = FavouriteListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +19,17 @@ class FavouriteListVC: UIViewController {
         favouritesCollectionView.delegate = self
         favouritesCollectionView.dataSource = self
         viewModel.delegate = self
+        
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         viewModel.fetchFavourites()
         viewModel.delegate?.favouritesLoaded()
     }
-
 }
 
 extension FavouriteListVC: FavouriteListDelegate {
@@ -48,11 +55,18 @@ extension FavouriteListVC: UICollectionViewDelegate, UICollectionViewDataSource 
         cell.delegate = self
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "favouriteDetailVC") as? FavouriteDetailVC else { return }
+        if let presentationController = vc.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium()]
+        }
+        present(vc, animated: true)
+    }
 }
 
 extension FavouriteListVC: FavouriteCustomCellDelegate {
     func deleteFavourite(index: Int) {
-        print("listtteyim")
         viewModel.deleteFavourites(index: index)
     }
 }
