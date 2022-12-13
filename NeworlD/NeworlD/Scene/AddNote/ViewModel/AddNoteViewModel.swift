@@ -11,7 +11,7 @@ protocol AddNoteViewModelProtocol{
     var delegate: AddNoteViewModelDelegate? { get set }
     
     func fetchGamesWithId(id: Int)
-    func getGameWithId() -> AddNoteModel?
+    func getGameWithId() -> BasicGameModel?
 }
 
 protocol AddNoteViewModelDelegate: AnyObject {
@@ -24,10 +24,10 @@ protocol AddNoteViewModelDelegate: AnyObject {
 
 class AddNoteViewModel: AddNoteViewModelProtocol {
     weak var delegate: AddNoteViewModelDelegate?
-    private var game: AddNoteModel?
+    private var game: BasicGameModel?
     
     func fetchGamesWithId(id: Int) {
-        Client.getAddNoteModel(gameId: id) { [weak self] game, error in
+        Client.getBasicGameModel(gameId: id) { [weak self] game, error in
             guard let self = self else { return }
             if let error = error {
                 self.delegate?.gamesFailed(error: error)
@@ -38,7 +38,7 @@ class AddNoteViewModel: AddNoteViewModelProtocol {
         }
     }
     
-    func getGameWithId() -> AddNoteModel? {
+    func getGameWithId() -> BasicGameModel? {
         return game
     }
     
