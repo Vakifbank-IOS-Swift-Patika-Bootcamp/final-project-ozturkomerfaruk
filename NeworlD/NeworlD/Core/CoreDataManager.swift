@@ -82,4 +82,42 @@ final class CoreDataManager {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    func getNotes() -> [FavouritesEntity] {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouritesEntity")
+        do {
+            let favourites = try managedContext.fetch(fetchRequest)
+            return favourites as! [FavouritesEntity]
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return []
+    }
+    
+    @discardableResult
+    func saveFavourite(gameId: Int) -> FavouritesEntity? {
+        let entity = NSEntityDescription.entity(forEntityName: "FavouritesEntity", in: managedContext)!
+        let favourite = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        favourite.setValue(gameId, forKey: "gameId")
+        do {
+            try managedContext.save()
+            print("Saved to Core Data")
+            return favourite as? FavouritesEntity
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        return nil
+    }
+    
+    func deleteNote(favourite: FavouritesEntity) {
+        managedContext.delete(favourite)
+        do {
+            try managedContext.save()
+            print("Deleted to Core Data")
+            
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
 }

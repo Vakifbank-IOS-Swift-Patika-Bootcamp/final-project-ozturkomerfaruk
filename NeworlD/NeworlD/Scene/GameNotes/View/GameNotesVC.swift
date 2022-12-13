@@ -64,8 +64,9 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = viewModel.getGameNotes(index: indexPath.row).title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "gameNotesCustomCell", for: indexPath) as? GameNotesCustomCell,
+              let titleString = viewModel.getGameNotes(index: indexPath.row).title else { return UITableViewCell() }
+        cell.configure(titleString: titleString)
         return cell
     }
     
@@ -79,7 +80,10 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "addNoteVC") as? AddNoteVC else { return }
         vc.delegate = self
         vc.gameNote = viewModel.getGameNotes(index: indexPath.row)
-        vc.modalPresentationStyle = .formSheet
         present(vc, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
