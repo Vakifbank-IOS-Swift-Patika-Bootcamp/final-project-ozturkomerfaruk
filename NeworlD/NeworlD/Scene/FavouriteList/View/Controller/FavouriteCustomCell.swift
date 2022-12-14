@@ -28,6 +28,7 @@ class FavouriteCustomCell: UICollectionViewCell {
         
         favouriteButtonOutlet.layer.cornerRadius = favouriteButtonOutlet.frame.width / 2
         
+        
         self.layer.cornerRadius = 30
         self.layer.masksToBounds = true
         self.imageView.layer.cornerRadius = 15

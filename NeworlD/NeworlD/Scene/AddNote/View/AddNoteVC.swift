@@ -16,7 +16,7 @@ class AddNoteVC: UIViewController {
     
     weak var delegate: AddNoteVCDelegate?
     var gameNote: GameNoteEntity?
-    private var gameId: Int?
+    var gameId: Int?
     
     @IBOutlet private weak var saveOutlet: UIButton!
     
@@ -63,7 +63,6 @@ class AddNoteVC: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        
         if gameId == nil || gameId == -1 {
             print("HATA!!")
         } else {
