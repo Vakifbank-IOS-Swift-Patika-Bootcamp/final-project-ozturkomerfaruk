@@ -37,7 +37,20 @@ final class GameDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+
+        viewModel.fetchFavourites()
+        print("Model ID \(model!.id)")
+        print("CD ID \(viewModel.getFavourites().first?.gameId ?? -1)")
+        for i in viewModel.getFavourites() {
+            if i.gameId == model!.id {
+                isFavourite = true
+            } else {
+                isFavourite = false
+            }
+        }
+        if viewModel.getFavourites().isEmpty {
+            isFavourite = false
+        }
         favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
     }
     
@@ -49,12 +62,7 @@ final class GameDetailVC: UIViewController {
         guard let model = model else { return }
         viewModel.delegate = self
         viewModel.fetchGameDetail(id: model.id)
-        viewModel.fetchFavourites()
-        for i in viewModel.getFavourites() {
-            if i.gameId == model.id {
-                isFavourite = true
-            }
-        }
+        
         
         
         setConfigureCarouselImages()

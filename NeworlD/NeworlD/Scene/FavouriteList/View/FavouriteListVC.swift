@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class FavouriteListVC: UIViewController {
     
     @IBOutlet weak var favouritesCollectionView: UICollectionView!
@@ -28,7 +30,6 @@ class FavouriteListVC: UIViewController {
         super.viewWillAppear(true)
         
         viewModel.fetchFavourites()
-        viewModel.delegate?.favouritesLoaded()
     }
 }
 
@@ -61,12 +62,20 @@ extension FavouriteListVC: UICollectionViewDelegate, UICollectionViewDataSource 
         if let presentationController = vc.presentationController as? UISheetPresentationController {
             presentationController.detents = [.medium()]
         }
+        vc.gameId = Int(viewModel.getFavourites(index: indexPath.row).gameId)
+        vc.delegate = self
         present(vc, animated: true)
     }
 }
 
 extension FavouriteListVC: FavouriteCustomCellDelegate {
     func deleteFavourite(index: Int) {
+        viewModel.deleteFavourites(index: index)
+    }
+}
+
+extension FavouriteListVC: FavouriteDetailVCDelegate {
+    func favoruiteDetailLoaded(index: Int) {
         viewModel.deleteFavourites(index: index)
     }
 }

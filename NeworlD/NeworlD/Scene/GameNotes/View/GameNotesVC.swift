@@ -80,6 +80,7 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "addNoteVC") as? AddNoteVC else { return }
         vc.delegate = self
         vc.gameNote = viewModel.getGameNotes(index: indexPath.row)
+        vc.gameId = Int(viewModel.getGameNotes(index: indexPath.row).gameId)
         present(vc, animated: true, completion: nil)
     }
     
