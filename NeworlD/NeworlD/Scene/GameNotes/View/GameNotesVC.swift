@@ -7,18 +7,16 @@
 
 import UIKit
 
-class GameNotesVC: UIViewController {
+final class GameNotesVC: BaseVC {
     
     private var viewModel = GameNotesViewModel()
     
     @IBOutlet private weak var addNoteOutlet: UIButton!
-    
-    @IBOutlet weak var notesTableView: UITableView!
+    @IBOutlet private weak var notesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.delegate = self
         configure()
     }
     
@@ -26,6 +24,7 @@ class GameNotesVC: UIViewController {
         viewModel.fetchGameNotes()
         notesTableView.delegate = self
         notesTableView.dataSource = self
+        viewModel.delegate = self
         
         addNoteOutlet.layer.cornerRadius = addNoteOutlet.frame.height / 2
         notesTableView.backgroundColor = .clear
@@ -44,13 +43,16 @@ extension GameNotesVC: GameNotesViewModelDelegate {
     }
     
     func notesFailed(error: Error) {
-        print("error!")
+        showAlert(title: "Error", message: "\(error)", completion: { })
     }
 }
 
 extension GameNotesVC: AddNoteVCDelegate {
     func saveCoreData(title: String, body: String, gameId: Int) {
-        viewModel.appendGameNote(title: title, body: body, gameId: gameId)
+        showAlert(title: "Successful!", message: "\(title) \n message saved successfuly") { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.appendGameNote(title: title, body: body, gameId: gameId)
+        }
     }
     
     func updateCoreData(title: String, body: String, gameId: Int, model: GameNoteEntity) {
@@ -71,8 +73,15 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        viewModel.deleteGameNote(index: indexPath.row)
-        return tableView.deleteRows(at: [indexPath], with: .fade)
+        showAlertWithCancel(title: "Warning!", message: "Do you really want to delete?") { [weak self] buttonIndex in
+            guard let self = self else { return }
+            if buttonIndex == 0 {
+                self.viewModel.deleteGameNote(index: indexPath.row)
+                return tableView.deleteRows(at: [indexPath], with: .fade)
+            } else {
+                return
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

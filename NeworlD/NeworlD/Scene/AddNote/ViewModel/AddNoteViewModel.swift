@@ -22,7 +22,7 @@ protocol AddNoteViewModelDelegate: AnyObject {
     // func postFetch()
 }
 
-class AddNoteViewModel: AddNoteViewModelProtocol {
+final class AddNoteViewModel: AddNoteViewModelProtocol {
     weak var delegate: AddNoteViewModelDelegate?
     private var game: BasicGameModel?
     
@@ -34,15 +34,10 @@ class AddNoteViewModel: AddNoteViewModelProtocol {
             }
             self.game = game
             self.delegate?.gamesLoaded()
-            print(self.game!.name)
         }
     }
     
     func getGameWithId() -> BasicGameModel? {
         return game
-    }
-    
-    func deneme() {
-        print("jashdka")
     }
 }

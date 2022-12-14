@@ -390,7 +390,7 @@
                                 </constraints>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system" title="Remove From Favourites"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart.slash.fill" catalog="system" title="Remove From Favourites"/>
                                 <connections>
                                     <action selector="removeFromFavouritesButtonAction:" destination="3r7-nv-i9Y" eventType="touchUpInside" id="pLe-qy-hAX"/>
                                 </connections>
@@ -408,7 +408,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tQ-3F-TJU">
-                                <rect key="frame" x="216" y="111.66666666666667" width="165" height="210.33333333333331"/>
+                                <rect key="frame" x="216" y="99.666666666666671" width="165" height="222.33333333333331"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -429,7 +429,7 @@
                             <constraint firstItem="QT5-mL-pM9" firstAttribute="top" secondItem="jex-hv-cix" secondAttribute="bottom" constant="12" id="FZ6-3G-MH7"/>
                             <constraint firstItem="jTE-cc-LIs" firstAttribute="trailing" secondItem="jex-hv-cix" secondAttribute="trailing" constant="12" id="HRJ-kh-KB5"/>
                             <constraint firstItem="jTE-cc-LIs" firstAttribute="bottom" secondItem="BaI-0e-cfG" secondAttribute="bottom" constant="20" id="LHj-iH-lgI"/>
-                            <constraint firstItem="1tQ-3F-TJU" firstAttribute="top" secondItem="jex-hv-cix" secondAttribute="bottom" constant="12" id="RFA-LG-vmu"/>
+                            <constraint firstItem="1tQ-3F-TJU" firstAttribute="top" secondItem="jex-hv-cix" secondAttribute="bottom" id="RFA-LG-vmu"/>
                             <constraint firstItem="BaI-0e-cfG" firstAttribute="leading" secondItem="jTE-cc-LIs" secondAttribute="leading" constant="12" id="VnD-yi-Wb8"/>
                             <constraint firstItem="jTE-cc-LIs" firstAttribute="trailing" secondItem="1tQ-3F-TJU" secondAttribute="trailing" constant="12" id="d7g-Jq-b4v"/>
                             <constraint firstItem="oSq-U6-KGJ" firstAttribute="top" secondItem="KRE-5j-TZe" secondAttribute="bottom" constant="20" id="dG7-sb-3cg"/>
@@ -567,7 +567,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jvF-Wd-Ga2">
-                                <rect key="frame" x="8" y="159.66666666666669" width="377" height="527.33333333333326"/>
+                                <rect key="frame" x="8" y="159.66666666666666" width="377" height="507.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gameNotesCustomCell" rowHeight="50" id="AIj-x7-LBG" customClass="GameNotesCustomCell" customModule="NeworlD" customModuleProvider="target">
@@ -610,10 +610,11 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5h1-rL-qHc">
-                                <rect key="frame" x="306" y="699" width="47" height="50"/>
+                                <rect key="frame" x="283" y="679" width="70" height="70"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="yxv-Q4-R5T"/>
+                                    <constraint firstAttribute="width" constant="70" id="1nd-Dd-Bln"/>
+                                    <constraint firstAttribute="height" constant="70" id="yxv-Q4-R5T"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
@@ -769,10 +770,10 @@
             </objects>
             <point key="canvasLocation" x="681.67938931297704" y="1357.7464788732395"/>
         </scene>
-        <!--Games For Notes-->
+        <!--Games For NotesVC-->
         <scene sceneID="bA9-Ak-lPj">
             <objects>
-                <viewController storyboardIdentifier="gamesForNotes" id="vqB-6h-TXB" customClass="GamesForNotes" customModule="NeworlD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gamesForNotes" id="vqB-6h-TXB" customClass="GamesForNotesVC" customModule="NeworlD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q17-za-f1Y">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -842,6 +843,7 @@
         <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <image name="heart.slash.fill" catalog="system" width="128" height="115"/>
         <image name="linux" width="50" height="50"/>
         <image name="list.bullet.clipboard" catalog="system" width="103" height="128"/>
         <image name="list.bullet.clipboard.fill" catalog="system" width="103" height="128"/>

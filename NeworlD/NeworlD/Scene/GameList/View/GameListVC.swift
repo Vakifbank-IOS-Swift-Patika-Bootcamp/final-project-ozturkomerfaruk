@@ -7,27 +7,34 @@
 
 import UIKit
 
-class GameListVC: UIViewController {
+final class GameListVC: BaseVC {
+    
+    @IBOutlet weak var gameListTableView: UITableView!
     
     private var viewModel = GameListViewModel()
-    @IBOutlet weak var gameListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureGameListVC()
         configureTableView()
+        sortDeclaration()
+
+    }
+}
+
+extension GameListVC {
+    private func configureGameListVC() {
         viewModel.delegate = self
         
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = .white
+        self.title = "Game List"
         
         //MARK: SearchController
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.searchBar.placeholder = "Search game by name"
         navigationItem.searchController = search
-        
-        title = "Game List"
-        sortDeclaration()
     }
     
     private func configureTableView() {
@@ -37,10 +44,8 @@ class GameListVC: UIViewController {
         gameListTableView.register(UINib(nibName: "GameCustomCell", bundle: nil), forCellReuseIdentifier: "gameCustomCell")
         
     }
-}
-
-extension GameListVC {
-    func sortDeclaration() {
+    
+    private func sortDeclaration() {
         let sortAtoZ = UIAction(title: "Sort By Name A - Z") { [weak self] action in
             guard let self = self else { return }
             self.viewModel.sortedAtoZ()
@@ -68,13 +73,13 @@ extension GameListVC {
         let menu = UIMenu(title: "", children: [sortAtoZ, sortZtoA, sortNewest, sortOldest, sortHighest, sortLowest])
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "filter"), primaryAction: nil, menu: menu)
     }
+    
 }
 
 //MARK: SearchController with Endpoint
 extension GameListVC: UISearchResultsUpdating {
-    internal func updateSearchResults(for searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        print(text)
         let newString = text.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
         viewModel.fetchGameListSearchByName(searchGameName: newString)
         gameListTableView.reloadData()
@@ -112,6 +117,8 @@ extension GameListVC: GameListViewModelDelegate {
     
     //MARK: Alert Eklenecek
     func gamesFailed(error: Error) {
-        print("ERRORRRRRR ALERT")
+        showAlert(title: "Error!", message: "\(error)", completion: {
+            
+        })
     }
 }

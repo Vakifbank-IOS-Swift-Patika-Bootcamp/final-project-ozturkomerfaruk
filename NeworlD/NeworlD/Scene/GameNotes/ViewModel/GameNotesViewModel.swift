@@ -26,7 +26,7 @@ protocol GameNotesViewModelDelegate: AnyObject {
     // func postFetch()
 }
 
-class GameNotesViewModel: GameNotesViewModelProtocol {
+final class GameNotesViewModel: GameNotesViewModelProtocol {
     weak var delegate: GameNotesViewModelDelegate?
     private var notes: [GameNoteEntity]?
     

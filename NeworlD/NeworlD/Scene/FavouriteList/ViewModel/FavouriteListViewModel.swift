@@ -25,7 +25,7 @@ protocol FavouriteListDelegate: AnyObject {
     // func postFetch()
 }
 
-class FavouriteListViewModel: FavouriteListProtocol {
+final class FavouriteListViewModel: FavouriteListProtocol {
     weak var delegate: FavouriteListDelegate?
     private var favourites: [FavouritesEntity]?
     

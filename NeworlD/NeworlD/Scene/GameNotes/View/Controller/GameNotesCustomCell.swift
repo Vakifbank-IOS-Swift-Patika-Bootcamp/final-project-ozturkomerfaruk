@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameNotesCustomCell: UITableViewCell {
+final class GameNotesCustomCell: UITableViewCell {
 
     @IBOutlet private weak var gamesTitle: UILabel!
 

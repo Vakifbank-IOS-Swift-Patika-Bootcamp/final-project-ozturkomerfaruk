@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GamesForNotesCustomCell: UITableViewCell {
+final class GamesForNotesCustomCell: UITableViewCell {
     @IBOutlet private weak var gamesImage: UIImageView!
     @IBOutlet private weak var gamesTitle: UILabel!
     

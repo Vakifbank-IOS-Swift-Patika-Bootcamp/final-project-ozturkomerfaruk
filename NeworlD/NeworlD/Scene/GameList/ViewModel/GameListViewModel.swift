@@ -32,16 +32,13 @@ protocol GameListViewModelDelegate: AnyObject {
     // func postFetch()
 }
 
-class GameListViewModel: GameListViewModelProtocol {
+final class GameListViewModel: GameListViewModelProtocol {
     weak var delegate: GameListViewModelDelegate?
     private var games: [GameModel]?
     
     func fetchGameList() {
         Client.getGameList(page: 1, pageSize: 50) { [weak self] games, error in
             guard let self = self else { return }
-            if let error = error {
-                self.delegate?.gamesFailed(error: error)
-            }
             self.games = games
             self.delegate?.gamesLoaded()
         }

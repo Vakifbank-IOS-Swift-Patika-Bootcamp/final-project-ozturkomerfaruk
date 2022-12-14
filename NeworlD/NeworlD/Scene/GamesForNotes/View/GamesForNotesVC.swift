@@ -11,32 +11,40 @@ protocol GamesForNotesDelegate: AnyObject {
     func gameNameFunc(name: String, id: Int)
 }
 
-final class GamesForNotes: UIViewController, UITableViewDelegate, UITableViewDataSource, GamesForNotesViewModelDelegate {
-    
-    weak var delegate: GamesForNotesDelegate?
-    
-    func gamesLoaded() {
-        searchTableView.reloadData()
-    }
-    
-    func gamesFailed(error: Error) {
-        print("Error!")
-    }
-    
+final class GamesForNotesVC: BaseVC {
     
     @IBOutlet private weak var searchTableView: UITableView!
+    
+    weak var delegate: GamesForNotesDelegate?
     private var viewModel = GamesForNotesViewModel()
     var searchGame: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureGameForNotesVC()
+    }
+    
+    func configureGameForNotesVC() {
         searchTableView.delegate = self
         searchTableView.dataSource = self
         viewModel.delegate = self
         viewModel.fetchSearchGames(searchGameName: searchGame ?? "")
     }
+}
 
+extension GamesForNotesVC: GamesForNotesViewModelDelegate {
+    
+    func gamesLoaded() {
+        searchTableView.reloadData()
+    }
+    
+    func gamesFailed(error: Error) {
+        showAlert(title: "Error!", message: "\(error)", completion: { })
+    }
+}
+
+extension GamesForNotesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getSearchGamesCount()
     }
@@ -51,8 +59,10 @@ final class GamesForNotes: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = viewModel.getSearchGame(at: indexPath.row)
         delegate?.gameNameFunc(name: model!.name, id: model!.id)
-        dismiss(animated: true)    }
+        dismiss(animated: true)
+    }
 }
