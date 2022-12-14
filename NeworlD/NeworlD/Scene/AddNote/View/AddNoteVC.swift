@@ -44,6 +44,7 @@ class AddNoteVC: UIViewController {
         
         titleTextField.changeColorPlaceholder(tf: titleTextField, string: "...", color: .lightText)
         titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "type..", color: .lightText)
+        bodyTextView.textContainerInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
     }
     
     func setModel() {

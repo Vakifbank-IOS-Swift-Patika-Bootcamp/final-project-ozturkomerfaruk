@@ -10,7 +10,6 @@ import UIKit
 class GameListVC: UIViewController {
     
     private var viewModel = GameListViewModel()
-    private var filterView: FilterView?
     @IBOutlet weak var gameListTableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,6 +27,7 @@ class GameListVC: UIViewController {
         navigationItem.searchController = search
         
         title = "Game List"
+        sortDeclaration()
     }
     
     private func configureTableView() {
@@ -37,15 +37,36 @@ class GameListVC: UIViewController {
         gameListTableView.register(UINib(nibName: "GameCustomCell", bundle: nil), forCellReuseIdentifier: "gameCustomCell")
         
     }
-    
-    
-    @IBAction func filterAction(_ sender: Any) {
-        
-        filterView = FilterView(frame: CGRect(origin: CGPointMake(view.center.x - 110, 150), size: CGSize(width: 300, height: 360)))
-        filterView!.backgroundColor = .lightGray
-        filterView!.delegate = self
-        view.addSubview(filterView!)
-        
+}
+
+extension GameListVC {
+    func sortDeclaration() {
+        let sortAtoZ = UIAction(title: "Sort By Name A - Z") { [weak self] action in
+            guard let self = self else { return }
+            self.viewModel.sortedAtoZ()
+        }
+        let sortZtoA = UIAction(title: "Sort By Name Z - A") { [weak self] action in
+            guard let self = self else { return }
+            self.viewModel.sortedZtoA()
+        }
+        let sortNewest = UIAction(title: "Sort By Newest Release Date") { [weak self] action in
+            guard let self = self else { return }
+            self.viewModel.fetchGameListOrderingNewest()
+        }
+        let sortOldest = UIAction(title: "Sort By Oldest Release Date") { [weak self] action in
+            guard let self = self else { return }
+            self.viewModel.fetchGameListOrderingOldest()
+        }
+        let sortHighest = UIAction(title: "Sort By Highest Rating") { [weak self] action in
+            guard let self = self else { return }
+            self.viewModel.fetchGameListOrderingHighest()
+        }
+        let sortLowest = UIAction(title: "Sort By Lowest Rating") { [weak self] action in
+            guard let self = self else { return }
+            self.viewModel.fetchGameListOrderingLowest()
+        }
+        let menu = UIMenu(title: "", children: [sortAtoZ, sortZtoA, sortNewest, sortOldest, sortHighest, sortLowest])
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "filter"), primaryAction: nil, menu: menu)
     }
 }
 
@@ -57,42 +78,6 @@ extension GameListVC: UISearchResultsUpdating {
         let newString = text.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
         viewModel.fetchGameListSearchByName(searchGameName: newString)
         gameListTableView.reloadData()
-    }
-}
-
-
-extension GameListVC: FilterViewDelegate {
-    
-    func didTapped() {
-        print("didTapped Function FilterViewDelegate")
-    }
-    
-    func sortAtoZ() {
-        viewModel.sortedAtoZ()
-    }
-    
-    func sortZtoA() {
-        viewModel.sortedZtoA()
-    }
-    
-    func sortNewest() {
-        viewModel.fetchGameListOrderingNewest()
-    }
-    
-    func sortOldest() {
-        viewModel.fetchGameListOrderingOldest()
-    }
-    
-    func sortHighest() {
-        viewModel.fetchGameListOrderingHighest()
-    }
-    
-    func sortLowest() {
-        viewModel.fetchGameListOrderingLowest()
-    }
-    
-    func sortRecentlyAdded() {
-        viewModel.fetchGameListOrderingRecentlyAdded()
     }
 }
 
