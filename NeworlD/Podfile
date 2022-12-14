@@ -8,6 +8,9 @@ target 'NeworlD' do
   # Pods for NeworlD
   pod 'Alamofire'
   pod 'iCarousel' 
+  pod 'MaterialActivityIndicator'
+  pod 'SwiftAlertView', '~> 2.2.1'
+  
 
   target 'NeworlDTests' do
     inherit! :search_paths

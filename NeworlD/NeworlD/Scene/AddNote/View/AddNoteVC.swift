@@ -12,74 +12,71 @@ protocol AddNoteVCDelegate: AnyObject {
     func updateCoreData(title: String, body: String, gameId: Int, model: GameNoteEntity)
 }
 
-class AddNoteVC: UIViewController {
+final class AddNoteVC: BaseVC {
     
     weak var delegate: AddNoteVCDelegate?
     var gameNote: GameNoteEntity?
     var gameId: Int?
     
     @IBOutlet private weak var saveOutlet: UIButton!
-    
     @IBOutlet private weak var titleTextField: UITextField!
     @IBOutlet private weak var bodyTextView: UITextView!
-    
     @IBOutlet private weak var cancelButtonOutlet: UIButton!
-    
-    
     @IBOutlet private weak var gameSearchNameTextField: UITextField!
     @IBOutlet private weak var gameNameLabel: UILabel!
-    
-    
+
     private var viewModel = AddNoteViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.delegate = self
+
+        configureAddNoteVC()
+    }
+    
+    func configureAddNoteVC() {
         titleTextField.layer.cornerRadius = titleTextField.frame.height / 3
         bodyTextView.layer.cornerRadius = 20
         saveOutlet.layer.cornerRadius = saveOutlet.frame.height / 3
-        setModel()
-        gameNameLabel.text = ""
-        
+        bodyTextView.textContainerInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
         titleTextField.changeColorPlaceholder(tf: titleTextField, string: "...", color: .lightText)
         titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "type..", color: .lightText)
-        bodyTextView.textContainerInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
-    }
-    
-    func setModel() {
+        
         if gameNote != nil {
             titleTextField.text = gameNote?.title
             bodyTextView.text = gameNote?.body
-            
             viewModel.fetchGamesWithId(id: Int(gameNote!.gameId))
-            
             saveOutlet.setTitle("Update", for: .normal)
         }
+        
+        viewModel.delegate = self
     }
-    
-    
+
     @IBAction func cancelAction(_ sender: Any) {
-        self.dismiss(animated: true)
+        showAlertWithCancel(title: "Warning!", message: "It will be canceled") { [weak self] buttonIndex in
+            guard let self = self else { return }
+            if buttonIndex == 0 {
+                self.dismiss(animated: true)
+            }
+        }
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        if gameId == nil || gameId == -1 {
-            print("HATA!!")
+        if gameId == nil || titleTextField.text!.isEmpty || bodyTextView.text!.isEmpty {
+            showAlert(title: "Warning!", message: "Please complete all required fields!", completion: { })
         } else {
             if gameNote != nil {
                 delegate?.updateCoreData(title: titleTextField.text!, body: bodyTextView.text!, gameId: gameId ?? -1, model: gameNote!)
+                dismiss(animated: true)
             } else {
                 delegate?.saveCoreData(title: titleTextField.text!, body: bodyTextView.text, gameId: gameId ?? -1)
+                dismiss(animated: true)
             }
-        }
-        
-        dismiss(animated: true)
+        }      
     }
     
     
     @IBAction func searchButtonAction(_ sender: Any) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "gamesForNotes") as? GamesForNotes else { return }
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "gamesForNotes") as? GamesForNotesVC else { return }
         vc.searchGame = gameSearchNameTextField.text
         vc.delegate = self
         present(vc, animated: true)
@@ -92,8 +89,8 @@ extension AddNoteVC: AddNoteViewModelDelegate {
     }
     
     func gamesFailed(error: Error) {
+        showAlert(title: "Error!", message: "\(error)", completion: { })
     }
-    
 }
 
 extension AddNoteVC: GamesForNotesDelegate {

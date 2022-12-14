@@ -11,17 +11,18 @@ protocol FavouriteDetailVCDelegate: AnyObject {
     func deleteFavourite(index: Int)
 }
 
-class FavouriteDetailVC: UIViewController {
+final class FavouriteDetailVC: BaseVC {
     
     weak var delegate: FavouriteDetailVCDelegate?
     
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var imgGame: UIImageView!
-    @IBOutlet weak var lblDescription: UITextView!
-    @IBOutlet weak var lblRelease: UILabel!
-    @IBOutlet weak var lblUserReviews: UILabel! // Exceptional
-    @IBOutlet weak var btnFavouriteOutler: UIButton!
+    @IBOutlet private weak var lblName: UILabel!
+    @IBOutlet private weak var imgGame: UIImageView!
+    @IBOutlet private weak var lblDescription: UITextView!
+    @IBOutlet private weak var lblRelease: UILabel!
+    @IBOutlet private weak var lblUserReviews: UILabel!
+    @IBOutlet private weak var btnFavouriteOutler: UIButton!
     
+    private var iconImageViews: [UIImageView] = []
     @IBOutlet private weak var androidIcon: UIImageView!
     @IBOutlet private weak var appleIcon: UIImageView!
     @IBOutlet private weak var windowsIcon: UIImageView!
@@ -35,15 +36,14 @@ class FavouriteDetailVC: UIViewController {
     var gameId: Int?
     private var viewModel = FavouriteDetailViewModel()
     
-    private var iconImageViews: [UIImageView] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        viewModel.delegate = self
-        viewModel.fetchFavouriteGameDetail(gameId: gameId!)
-        viewModel.fetchFavourites()
         
+        configureFavouriteDetailVC()
+    }
+    
+    func configureFavouriteDetailVC() {
         iconImageViews.append(androidIcon)
         iconImageViews.append(appleIcon)
         iconImageViews.append(windowsIcon)
@@ -58,17 +58,25 @@ class FavouriteDetailVC: UIViewController {
             i.tintColor = UIColor.white
             i.isHidden = true
         }
+        
+        viewModel.delegate = self
+        viewModel.fetchFavouriteGameDetail(gameId: gameId!)
+        viewModel.fetchFavourites()
     }
     
     @IBAction func removeFromFavouritesButtonAction(_ sender: Any) {
-        for (i, fav) in viewModel.getFavourites().enumerated() {
-            if fav.gameId == self.gameId! {
-                viewModel.deleteFavourite(fav: fav, index: i)
-                self.delegate?.deleteFavourite(index: i)
+        showAlertWithCancel(title: "Warning!", message: "Really remove this game from your favourites?") { [weak self] buttonIndex in
+            guard let self = self else { return }
+            if buttonIndex == 0 {
+                for (i, fav) in self.viewModel.getFavourites().enumerated() {
+                    if fav.gameId == self.gameId! {
+                        self.viewModel.deleteFavourite(fav: fav, index: i)
+                        self.delegate?.deleteFavourite(index: i)
+                    }
+                }
+                self.dismiss(animated: true)
             }
         }
-        
-        dismiss(animated: true)
     }
     
     

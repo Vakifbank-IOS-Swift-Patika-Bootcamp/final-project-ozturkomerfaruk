@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 final class Client {
-    
     static private func handleResponse<T: Decodable>(urlString: String, responseType: T.Type, completion: @escaping (T?, Error?) -> Void) {
         AF.request(urlString).response { response in
             guard let data = response.value else {

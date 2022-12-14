@@ -23,7 +23,7 @@ protocol GamesForNotesViewModelDelegate: AnyObject {
     // func postFetch()
 }
 
-class GamesForNotesViewModel: GamesForNotesViewModelProtocol {
+final class GamesForNotesViewModel: GamesForNotesViewModelProtocol {
     weak var delegate: GamesForNotesViewModelDelegate?
     private var searchGames: [GameModel]?
     

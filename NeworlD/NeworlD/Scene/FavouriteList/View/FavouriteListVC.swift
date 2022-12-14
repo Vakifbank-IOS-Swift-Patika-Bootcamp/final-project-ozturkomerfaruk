@@ -7,23 +7,16 @@
 
 import UIKit
 
-
-
-class FavouriteListVC: UIViewController {
+final class FavouriteListVC: BaseVC {
     
-    @IBOutlet weak var favouritesCollectionView: UICollectionView!
+    @IBOutlet private weak var favouritesCollectionView: UICollectionView!
     
-    var viewModel = FavouriteListViewModel()
+    private var viewModel = FavouriteListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        favouritesCollectionView.delegate = self
-        favouritesCollectionView.dataSource = self
-        viewModel.delegate = self
         
-        navigationController?.navigationBar.barStyle = UIBarStyle.black
-        navigationController?.navigationBar.tintColor = .white
+        configureFavouriteListVC()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,15 +24,14 @@ class FavouriteListVC: UIViewController {
         
         viewModel.fetchFavourites()
     }
-}
-
-extension FavouriteListVC: FavouriteListDelegate {
-    func favouritesLoaded() {
-        favouritesCollectionView.reloadData()
-    }
     
-    func favouritesFailed(error: Error) {
-        print("Error!!!!!!")
+    func configureFavouriteListVC() {
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.tintColor = .white
+        
+        favouritesCollectionView.delegate = self
+        favouritesCollectionView.dataSource = self
+        viewModel.delegate = self
     }
 }
 
@@ -65,6 +57,16 @@ extension FavouriteListVC: UICollectionViewDelegate, UICollectionViewDataSource 
         vc.gameId = Int(viewModel.getFavourites(index: indexPath.row).gameId)
         vc.delegate = self
         present(vc, animated: true)
+    }
+}
+
+extension FavouriteListVC: FavouriteListDelegate {
+    func favouritesLoaded() {
+        favouritesCollectionView.reloadData()
+    }
+    
+    func favouritesFailed(error: Error) {
+        showAlert(title: "Error!", message: "\(error)", completion: { })
     }
 }
 

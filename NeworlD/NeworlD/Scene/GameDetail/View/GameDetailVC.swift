@@ -8,9 +8,7 @@
 import UIKit
 import iCarousel
 
-
-
-final class GameDetailVC: UIViewController {
+final class GameDetailVC: BaseVC {
     
     @IBOutlet private weak var tagsTableView: UITableView!
     @IBOutlet private weak var ratingsTableView: UITableView!
@@ -21,10 +19,8 @@ final class GameDetailVC: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var oppsImage: UIImageView!
     
-    
     @IBOutlet private weak var favouriteOutletButton: UIButton!
     
-    //MARK: ViewModel'den çekilecek bu - CoreData'dan gelecek
     private var isFavourite = false
     
     var model: GameModel?
@@ -35,15 +31,21 @@ final class GameDetailVC: UIViewController {
         return view
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        configureGameDetailVC()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
         viewModel.fetchFavourites()
-        print("Model ID \(model!.id)")
-        print("CD ID \(viewModel.getFavourites().first?.gameId ?? -1)")
         for i in viewModel.getFavourites() {
+            print(i.gameId)
             if i.gameId == model!.id {
                 isFavourite = true
+                break
             } else {
                 isFavourite = false
             }
@@ -51,35 +53,64 @@ final class GameDetailVC: UIViewController {
         if viewModel.getFavourites().isEmpty {
             isFavourite = false
         }
+        print(isFavourite)
         favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-                navigationController?.navigationBar.barStyle = UIBarStyle.black
+    @IBAction func favouriteActionButton(_ sender: Any) {
+        if isFavourite {
+            showAlertWithCancel(title: "Warning!", message: "Are you sure you want to remove from the favourites?", completion: { [weak self] buttonIndex in
+                guard let self = self else { return }
+                if buttonIndex == 0 {
+                    for i in self.viewModel.getFavourites() {
+                        if i.gameId == Int(self.model!.id) {
+                            CoreDataManager.shared.deleteFavourite(favourite: i)
+                            self.isFavourite = false
+                            self.favouriteOutletButton.setImage(UIImage(systemName: self.isFavourite ? "heart.fill" : "heart"), for: .normal)
+                        }
+                    }
+                } else {
+                    self.dismiss(animated: true)
+                }
+            })
+            
+        } else {
+            isFavourite = true
+            CoreDataManager.shared.saveFavourite(gameId: model!.id)
+            tabBarController?.selectedIndex = 1
+        }
+        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
+    }
+}
+
+extension GameDetailVC {
+    private func configureGameDetailVC() {
+        setConfigureTableView()
+        
+        favouriteOutletButton.layer.cornerRadius = favouriteOutletButton.frame.height / 2
+        
+        view.addSubview(myCarousel)
+        myCarousel.dataSource = self
+        
+        myCarousel.frame = CGRect(x: 0, y: 30, width: view.frame.size.width, height: 400)
+        myCarousel.type = .rotary
+        myCarousel.autoscroll = -0.3
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Game Website", style: .plain, target: self, action: #selector(goToWebsite))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = .white
         
         guard let model = model else { return }
         viewModel.delegate = self
         viewModel.fetchGameDetail(id: model.id)
         
-        
-        
-        setConfigureCarouselImages()
-        setConfigureTableView()
-        
-        setNavigationItemButton()
-        setFavouriteOutlet()
         oppsImage.isHidden = true
         if viewModel.iCorouselImagesCount(model: model) == 0 {
             oppsImage.isHidden = false
             oppsImage.load(url: URL(string: Constants.OPPSImageURL)!)
         }
-    }
-    
-    private func setNavigationItemButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Game Website", style: .plain, target: self, action: #selector(goToWebsite))
-        navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
     @objc func goToWebsite() {
@@ -104,43 +135,6 @@ final class GameDetailVC: UIViewController {
         if model?.tags.count == 0 {
             tagsTableView.isHidden = true
         }
-    }
-    
-    private func setConfigureCarouselImages() {
-        view.addSubview(myCarousel)
-        myCarousel.dataSource = self
-        
-        myCarousel.frame = CGRect(x: 0, y: 30, width: view.frame.size.width, height: 400)
-        myCarousel.type = .rotary
-        myCarousel.autoscroll = -0.3
-    }
-    
-}
-
-extension GameDetailVC {
-    private func setFavouriteOutlet() {
-        favouriteOutletButton.layer.cornerRadius = favouriteOutletButton.frame.height / 2
-    }
-    
-    @IBAction func favouriteActionButton(_ sender: Any) {
-        
-        if isFavourite {
-            //MARK: Buraya emin misiniz tarzında bir alert gelecek
-            isFavourite = false
-            print("Şuan favori değil")
-            for i in viewModel.getFavourites() {
-                if i.gameId == Int(model!.id) {
-                    CoreDataManager.shared.deleteFavourite(favourite: i)
-                }
-            }
-        } else {
-            isFavourite = true
-            //MARK: Buraya emin misiniz tarzında bir alert gelecek
-            CoreDataManager.shared.saveFavourite(gameId: model!.id)
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "favouriteListVC") as? FavouriteListVC else { return }
-            navigationController?.pushViewController(vc, animated: true)
-        }
-        favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
     }
 }
 
@@ -199,11 +193,10 @@ extension GameDetailVC: GameDetailViewModelDelegate {
         
         if viewModel.getRatingTableCount() == 0 {
             self.tagsTableView.isHidden = true
-            print("if de")
         }
     }
     
     func gamesFailed(error: Error) {
-        print("VieW ModeL ErroR")
+        showAlert(title: "Error", message: "\(error)", completion: { })
     }
 }
