@@ -75,11 +75,11 @@ final class GameDetailViewModel {
     }
     
     func getDescriptionRow() -> String {
-        return viewModelGame?.descriptionRaw ?? "nil"
+        return viewModelGame?.descriptionRaw ?? ""
     }
     
     func getPublisher() -> String {
-        return viewModelGame?.publishers.first?.name ?? "nil"
+        return viewModelGame?.publishers.first?.name ?? ""
     }
 
     func getRatingTableCount() -> Int {

@@ -55,6 +55,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
     
     func getGame(at index: Int) -> GameModel? {
+
         return games?[index]
     }
     
@@ -155,17 +156,28 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
     
     func fetchGameListSearchByName(searchGameName: String) {
-        delegate?.preSearchText()
-        DispatchQueue.main.async {
+        if searchGameName.count == 0 {
+            delegate?.postFetch()
+        } else if searchGameName.count == 1 {
+            delegate?.postFetch()
+            delegate?.preSearchText()
+        } else if searchGameName.count == 2 {
+            delegate?.postFetch()
+            delegate?.preSearchText()
+        } else if searchGameName.count == 3 {
+            delegate?.postFetch()
+            delegate?.preSearchText()
+        } else {
+            delegate?.postFetch()
             Client.getGameListBySearch(searchGameName: searchGameName) { [weak self] games, error in
                 guard let self = self else { return }
                 if let error = error {
                     self.delegate?.gamesFailed(error: error)
                 }
                 self.games = games
+                self.delegate?.gamesLoaded()
             }
-            self.delegate?.postFetch()
+            
         }
-        
     }
 }
