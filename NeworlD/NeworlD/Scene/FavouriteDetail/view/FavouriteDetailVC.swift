@@ -62,6 +62,8 @@ final class FavouriteDetailVC: BaseVC {
         viewModel.delegate = self
         viewModel.fetchFavouriteGameDetail(gameId: gameId!)
         viewModel.fetchFavourites()
+        
+        imgGame.layer.cornerRadius = 10
     }
     
     @IBAction func removeFromFavouritesButtonAction(_ sender: Any) {
@@ -122,6 +124,8 @@ extension FavouriteDetailVC: FavouriteDetailViewModelDelegate {
                 return
             }
         }
+        
+        indicator.stopAnimating()
     }
     
     func gameFailed(error: Error) {
@@ -130,10 +134,7 @@ extension FavouriteDetailVC: FavouriteDetailViewModelDelegate {
     
     func preFetch() {
         indicator.startAnimating()
-    }
-    
-    func postFetch() {
-        indicator.stopAnimating()
+        indicator.color = .red
     }
     
     private func platformNameFunc(_ name: String) -> String {

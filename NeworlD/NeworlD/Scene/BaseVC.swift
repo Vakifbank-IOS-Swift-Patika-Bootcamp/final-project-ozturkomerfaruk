@@ -12,6 +12,7 @@ import MaterialActivityIndicator
 class BaseVC: UIViewController {
     
     let indicator = MaterialActivityIndicatorView()
+    private var lottieView = LottieView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,5 +57,15 @@ class BaseVC: UIViewController {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    func loadingLottieView(name: String) {
+        lottieView = LottieView(frame: CGRect(origin: CGPointMake(self.view.center.x - 150, self.view.center.y - 150), size: CGSize(width: 300, height: 300)))
+        LottieManager.shared.playLottie(view: lottieView, lottieName: name)
+        self.view.addSubview(lottieView)
+    }
+    
+    func stopLottie() {
+        self.lottieView.isHidden = true
     }
 }

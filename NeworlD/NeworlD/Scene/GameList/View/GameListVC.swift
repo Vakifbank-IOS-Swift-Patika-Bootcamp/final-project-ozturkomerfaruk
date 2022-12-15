@@ -120,6 +120,8 @@ extension GameListVC: UITableViewDelegate, UITableViewDataSource {
 extension GameListVC: GameListViewModelDelegate {
     func gamesLoaded() {
         gameListTableView.reloadData()
+        LottieManager.shared.stopLottie()
+        stopLottie()
     }
     
     func gamesFailed(error: Error) {
@@ -127,15 +129,7 @@ extension GameListVC: GameListViewModelDelegate {
     }
     
     func preFetch() {
-        lottieView = LottieView(frame: CGRect(origin: CGPointMake(self.view.center.x - 150, self.view.center.y - 150), size: CGSize(width: 300, height: 300)))
-        LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.loading.rawValue)
-        self.view.addSubview(lottieView)
-        
-    }
-    
-    func postFetch() {
-        LottieManager.shared.stopLottie()
-        self.lottieView.isHidden = true     
+        loadingLottieView(name: LottieNames.loading.rawValue)
     }
     
     func preSearchText() {

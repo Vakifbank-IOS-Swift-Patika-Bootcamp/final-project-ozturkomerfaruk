@@ -29,7 +29,6 @@ protocol GameListViewModelDelegate: AnyObject {
     func gamesFailed(error: Error)
     
     func preFetch()
-    func postFetch()
     func preSearchText()
 }
 
@@ -39,15 +38,14 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func fetchGameList() {
         delegate?.preFetch()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            Client.getGameList(page: 1, pageSize: 50) { [weak self] games, error in
-                guard let self = self else { return }
-                self.games = games
-                self.delegate?.gamesLoaded()
+        Client.getGameList(page: 1, pageSize: 50) { [weak self] games, error in
+            guard let self = self else { return }
+            if let error = error {
+                self.delegate?.gamesFailed(error: error)
             }
-            self.delegate?.postFetch()
+            self.games = games
+            self.delegate?.gamesLoaded()
         }
-        
     }
     
     func getGameListCount() -> Int {
@@ -77,98 +75,83 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func fetchGameListOrderingNewest() {
         delegate?.preFetch()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            Client.getGameListOrderingNewest(page: 1, pageSize: 50) { [weak self] games, error in
-                guard let self = self else { return }
-                if let error = error {
-                    self.delegate?.gamesFailed(error: error)
-                }
-                self.games = []
-                self.games = games
-                self.delegate?.gamesLoaded()
+        Client.getGameListOrderingNewest(page: 1, pageSize: 50) { [weak self] games, error in
+            guard let self = self else { return }
+            if let error = error {
+                self.delegate?.gamesFailed(error: error)
             }
-            self.delegate?.postFetch()
+            self.games = []
+            self.games = games
+            self.delegate?.gamesLoaded()
         }
     }
     
     func fetchGameListOrderingOldest() {
         delegate?.preFetch()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            Client.getGameListOrderingOldest(page: 1, pageSize: 50) { [weak self] games, error in
-                guard let self = self else { return }
-                if let error = error {
-                    self.delegate?.gamesFailed(error: error)
-                }
-                self.games = []
-                self.games = games
-                self.delegate?.gamesLoaded()
+        Client.getGameListOrderingOldest(page: 1, pageSize: 50) { [weak self] games, error in
+            guard let self = self else { return }
+            if let error = error {
+                self.delegate?.gamesFailed(error: error)
             }
-            self.delegate?.postFetch()
+            self.games = []
+            self.games = games
+            self.delegate?.gamesLoaded()
         }
     }
     
     func fetchGameListOrderingHighest() {
         delegate?.preFetch()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            Client.getGameListOrderingHighest(page: 1, pageSize: 50) { [weak self] games, error in
-                guard let self = self else { return }
-                if let error = error {
-                    self.delegate?.gamesFailed(error: error)
-                }
-                self.games = []
-                self.games = games
-                self.delegate?.gamesLoaded()
+        Client.getGameListOrderingHighest(page: 1, pageSize: 50) { [weak self] games, error in
+            guard let self = self else { return }
+            if let error = error {
+                self.delegate?.gamesFailed(error: error)
             }
-            self.delegate?.postFetch()
+            self.games = []
+            self.games = games
+            self.delegate?.gamesLoaded()
         }
     }
     
     func fetchGameListOrderingLowest() {
         delegate?.preFetch()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            Client.getGameListOrderingLowest(page: 1, pageSize: 50) { [weak self] games, error in
-                guard let self = self else { return }
-                if let error = error {
-                    self.delegate?.gamesFailed(error: error)
-                }
-                self.games = []
-                self.games = games
-                self.delegate?.gamesLoaded()
+        Client.getGameListOrderingLowest(page: 1, pageSize: 50) { [weak self] games, error in
+            guard let self = self else { return }
+            if let error = error {
+                self.delegate?.gamesFailed(error: error)
             }
-            self.delegate?.postFetch()
+            self.games = []
+            self.games = games
+            self.delegate?.gamesLoaded()
         }
     }
     
     func fetchGameListOrderingRecentlyAdded() {
         delegate?.preFetch()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-            Client.getGameListOrderingRecentlyAdded(page: 1, pageSize: 50) { [weak self] games, error in
-                guard let self = self else { return }
-                if let error = error {
-                    self.delegate?.gamesFailed(error: error)
-                }
-                self.games = []
-                self.games = games
-                self.delegate?.gamesLoaded()
+        Client.getGameListOrderingRecentlyAdded(page: 1, pageSize: 50) { [weak self] games, error in
+            guard let self = self else { return }
+            if let error = error {
+                self.delegate?.gamesFailed(error: error)
             }
-            self.delegate?.postFetch()
+            self.games = []
+            self.games = games
+            self.delegate?.gamesLoaded()
         }
     }
     
     func fetchGameListSearchByName(searchGameName: String) {
         if searchGameName.count == 0 {
-            delegate?.postFetch()
+            delegate?.gamesLoaded()
         } else if searchGameName.count == 1 {
-            delegate?.postFetch()
+            delegate?.gamesLoaded()
             delegate?.preSearchText()
         } else if searchGameName.count == 2 {
-            delegate?.postFetch()
+            delegate?.gamesLoaded()
             delegate?.preSearchText()
         } else if searchGameName.count == 3 {
-            delegate?.postFetch()
+            delegate?.gamesLoaded()
             delegate?.preSearchText()
         } else {
-            delegate?.postFetch()
+            delegate?.gamesLoaded()
             Client.getGameListBySearch(searchGameName: searchGameName) { [weak self] games, error in
                 guard let self = self else { return }
                 if let error = error {

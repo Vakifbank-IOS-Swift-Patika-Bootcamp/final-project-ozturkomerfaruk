@@ -194,6 +194,7 @@ extension GameDetailVC: GameDetailViewModelDelegate {
         if viewModel.getRatingTableCount() == 0 {
             self.tagsTableView.isHidden = true
         }
+        indicator.stopAnimating()
     }
     
     func gamesFailed(error: Error) {
@@ -202,9 +203,5 @@ extension GameDetailVC: GameDetailViewModelDelegate {
     
     func preFetch() {
         indicator.startAnimating()
-    }
-    
-    func postFetch() {
-        indicator.stopAnimating()
     }
 }

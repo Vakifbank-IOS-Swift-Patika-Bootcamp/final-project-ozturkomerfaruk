@@ -26,18 +26,15 @@ protocol FavouriteDetailViewModelDelegate: AnyObject {
     func gameFailed(error: Error)
     
      func preFetch()
-     func postFetch()
 }
 
 final class FavouriteDetailViewModel: FavouriteDetailViewModelProtocol {
     var delegate: FavouriteDetailViewModelDelegate?
     private var model: GameDetailModel?
-    private var favourites: [FavouritesEntity]?
+    private var favourites: [FavouritesEntity]? 
     
     func fetchFavourites() {
-        delegate?.preFetch()
         favourites = CoreDataManager.shared.getFavourites()
-        delegate?.postFetch()
     }
     
     func getFavourites() -> [FavouritesEntity] {
@@ -59,7 +56,6 @@ final class FavouriteDetailViewModel: FavouriteDetailViewModelProtocol {
             self.model = model
             self.delegate?.gameLoaded()
         }
-        delegate?.postFetch()
     }
     
     func getLblName() -> String? {
