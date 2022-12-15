@@ -24,7 +24,6 @@ protocol FavouriteListDelegate: AnyObject {
     
     func preFetch()
     func postFetch()
-    func preCollectionView()
 }
 
 final class FavouriteListViewModel: FavouriteListProtocol {
@@ -36,12 +35,12 @@ final class FavouriteListViewModel: FavouriteListProtocol {
     }
     
     func fetchFavourites() {
+        favourites = CoreDataManager.shared.getFavourites()
+        self.delegate?.favouritesLoaded()
         if favourites?.count == 0 {
-            delegate?.preCollectionView()
+            delegate?.preFetch()
         } else {
             delegate?.postFetch()
-            favourites = CoreDataManager.shared.getFavourites()
-            self.delegate?.favouritesLoaded()
         }
     }
 
@@ -52,6 +51,9 @@ final class FavouriteListViewModel: FavouriteListProtocol {
     func appendFavourites(gameId: Int) {
         favourites?.append(CoreDataManager.shared.saveFavourite(gameId: gameId)!)
         self.delegate?.favouritesLoaded()
+        if favourites?.count != 0 {
+            delegate?.postFetch()
+        }
     }
     
     func deleteFavourites(index: Int) {
@@ -59,6 +61,9 @@ final class FavouriteListViewModel: FavouriteListProtocol {
         favourites?.remove(at: index)
         CoreDataManager.shared.deleteFavourite(favourite: fav)
         self.delegate?.favouritesLoaded()
+        if favourites?.count == 0 {
+            delegate?.preFetch()
+        }
     }
     
     func isArrayEmpty() -> Bool {

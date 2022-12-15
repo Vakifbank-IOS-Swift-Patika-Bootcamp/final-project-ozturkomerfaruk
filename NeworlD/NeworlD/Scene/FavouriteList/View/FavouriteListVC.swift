@@ -26,10 +26,6 @@ final class FavouriteListVC: BaseVC {
         super.viewWillAppear(true)
         
         viewModel.fetchFavourites()
-        titleLabel.text = viewModel.isArrayEmpty() ? "You don't have any favourite Games" : "Favourites"
-        if viewModel.isArrayEmpty() {
-            titleLabel.textAlignment = .center
-        }
     }
     
     func configureFavouriteListVC() {
@@ -70,6 +66,10 @@ extension FavouriteListVC: UICollectionViewDelegate, UICollectionViewDataSource 
 extension FavouriteListVC: FavouriteListDelegate {
     func favouritesLoaded() {
         favouritesCollectionView.reloadData()
+        titleLabel.text = viewModel.isArrayEmpty() ? "You don't have any favourite Games" : "Favourites"
+        if viewModel.isArrayEmpty() {
+            titleLabel.textAlignment = viewModel.isArrayEmpty() ? .center : .left
+        }
     }
     
     func favouritesFailed(error: Error) {
@@ -77,26 +77,22 @@ extension FavouriteListVC: FavouriteListDelegate {
     }
     
     func preFetch() {
-        indicator.startAnimating()
+        lottieView = LottieView(frame: CGRect(origin: CGPointMake(0, 200), size: CGSize(width: self.view.frame.width, height: 400)))
+        lottieView.backgroundColor = .black
+        LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.gameBoy.rawValue)
+        self.view.addSubview(lottieView)
     }
     
     func postFetch() {
-        indicator.stopAnimating()
         LottieManager.shared.stopLottie()
         self.lottieView.isHidden = true
-    }
-    
-    func preCollectionView() {
-        lottieView = LottieView(frame: CGRect(origin: CGPointMake(0, 50), size: CGSize(width: self.view.frame.width, height: self.view.frame.height - 100)))
-        lottieView.backgroundColor = .black
-        LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.gameBoyAdvance.rawValue)
-        self.view.addSubview(lottieView)
     }
 }
 
 extension FavouriteListVC: FavouriteCustomCellDelegate {
     func deleteFavourite(index: Int) {
         viewModel.deleteFavourites(index: index)
+       
     }
 }
 
