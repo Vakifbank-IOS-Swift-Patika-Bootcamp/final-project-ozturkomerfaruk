@@ -28,6 +28,9 @@ class FavouriteCustomCell: UICollectionViewCell {
         
         favouriteButtonOutlet.layer.cornerRadius = favouriteButtonOutlet.frame.width / 2
         
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .bold, scale: .large)
+        let largeBoldDoc = UIImage(systemName: "heart.fill", withConfiguration: largeConfig)
+        favouriteButtonOutlet.setImage(largeBoldDoc, for: .normal)
         
         self.layer.cornerRadius = 30
         self.layer.masksToBounds = true
