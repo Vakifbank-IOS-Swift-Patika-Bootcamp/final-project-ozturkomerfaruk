@@ -91,6 +91,14 @@ extension AddNoteVC: AddNoteViewModelDelegate {
     func gamesFailed(error: Error) {
         showAlert(title: "Error!", message: "\(error)", completion: { })
     }
+    
+    func preFetch() {
+        indicator.startAnimating()
+    }
+    
+    func postFetch() {
+        indicator.stopAnimating()
+    }
 }
 
 extension AddNoteVC: GamesForNotesDelegate {

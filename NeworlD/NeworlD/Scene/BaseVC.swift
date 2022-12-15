@@ -7,8 +7,11 @@
 
 import UIKit
 import SwiftAlertView
+import MaterialActivityIndicator
 
 class BaseVC: UIViewController {
+    
+    let indicator = MaterialActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +19,8 @@ class BaseVC: UIViewController {
         if Constants.API_KEY == "##API_KEY##" {
             showAlert(title: "Create an API Key!", message: "The application will be closed because you do not have the API Key. Please create a Key.", completion: { exit(0) })
         }
+        
+        setupActivityIndicatorView()
     }
     
     func showAlert(title: String, message: String, completion: @escaping () -> Void) {
@@ -30,5 +35,17 @@ class BaseVC: UIViewController {
             _, buttonIndex in
             completion(buttonIndex)
         }
+    }
+    
+    private func setupActivityIndicatorView() {
+        view.addSubview(indicator)
+        indicator.color = .white
+        constraintActivityIndicatorView()
+    }
+    
+    private func constraintActivityIndicatorView() {
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        indicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }

@@ -21,8 +21,8 @@ protocol FavouriteListDelegate: AnyObject {
     func favouritesLoaded()
     func favouritesFailed(error: Error)
     
-    // func preFetch()
-    // func postFetch()
+     func preFetch()
+     func postFetch()
 }
 
 final class FavouriteListViewModel: FavouriteListProtocol {
@@ -34,8 +34,10 @@ final class FavouriteListViewModel: FavouriteListProtocol {
     }
     
     func fetchFavourites() {
+        delegate?.preFetch()
         favourites = CoreDataManager.shared.getFavourites()
         self.delegate?.favouritesLoaded()
+        delegate?.postFetch()
     }
 
     func getFavourites(index: Int) -> FavouritesEntity {

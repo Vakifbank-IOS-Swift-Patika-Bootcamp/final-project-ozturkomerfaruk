@@ -19,8 +19,8 @@ protocol GamesForNotesViewModelDelegate: AnyObject {
     func gamesLoaded()
     func gamesFailed(error: Error)
     
-    // func preFetch()
-    // func postFetch()
+     func preFetch()
+     func postFetch()
 }
 
 final class GamesForNotesViewModel: GamesForNotesViewModelProtocol {
@@ -28,6 +28,7 @@ final class GamesForNotesViewModel: GamesForNotesViewModelProtocol {
     private var searchGames: [GameModel]?
     
     func fetchSearchGames(searchGameName: String) {
+        delegate?.preFetch()
         Client.getGameListBySearch(searchGameName: searchGameName) { [weak self] games, error in
             guard let self = self else { return }
             if let error = error {
@@ -36,6 +37,7 @@ final class GamesForNotesViewModel: GamesForNotesViewModelProtocol {
             self.searchGames = games
             self.delegate?.gamesLoaded()
         }
+        delegate?.postFetch()
     }
     
     func getSearchGamesCount() -> Int {

@@ -22,8 +22,8 @@ protocol GameNotesViewModelDelegate: AnyObject {
     func notesLoaded()
     func notesFailed(error: Error)
     
-    // func preFetch()
-    // func postFetch()
+    func preFetch()
+    func postFetch()
 }
 
 final class GameNotesViewModel: GameNotesViewModelProtocol {
@@ -35,8 +35,10 @@ final class GameNotesViewModel: GameNotesViewModelProtocol {
     }
     
     func fetchGameNotes() {
+        delegate?.preFetch()
         notes = CoreDataManager.shared.getNotes()
         self.delegate?.notesLoaded()
+        delegate?.postFetch()
     }
     
     func getGameNotes(index: Int) -> GameNoteEntity {

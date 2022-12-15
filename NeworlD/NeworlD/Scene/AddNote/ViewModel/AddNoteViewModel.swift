@@ -18,8 +18,8 @@ protocol AddNoteViewModelDelegate: AnyObject {
     func gamesLoaded()
     func gamesFailed(error: Error)
     
-    // func preFetch()
-    // func postFetch()
+     func preFetch()
+     func postFetch()
 }
 
 final class AddNoteViewModel: AddNoteViewModelProtocol {
@@ -27,6 +27,7 @@ final class AddNoteViewModel: AddNoteViewModelProtocol {
     private var game: BasicGameModel?
     
     func fetchGamesWithId(id: Int) {
+        delegate?.preFetch()
         Client.getBasicGameModel(gameId: id) { [weak self] game, error in
             guard let self = self else { return }
             if let error = error {
@@ -35,6 +36,7 @@ final class AddNoteViewModel: AddNoteViewModelProtocol {
             self.game = game
             self.delegate?.gamesLoaded()
         }
+        delegate?.postFetch()
     }
     
     func getGameWithId() -> BasicGameModel? {
