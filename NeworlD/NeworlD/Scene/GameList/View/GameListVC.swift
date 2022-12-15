@@ -87,16 +87,9 @@ extension GameListVC {
 extension GameListVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        if text.count == 1 {
-            viewModel.delegate?.preSearchText()
-        }
-        if text.count >= 3 {
-            viewModel.delegate?.postFetch()
-            let newString = text.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
-            viewModel.fetchGameListSearchByName(searchGameName: newString)
-            gameListTableView.reloadData()
-        }
-        
+        let newString = text.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+        viewModel.fetchGameListSearchByName(searchGameName: newString)
+        gameListTableView.reloadData()
     }
 }
 
@@ -142,7 +135,7 @@ extension GameListVC: GameListViewModelDelegate {
     
     func postFetch() {
         LottieManager.shared.stopLottie()
-        self.lottieView.isHidden = true
+        self.lottieView.isHidden = true     
     }
     
     func preSearchText() {

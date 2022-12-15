@@ -11,7 +11,10 @@ final class FavouriteListVC: BaseVC {
     
     @IBOutlet private weak var favouritesCollectionView: UICollectionView!
     
+    @IBOutlet private weak var titleLabel: UILabel!
+    
     private var viewModel = FavouriteListViewModel()
+    private var lottieView = LottieView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,10 @@ final class FavouriteListVC: BaseVC {
         super.viewWillAppear(true)
         
         viewModel.fetchFavourites()
+        titleLabel.text = viewModel.isArrayEmpty() ? "You don't have any favourite Games" : "Favourites"
+        if viewModel.isArrayEmpty() {
+            titleLabel.textAlignment = .center
+        }
     }
     
     func configureFavouriteListVC() {
@@ -75,6 +82,15 @@ extension FavouriteListVC: FavouriteListDelegate {
     
     func postFetch() {
         indicator.stopAnimating()
+        LottieManager.shared.stopLottie()
+        self.lottieView.isHidden = true
+    }
+    
+    func preCollectionView() {
+        lottieView = LottieView(frame: CGRect(origin: CGPointMake(0, 50), size: CGSize(width: self.view.frame.width, height: self.view.frame.height - 100)))
+        lottieView.backgroundColor = .black
+        LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.gameBoyAdvance.rawValue)
+        self.view.addSubview(lottieView)
     }
 }
 

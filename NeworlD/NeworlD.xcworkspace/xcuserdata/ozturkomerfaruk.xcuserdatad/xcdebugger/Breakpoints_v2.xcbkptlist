@@ -3,4 +3,70 @@
    uuid = "8E558A60-73EA-475F-8DBD-F072F2994B25"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2A04ACC-3C81-4936-B4E6-F25C8FE10315"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeworlD/Scene/GameList/ViewModel/GameListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getGame(at:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F78DABBF-1DFA-4D54-89D7-9A7525DEBE69"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeworlD/Scene/GameList/ViewModel/GameListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "fetchGameListSearchByName(searchGameName:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F78DABBF-1DFA-4D54-89D7-9A7525DEBE69 - 150570df9820b110"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NeworlD.GameListViewModel.fetchGameListSearchByName(searchGameName: Swift.String) -&gt; ()"
+                  moduleName = "NeworlD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ozturkomerfaruk/Desktop/final-project-ozturkomerfaruk/NeworlD/NeworlD/Scene/GameList/ViewModel/GameListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "F78DABBF-1DFA-4D54-89D7-9A7525DEBE69 - 8fe6c8535979973e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;NeworlD.GameModel&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in NeworlD.GameListViewModel.fetchGameListSearchByName(searchGameName: Swift.String) -&gt; ()"
+                  moduleName = "NeworlD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ozturkomerfaruk/Desktop/final-project-ozturkomerfaruk/NeworlD/NeworlD/Scene/GameList/ViewModel/GameListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
