@@ -12,6 +12,7 @@ final class GameListVC: BaseVC {
     @IBOutlet weak var gameListTableView: UITableView!
     
     private var viewModel = GameListViewModel()
+    private var lottieView = LottieView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,26 +50,32 @@ extension GameListVC {
         let sortAtoZ = UIAction(title: "Sort By Name A - Z") { [weak self] action in
             guard let self = self else { return }
             self.viewModel.sortedAtoZ()
+            self.viewModel.delegate = self
         }
         let sortZtoA = UIAction(title: "Sort By Name Z - A") { [weak self] action in
             guard let self = self else { return }
             self.viewModel.sortedZtoA()
+            self.viewModel.delegate = self
         }
         let sortNewest = UIAction(title: "Sort By Newest Release Date") { [weak self] action in
             guard let self = self else { return }
             self.viewModel.fetchGameListOrderingNewest()
+            self.viewModel.delegate = self
         }
         let sortOldest = UIAction(title: "Sort By Oldest Release Date") { [weak self] action in
             guard let self = self else { return }
             self.viewModel.fetchGameListOrderingOldest()
+            self.viewModel.delegate = self
         }
         let sortHighest = UIAction(title: "Sort By Highest Rating") { [weak self] action in
             guard let self = self else { return }
             self.viewModel.fetchGameListOrderingHighest()
+            self.viewModel.delegate = self
         }
         let sortLowest = UIAction(title: "Sort By Lowest Rating") { [weak self] action in
             guard let self = self else { return }
             self.viewModel.fetchGameListOrderingLowest()
+            self.viewModel.delegate = self
         }
         let menu = UIMenu(title: "", children: [sortAtoZ, sortZtoA, sortNewest, sortOldest, sortHighest, sortLowest])
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "filter"), primaryAction: nil, menu: menu)
@@ -80,9 +87,16 @@ extension GameListVC {
 extension GameListVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
-        let newString = text.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
-        viewModel.fetchGameListSearchByName(searchGameName: newString)
-        gameListTableView.reloadData()
+        if text.count == 1 {
+            viewModel.delegate?.preSearchText()
+        }
+        if text.count >= 3 {
+            viewModel.delegate?.postFetch()
+            let newString = text.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+            viewModel.fetchGameListSearchByName(searchGameName: newString)
+            gameListTableView.reloadData()
+        }
+        
     }
 }
 
@@ -115,10 +129,26 @@ extension GameListVC: GameListViewModelDelegate {
         gameListTableView.reloadData()
     }
     
-    //MARK: Alert Eklenecek
     func gamesFailed(error: Error) {
-        showAlert(title: "Error!", message: "\(error)", completion: {
-            
-        })
+        showAlert(title: "Error!", message: "\(error)", completion: { })
+    }
+    
+    func preFetch() {
+        lottieView = LottieView(frame: CGRect(origin: CGPointMake(self.view.center.x - 150, self.view.center.y - 150), size: CGSize(width: 300, height: 300)))
+        LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.loading.rawValue)
+        self.view.addSubview(lottieView)
+        
+    }
+    
+    func postFetch() {
+        LottieManager.shared.stopLottie()
+        self.lottieView.isHidden = true
+    }
+    
+    func preSearchText() {
+        lottieView = LottieView(frame: CGRect(origin: CGPointMake(0, 50), size: CGSize(width: self.view.frame.width, height: self.view.frame.height - 100)))
+        lottieView.backgroundColor = .black
+        LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.gameBoyAdvance.rawValue)
+        self.view.addSubview(lottieView)
     }
 }

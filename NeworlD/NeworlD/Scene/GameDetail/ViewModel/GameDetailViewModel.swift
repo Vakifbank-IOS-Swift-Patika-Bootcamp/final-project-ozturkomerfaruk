@@ -26,6 +26,8 @@ protocol GameDetailViewModelProtocol {
 protocol GameDetailViewModelDelegate: AnyObject {
     func gamesLoaded()
     func gamesFailed(error: Error)
+    func preFetch()
+    func postFetch()
 }
 
 final class GameDetailViewModel {
@@ -35,7 +37,9 @@ final class GameDetailViewModel {
     private var favourites: [FavouritesEntity]?
     
     func fetchFavourites() {
+        delegate?.preFetch()
         favourites = CoreDataManager.shared.getFavourites()
+        delegate?.postFetch()
     }
     
     func getFavourites() -> [FavouritesEntity] {
@@ -43,11 +47,13 @@ final class GameDetailViewModel {
     }
     
     func fetchGameDetail(id: Int) {
+        delegate?.preFetch()
         Client.getGameDetail(gameID: id) { [weak self] viewModelDetail, error in
             guard let self = self else { return }
             self.viewModelGame = viewModelDetail
             self.delegate?.gamesLoaded()
         }
+        delegate?.postFetch()
     }
     
     func iCorouselImagesCount(model: GameModel) ->Int {

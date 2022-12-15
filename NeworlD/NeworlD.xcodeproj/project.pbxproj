@@ -57,6 +57,16 @@
 		04DEFB2429467C510082ED02 /* AddNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEFB2329467C510082ED02 /* AddNoteVC.swift */; };
 		04DEFB26294684940082ED02 /* GameNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DEFB25294684940082ED02 /* GameNotesViewModel.swift */; };
 		04F77FEC2942048F00A311CC /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F77FEB2942048F00A311CC /* GameListViewModel.swift */; };
+		04F7D724294AEDAE00818A1A /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7D723294AEDAE00818A1A /* LottieManager.swift */; };
+		04F7D728294AEEDD00818A1A /* 111634-3d-gaming.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7D727294AEEDD00818A1A /* 111634-3d-gaming.json */; };
+		04F7D72C294AF2EB00818A1A /* 38701-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7D72B294AF2EB00818A1A /* 38701-loading.json */; };
+		04F7D72F294AF3BD00818A1A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7D72E294AF3BD00818A1A /* LottieView.swift */; };
+		04F7D731294AF3C700818A1A /* LottieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F7D730294AF3C700818A1A /* LottieView.xib */; };
+		04F7D736294AFF6900818A1A /* 10178-c-bot.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7D732294AFF6800818A1A /* 10178-c-bot.json */; };
+		04F7D737294AFF6900818A1A /* 45082-game-controller.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7D733294AFF6800818A1A /* 45082-game-controller.json */; };
+		04F7D738294AFF6900818A1A /* 13689-gameboy-color.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7D734294AFF6800818A1A /* 13689-gameboy-color.json */; };
+		04F7D739294AFF6900818A1A /* 13690-gameboy-advance.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F7D735294AFF6800818A1A /* 13690-gameboy-advance.json */; };
+		04F7D73C294B009300818A1A /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F7D73B294B009300818A1A /* LaunchScreenVC.swift */; };
 		1D9FCD39EC826148EF4556AD /* Pods_NeworlD_NeworlDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16966CD5A8654CD08B23105E /* Pods_NeworlD_NeworlDUITests.framework */; };
 		3E9C5F525E7080C47CBA3D1C /* Pods_NeworlD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7693DA54D68C363BDB8EA73B /* Pods_NeworlD.framework */; };
 		ACF3D42DE7E05B1E8ED1B186 /* Pods_NeworlDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85096C5803AF3AC925DF9976 /* Pods_NeworlDTests.framework */; };
@@ -134,6 +144,16 @@
 		04DEFB2329467C510082ED02 /* AddNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteVC.swift; sourceTree = "<group>"; };
 		04DEFB25294684940082ED02 /* GameNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameNotesViewModel.swift; sourceTree = "<group>"; };
 		04F77FEB2942048F00A311CC /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
+		04F7D723294AEDAE00818A1A /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
+		04F7D727294AEEDD00818A1A /* 111634-3d-gaming.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "111634-3d-gaming.json"; sourceTree = "<group>"; };
+		04F7D72B294AF2EB00818A1A /* 38701-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "38701-loading.json"; sourceTree = "<group>"; };
+		04F7D72E294AF3BD00818A1A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		04F7D730294AF3C700818A1A /* LottieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieView.xib; sourceTree = "<group>"; };
+		04F7D732294AFF6800818A1A /* 10178-c-bot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "10178-c-bot.json"; sourceTree = "<group>"; };
+		04F7D733294AFF6800818A1A /* 45082-game-controller.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "45082-game-controller.json"; sourceTree = "<group>"; };
+		04F7D734294AFF6800818A1A /* 13689-gameboy-color.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "13689-gameboy-color.json"; sourceTree = "<group>"; };
+		04F7D735294AFF6800818A1A /* 13690-gameboy-advance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "13690-gameboy-advance.json"; sourceTree = "<group>"; };
+		04F7D73B294B009300818A1A /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		16966CD5A8654CD08B23105E /* Pods_NeworlD_NeworlDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeworlD_NeworlDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3828B5390D1A6D6CF13CD3 /* Pods-NeworlD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeworlD.release.xcconfig"; path = "Target Support Files/Pods-NeworlD/Pods-NeworlD.release.xcconfig"; sourceTree = "<group>"; };
 		2C1B493D6ADFE7CAF4F4BC24 /* Pods-NeworlD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeworlD.debug.xcconfig"; path = "Target Support Files/Pods-NeworlD/Pods-NeworlD.debug.xcconfig"; sourceTree = "<group>"; };
@@ -269,12 +289,12 @@
 		043A7A262941AAC800936AA3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				04F7D73A294B005F00818A1A /* LaunchScreen */,
+				04F7D725294AEEC500818A1A /* Asset */,
 				04DED7B229428AA500B9CCDD /* Utils */,
 				043A79F32941AAA400936AA3 /* AppDelegate.swift */,
 				043A79F52941AAA400936AA3 /* SceneDelegate.swift */,
 				043A79F92941AAA400936AA3 /* Main.storyboard */,
-				043A79FF2941AAA500936AA3 /* Assets.xcassets */,
-				043A7A012941AAA500936AA3 /* LaunchScreen.storyboard */,
 				043A79FC2941AAA400936AA3 /* NeworlD.xcdatamodeld */,
 			);
 			path = App;
@@ -467,6 +487,7 @@
 			children = (
 				043A7AA92941CB9200936AA3 /* Constants.swift */,
 				04DED7B329428AE100B9CCDD /* Extension.swift */,
+				04F7D723294AEDAE00818A1A /* LottieManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -529,6 +550,47 @@
 				04F77FEB2942048F00A311CC /* GameListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04F7D725294AEEC500818A1A /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				043A79FF2941AAA500936AA3 /* Assets.xcassets */,
+				04F7D726294AEECB00818A1A /* Lottie */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		04F7D726294AEECB00818A1A /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				04F7D72D294AF39C00818A1A /* Component */,
+				04F7D732294AFF6800818A1A /* 10178-c-bot.json */,
+				04F7D734294AFF6800818A1A /* 13689-gameboy-color.json */,
+				04F7D735294AFF6800818A1A /* 13690-gameboy-advance.json */,
+				04F7D733294AFF6800818A1A /* 45082-game-controller.json */,
+				04F7D72B294AF2EB00818A1A /* 38701-loading.json */,
+				04F7D727294AEEDD00818A1A /* 111634-3d-gaming.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		04F7D72D294AF39C00818A1A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				04F7D72E294AF3BD00818A1A /* LottieView.swift */,
+				04F7D730294AF3C700818A1A /* LottieView.xib */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		04F7D73A294B005F00818A1A /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				043A7A012941AAA500936AA3 /* LaunchScreen.storyboard */,
+				04F7D73B294B009300818A1A /* LaunchScreenVC.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		D4C344024DE42F6D2EE8993A /* Pods */ = {
@@ -663,12 +725,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F7D72C294AF2EB00818A1A /* 38701-loading.json in Resources */,
 				042F640829424D18008FA670 /* GameCustomCell.xib in Resources */,
+				04F7D737294AFF6900818A1A /* 45082-game-controller.json in Resources */,
 				043A7A032941AAA500936AA3 /* LaunchScreen.storyboard in Resources */,
+				04F7D739294AFF6900818A1A /* 13690-gameboy-advance.json in Resources */,
+				04F7D738294AFF6900818A1A /* 13689-gameboy-color.json in Resources */,
 				043A7A002941AAA500936AA3 /* Assets.xcassets in Resources */,
 				04DCE0922944EDE90086AB20 /* RatingsCustomCell.xib in Resources */,
 				043A79FB2941AAA400936AA3 /* Main.storyboard in Resources */,
+				04F7D728294AEEDD00818A1A /* 111634-3d-gaming.json in Resources */,
+				04F7D736294AFF6900818A1A /* 10178-c-bot.json in Resources */,
 				046A29D42943D7E500DDDAF8 /* TagsCustomCell.xib in Resources */,
+				04F7D731294AF3C700818A1A /* LottieView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,12 +899,15 @@
 				047585FB294346D70083205A /* PublisherModel.swift in Sources */,
 				0465900B2948477E00DF9E51 /* GamesForNotesCustomCell.swift in Sources */,
 				043A7AA62941CAD300936AA3 /* TagsModel.swift in Sources */,
+				04F7D72F294AF3BD00818A1A /* LottieView.swift in Sources */,
+				04F7D73C294B009300818A1A /* LaunchScreenVC.swift in Sources */,
 				043A7AA02941CABB00936AA3 /* ParentPlatformsBaseModel.swift in Sources */,
 				043A7AAA2941CB9200936AA3 /* Constants.swift in Sources */,
 				0474AA782948D1BC006F9435 /* FavouriteDetailVC.swift in Sources */,
 				043A79FE2941AAA400936AA3 /* NeworlD.xcdatamodeld in Sources */,
 				043A7AA42941CACD00936AA3 /* StoresBaseModel.swift in Sources */,
 				046A29D32943D7E500DDDAF8 /* TagsCustomCell.swift in Sources */,
+				04F7D724294AEDAE00818A1A /* LottieManager.swift in Sources */,
 				049517BE2947744900225544 /* GamesForNotesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

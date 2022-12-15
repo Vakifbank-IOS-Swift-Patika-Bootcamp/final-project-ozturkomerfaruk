@@ -42,6 +42,14 @@ extension GamesForNotesVC: GamesForNotesViewModelDelegate {
     func gamesFailed(error: Error) {
         showAlert(title: "Error!", message: "\(error)", completion: { })
     }
+    
+    func preFetch() {
+        indicator.startAnimating()
+    }
+    
+    func postFetch() {
+        indicator.stopAnimating()
+    }
 }
 
 extension GamesForNotesVC: UITableViewDelegate, UITableViewDataSource {

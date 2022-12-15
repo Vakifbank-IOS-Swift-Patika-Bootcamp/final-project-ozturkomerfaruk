@@ -128,6 +128,14 @@ extension FavouriteDetailVC: FavouriteDetailViewModelDelegate {
         print("Error")
     }
     
+    func preFetch() {
+        indicator.startAnimating()
+    }
+    
+    func postFetch() {
+        indicator.stopAnimating()
+    }
+    
     private func platformNameFunc(_ name: String) -> String {
         switch name {
         case "Android":

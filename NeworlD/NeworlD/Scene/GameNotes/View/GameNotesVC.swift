@@ -45,6 +45,14 @@ extension GameNotesVC: GameNotesViewModelDelegate {
     func notesFailed(error: Error) {
         showAlert(title: "Error", message: "\(error)", completion: { })
     }
+    
+    func preFetch() {
+        indicator.startAnimating()
+    }
+    
+    func postFetch() {
+        indicator.stopAnimating()
+    }
 }
 
 extension GameNotesVC: AddNoteVCDelegate {
