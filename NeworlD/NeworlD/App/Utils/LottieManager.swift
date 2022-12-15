@@ -15,6 +15,7 @@ enum LottieNames: String {
     case gameBoy = "13689-gameboy-color"
     case gameBoyAdvance = "13690-gameboy-advance"
     case gameController = "45082-game-controller"
+    case macintosh = "13356-macintosh"
 }
 
 class LottieManager {

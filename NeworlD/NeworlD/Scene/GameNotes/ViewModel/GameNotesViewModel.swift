@@ -35,10 +35,14 @@ final class GameNotesViewModel: GameNotesViewModelProtocol {
     }
     
     func fetchGameNotes() {
-        delegate?.preFetch()
         notes = CoreDataManager.shared.getNotes()
         self.delegate?.notesLoaded()
-        delegate?.postFetch()
+        if notes?.count == 0 {
+            delegate?.preFetch()
+            print(notes!.count)
+        } else {
+            delegate?.postFetch()
+        }
     }
     
     func getGameNotes(index: Int) -> GameNoteEntity {
@@ -48,16 +52,27 @@ final class GameNotesViewModel: GameNotesViewModelProtocol {
     func appendGameNote(title: String, body: String, gameId: Int) {
         notes?.append(CoreDataManager.shared.saveNote(title: title, body: body, gameId: gameId)!)
         delegate?.notesLoaded()
+        if notes?.count != 0 {
+            delegate?.postFetch()
+        }
     }
     
     func deleteGameNote(index: Int) {
         let model = notes![index]
         notes?.remove(at: index)
         CoreDataManager.shared.deleteNote(model: model)
+        delegate?.notesLoaded()
+        if notes?.count == 0 {
+            delegate?.preFetch()
+        }
     }
     
     func updateGameNote(title: String, body: String, gameId: Int, model: GameNoteEntity) {
         CoreDataManager.shared.updateNote(title: title, body: body, gameId: gameId, model: model)
         delegate?.notesLoaded()
+    }
+    
+    func isArrayEmpty() -> Bool {
+        return notes?.count == 0 ? true : false
     }
 }

@@ -7,23 +7,34 @@
 
 import UIKit
 
-class LaunchScreenVC: UIViewController {
+class LaunchScreenVC: BaseVC {
+    
+    @IBOutlet private weak var lottieView: UIView!
+    @IBOutlet private weak var appNameLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.gameController.rawValue)
+        lottieView.backgroundColor = .black
+        
+        appNameLabel.alpha = 0
+        
+        UIView.animate(withDuration: 3) { [weak self] in
+            guard let self = self else { return }
+            self.appNameLabel.alpha = 1
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) { [weak self] in
+            guard let self = self else { return }
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else { return }
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+        }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        LottieManager.shared.stopLottie()
     }
-    */
-
 }

@@ -18,7 +18,6 @@
 		043A79FB2941AAA400936AA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043A79F92941AAA400936AA3 /* Main.storyboard */; };
 		043A79FE2941AAA400936AA3 /* NeworlD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 043A79FC2941AAA400936AA3 /* NeworlD.xcdatamodeld */; };
 		043A7A002941AAA500936AA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043A79FF2941AAA500936AA3 /* Assets.xcassets */; };
-		043A7A032941AAA500936AA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043A7A012941AAA500936AA3 /* LaunchScreen.storyboard */; };
 		043A7A0E2941AAA500936AA3 /* NeworlDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A7A0D2941AAA500936AA3 /* NeworlDTests.swift */; };
 		043A7A182941AAA500936AA3 /* NeworlDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A7A172941AAA500936AA3 /* NeworlDUITests.swift */; };
 		043A7A1A2941AAA500936AA3 /* NeworlDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A7A192941AAA500936AA3 /* NeworlDUITestsLaunchTests.swift */; };
@@ -46,6 +45,7 @@
 		047585FD29434C940083205A /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047585FC29434C940083205A /* GameDetailViewModel.swift */; };
 		048257FC2943970700E2135B /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048257FB2943970700E2135B /* RatingModel.swift */; };
 		0486CED12949FB69009499B4 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486CED02949FB69009499B4 /* BaseVC.swift */; };
+		0491DC7B294B98E300B9A5D8 /* 13356-macintosh.json in Resources */ = {isa = PBXBuildFile; fileRef = 0491DC7A294B98E300B9A5D8 /* 13356-macintosh.json */; };
 		049517BE2947744900225544 /* GamesForNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049517BD2947744900225544 /* GamesForNotesVC.swift */; };
 		049517C02947753500225544 /* GamesForNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049517BF2947753500225544 /* GamesForNotesViewModel.swift */; };
 		04DCE0912944EDE90086AB20 /* RatingsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DCE08F2944EDE90086AB20 /* RatingsCustomCell.swift */; };
@@ -102,7 +102,6 @@
 		043A79FA2941AAA400936AA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		043A79FD2941AAA400936AA3 /* NeworlD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NeworlD.xcdatamodel; sourceTree = "<group>"; };
 		043A79FF2941AAA500936AA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		043A7A022941AAA500936AA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043A7A042941AAA500936AA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043A7A092941AAA500936AA3 /* NeworlDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeworlDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		043A7A0D2941AAA500936AA3 /* NeworlDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeworlDTests.swift; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 		047585FC29434C940083205A /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
 		048257FB2943970700E2135B /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
 		0486CED02949FB69009499B4 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		0491DC7A294B98E300B9A5D8 /* 13356-macintosh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "13356-macintosh.json"; sourceTree = "<group>"; };
 		049517BD2947744900225544 /* GamesForNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesForNotesVC.swift; sourceTree = "<group>"; };
 		049517BF2947753500225544 /* GamesForNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesForNotesViewModel.swift; sourceTree = "<group>"; };
 		04DCE08F2944EDE90086AB20 /* RatingsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsCustomCell.swift; sourceTree = "<group>"; };
@@ -566,6 +566,7 @@
 			children = (
 				04F7D72D294AF39C00818A1A /* Component */,
 				04F7D732294AFF6800818A1A /* 10178-c-bot.json */,
+				0491DC7A294B98E300B9A5D8 /* 13356-macintosh.json */,
 				04F7D734294AFF6800818A1A /* 13689-gameboy-color.json */,
 				04F7D735294AFF6800818A1A /* 13690-gameboy-advance.json */,
 				04F7D733294AFF6800818A1A /* 45082-game-controller.json */,
@@ -587,7 +588,6 @@
 		04F7D73A294B005F00818A1A /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				043A7A012941AAA500936AA3 /* LaunchScreen.storyboard */,
 				04F7D73B294B009300818A1A /* LaunchScreenVC.swift */,
 			);
 			path = LaunchScreen;
@@ -728,12 +728,12 @@
 				04F7D72C294AF2EB00818A1A /* 38701-loading.json in Resources */,
 				042F640829424D18008FA670 /* GameCustomCell.xib in Resources */,
 				04F7D737294AFF6900818A1A /* 45082-game-controller.json in Resources */,
-				043A7A032941AAA500936AA3 /* LaunchScreen.storyboard in Resources */,
 				04F7D739294AFF6900818A1A /* 13690-gameboy-advance.json in Resources */,
 				04F7D738294AFF6900818A1A /* 13689-gameboy-color.json in Resources */,
 				043A7A002941AAA500936AA3 /* Assets.xcassets in Resources */,
 				04DCE0922944EDE90086AB20 /* RatingsCustomCell.xib in Resources */,
 				043A79FB2941AAA400936AA3 /* Main.storyboard in Resources */,
+				0491DC7B294B98E300B9A5D8 /* 13356-macintosh.json in Resources */,
 				04F7D728294AEEDD00818A1A /* 111634-3d-gaming.json in Resources */,
 				04F7D736294AFF6900818A1A /* 10178-c-bot.json in Resources */,
 				046A29D42943D7E500DDDAF8 /* TagsCustomCell.xib in Resources */,
@@ -951,14 +951,6 @@
 				043A79FA2941AAA400936AA3 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		043A7A012941AAA500936AA3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				043A7A022941AAA500936AA3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

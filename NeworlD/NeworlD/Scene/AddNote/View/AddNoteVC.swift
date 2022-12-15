@@ -77,7 +77,7 @@ final class AddNoteVC: BaseVC {
     
     @IBAction func searchButtonAction(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "gamesForNotes") as? GamesForNotesVC else { return }
-        vc.searchGame = gameSearchNameTextField.text
+        vc.configureTextField(text: gameSearchNameTextField.text ?? "")
         vc.delegate = self
         present(vc, animated: true)
     }
@@ -86,6 +86,7 @@ final class AddNoteVC: BaseVC {
 extension AddNoteVC: AddNoteViewModelDelegate {
     func gamesLoaded() {
         gameNameLabel.text = viewModel.getGameWithId()?.name ?? ""
+        
     }
     
     func gamesFailed(error: Error) {

@@ -50,7 +50,6 @@ final class CoreDataManager {
     
     func deleteNote(model: GameNoteEntity) {
         managedContext.delete(model)
-        
         do {
             try managedContext.save()
             print("Deleted to Core Data")

@@ -17,12 +17,17 @@ final class GamesForNotesVC: BaseVC {
     
     weak var delegate: GamesForNotesDelegate?
     private var viewModel = GamesForNotesViewModel()
-    var searchGame: String?
+    private var searchGame: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureGameForNotesVC()
+    }
+    
+    func configureTextField(text: String) {
+        let newString = text.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+        searchGame = newString
     }
     
     func configureGameForNotesVC() {

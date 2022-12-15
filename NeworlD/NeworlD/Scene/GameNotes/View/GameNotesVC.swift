@@ -13,6 +13,9 @@ final class GameNotesVC: BaseVC {
     
     @IBOutlet private weak var addNoteOutlet: UIButton!
     @IBOutlet private weak var notesTableView: UITableView!
+    @IBOutlet private weak var titleName: UILabel!
+    
+    private var lottieView = LottieView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,50 +24,21 @@ final class GameNotesVC: BaseVC {
     }
     
     private func configure() {
-        viewModel.fetchGameNotes()
         notesTableView.delegate = self
         notesTableView.dataSource = self
         viewModel.delegate = self
+        viewModel.fetchGameNotes()
         
         addNoteOutlet.layer.cornerRadius = addNoteOutlet.frame.height / 2
         notesTableView.backgroundColor = .clear
+        
+        
     }
 
     @IBAction func addNoteAction(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "addNoteVC") as? AddNoteVC else { return }
         vc.delegate = self
         present(vc, animated: true, completion: nil)
-    }
-}
-
-extension GameNotesVC: GameNotesViewModelDelegate {
-    func notesLoaded() {
-        notesTableView.reloadData()
-    }
-    
-    func notesFailed(error: Error) {
-        showAlert(title: "Error", message: "\(error)", completion: { })
-    }
-    
-    func preFetch() {
-        indicator.startAnimating()
-    }
-    
-    func postFetch() {
-        indicator.stopAnimating()
-    }
-}
-
-extension GameNotesVC: AddNoteVCDelegate {
-    func saveCoreData(title: String, body: String, gameId: Int) {
-        showAlert(title: "Successful!", message: "\(title) \n message saved successfuly") { [weak self] in
-            guard let self = self else { return }
-            self.viewModel.appendGameNote(title: title, body: body, gameId: gameId)
-        }
-    }
-    
-    func updateCoreData(title: String, body: String, gameId: Int, model: GameNoteEntity) {
-        viewModel.updateGameNote(title: title, body: body, gameId: gameId, model: model)
     }
 }
 
@@ -81,11 +55,10 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        showAlertWithCancel(title: "Warning!", message: "Do you really want to delete?") { [weak self] buttonIndex in
-            guard let self = self else { return }
+        showAlertWithCancel(title: "Warning!", message: "Do you really want to delete?") { buttonIndex in
             if buttonIndex == 0 {
                 self.viewModel.deleteGameNote(index: indexPath.row)
-                return tableView.deleteRows(at: [indexPath], with: .fade)
+                return tableView.deleteRows(at: [], with: .fade)
             } else {
                 return
             }
@@ -98,10 +71,55 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
         vc.delegate = self
         vc.gameNote = viewModel.getGameNotes(index: indexPath.row)
         vc.gameId = Int(viewModel.getGameNotes(index: indexPath.row).gameId)
+        vc.modalPresentationStyle = .pageSheet
         present(vc, animated: true, completion: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+}
+
+extension GameNotesVC: AddNoteVCDelegate {
+    func saveCoreData(title: String, body: String, gameId: Int) {
+        showAlert(title: "Successful!", message: "\(title) \n message saved successfuly") { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.appendGameNote(title: title, body: body, gameId: gameId)
+        }
+    }
+    
+    func updateCoreData(title: String, body: String, gameId: Int, model: GameNoteEntity) {
+        showAlert(title: "Successful!", message: "\(title) \n message updated successfuly") { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.updateGameNote(title: title, body: body, gameId: gameId, model: model)
+        }
+        
+    }
+}
+
+extension GameNotesVC: GameNotesViewModelDelegate {
+    func notesLoaded() {
+        notesTableView.reloadData()
+        titleName.text = viewModel.isArrayEmpty() ? "You don't have any notes" : "Notes"
+        if viewModel.isArrayEmpty() {
+            titleName.textAlignment = viewModel.isArrayEmpty() ? .center : .left
+        }
+    }
+    
+    func notesFailed(error: Error) {
+        showAlert(title: "Error", message: "\(error)", completion: { })
+    }
+    
+    func preFetch() {
+        lottieView = LottieView(frame: CGRect(origin: CGPointMake(0, 200), size: CGSize(width: self.view.frame.width, height: 400)))
+        lottieView.backgroundColor = .black
+        LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.macintosh.rawValue)
+        self.view.addSubview(lottieView)
+    }
+    
+    func postFetch() {
+        LottieManager.shared.stopLottie()
+        self.lottieView.isHidden = true
     }
 }
