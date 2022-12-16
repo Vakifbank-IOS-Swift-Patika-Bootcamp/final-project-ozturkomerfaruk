@@ -122,6 +122,7 @@ extension GameListVC: GameListViewModelDelegate {
         gameListTableView.reloadData()
         LottieManager.shared.stopLottie()
         stopLottie()
+        lottieView.isHidden = true
     }
     
     func gamesFailed(error: Error) {
