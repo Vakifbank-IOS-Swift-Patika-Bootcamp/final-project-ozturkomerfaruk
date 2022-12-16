@@ -32,7 +32,7 @@ final class GameNotesVC: BaseVC {
         addNoteOutlet.layer.cornerRadius = addNoteOutlet.frame.height / 2
         notesTableView.backgroundColor = .clear
         
-        
+        titleName.text = "notes".localized()
     }
 
     @IBAction func addNoteAction(_ sender: Any) {
@@ -55,7 +55,7 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        showAlertWithCancel(title: "Warning!", message: "Do you really want to delete?") { buttonIndex in
+        showAlertWithCancel(title: "warning".localized(), message: "deletedNote".localized()) { buttonIndex in
             if buttonIndex == 0 {
                 self.viewModel.deleteGameNote(index: indexPath.row)
                 return tableView.deleteRows(at: [], with: .fade)
@@ -83,14 +83,14 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
 
 extension GameNotesVC: AddNoteVCDelegate {
     func saveCoreData(title: String, body: String, gameId: Int) {
-        showAlert(title: "Successful!", message: "\(title) \n message saved successfuly") { [weak self] in
+        showAlert(title: "successful".localized(), message: "\(title) \n " + "notedSaved".localized()) { [weak self] in
             guard let self = self else { return }
             self.viewModel.appendGameNote(title: title, body: body, gameId: gameId)
         }
     }
     
     func updateCoreData(title: String, body: String, gameId: Int, model: GameNoteEntity) {
-        showAlert(title: "Successful!", message: "\(title) \n message updated successfuly") { [weak self] in
+        showAlert(title: "successful".localized(), message: "\(title) \n" + "notedUpdated".localized()) { [weak self] in
             guard let self = self else { return }
             self.viewModel.updateGameNote(title: title, body: body, gameId: gameId, model: model)
         }
@@ -101,14 +101,14 @@ extension GameNotesVC: AddNoteVCDelegate {
 extension GameNotesVC: GameNotesViewModelDelegate {
     func notesLoaded() {
         notesTableView.reloadData()
-        titleName.text = viewModel.isArrayEmpty() ? "You don't have any notes" : "Notes"
+        titleName.text = viewModel.isArrayEmpty() ? "anyNotes".localized() : "notes".localized()
         if viewModel.isArrayEmpty() {
             titleName.textAlignment = viewModel.isArrayEmpty() ? .center : .left
         }
     }
     
     func notesFailed(error: Error) {
-        showAlert(title: "Error", message: "\(error)", completion: { })
+        showAlert(title: "error".localized(), message: "\(error)", completion: { })
     }
     
     func preFetch() {

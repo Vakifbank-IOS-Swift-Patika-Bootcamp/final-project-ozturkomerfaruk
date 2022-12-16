@@ -152,13 +152,16 @@ final class GameListViewModel: GameListViewModelProtocol {
             delegate?.preSearchText()
         } else {
             delegate?.gamesLoaded()
-            Client.getGameListBySearch(searchGameName: searchGameName) { [weak self] games, error in
-                guard let self = self else { return }
-                if let error = error {
-                    self.delegate?.gamesFailed(error: error)
+            delegate?.preFetch()
+            DispatchQueue.main.async {
+                Client.getGameListBySearch(searchGameName: searchGameName) { [weak self] games, error in
+                    guard let self = self else { return }
+                    if let error = error {
+                        self.delegate?.gamesFailed(error: error)
+                    }
+                    self.games = games
+                    self.delegate?.gamesLoaded()
                 }
-                self.games = games
-                self.delegate?.gamesLoaded()
             }
             
         }

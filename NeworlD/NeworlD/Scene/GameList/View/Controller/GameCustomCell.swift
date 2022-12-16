@@ -17,7 +17,7 @@ final class GameCustomCell: UITableViewCell {
     @IBOutlet private weak var xboxIcon: UIImageView!
     @IBOutlet private weak var webIcon: UIImageView!
     @IBOutlet private weak var nintendoIcon: UIImageView!
-    
+    private var iconImageViews: [UIImageView] = []
     
     @IBOutlet private weak var gameImageView: UIImageView!
     @IBOutlet private weak var gameName: UILabel!
@@ -25,7 +25,9 @@ final class GameCustomCell: UITableViewCell {
     @IBOutlet private weak var gameRating: UILabel!
     @IBOutlet private weak var gameGenres: UILabel!
     
-    private var iconImageViews: [UIImageView] = []
+    
+    @IBOutlet private weak var releaseLabel: UILabel!
+    @IBOutlet private weak var genreLabel: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -116,6 +118,9 @@ final class GameCustomCell: UITableViewCell {
         gameRating.text = String(model.rating)
         
         gameImageView.load(url: URL(string: model.backgroundImage) ?? URL(string: Constants.OPPSImageURL)!)
+        
+        releaseLabel.text = "releaseDate".localized()
+        genreLabel.text = "genres".localized()
     }
     
     private func platformNameFunc(_ name: String) -> String {

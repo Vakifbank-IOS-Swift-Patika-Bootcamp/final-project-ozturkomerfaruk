@@ -20,28 +20,28 @@ class NotificationManager {
     }
     
     @objc private func appMovedToBackground() {
-           let center = UNUserNotificationCenter.current()
-           center.requestAuthorization(options: [.sound, .alert, .badge]) { granted, error in
-               if error == nil {
-                   print("User permisson is granted: \(granted)")
-               }
-           }
-           
-           let content = UNMutableNotificationContent()
-           content.title = "Stop, Don't leave"
-           content.body = "we're going to cut a watermelon now don't go anywhere"
-           
-           let date = Date().addingTimeInterval(5)
-           let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-           
-           let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
-           
-           let uuid = UUID().uuidString
-           let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
-           
-           center.add(request) {
-               error in
-               print("\(request)")
-           }
-       }
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.sound, .alert, .badge]) { granted, error in
+            if error == nil {
+                print("User permisson is granted: \(granted)")
+            }
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = "stopDontLeave".localized()
+        content.body = "cutWatermelon".localized()
+        
+        let date = Date().addingTimeInterval(3)
+        let dateComponent = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
+        
+        let uuid = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuid, content: content, trigger: trigger)
+        
+        center.add(request) {
+            error in
+            print("\(request)")
+        }
+    }
 }

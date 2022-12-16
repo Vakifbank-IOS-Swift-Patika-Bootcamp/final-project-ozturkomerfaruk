@@ -11,8 +11,7 @@ protocol FavouriteCustomCellDelegate: AnyObject {
     func deleteFavourite(index: Int)
 }
 
-class FavouriteCustomCell: UICollectionViewCell {
-    
+final class FavouriteCustomCell: UICollectionViewCell {
     weak var delegate: FavouriteCustomCellDelegate?
     
     @IBOutlet private weak var imageView: UIImageView!
