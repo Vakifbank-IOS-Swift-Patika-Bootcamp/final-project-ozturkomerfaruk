@@ -25,11 +25,26 @@ class LaunchScreenVC: BaseVC {
             self.appNameLabel.alpha = 1
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) { [weak self] in
-            guard let self = self else { return }
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else { return }
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true)
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if !LaunchOnboardingManager.shared.isNewUser() {
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) { [weak self] in
+                guard let self = self else { return }
+                guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else { return }
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) { [weak self] in
+                guard let self = self else { return }
+                guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "onboardingVC") as? UIViewController else { return }
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
         }
     }
 
