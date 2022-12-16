@@ -125,7 +125,7 @@ extension GameListVC: GameListViewModelDelegate {
     }
     
     func gamesFailed(error: Error) {
-        showAlert(title: "Error!", message: "\(error)", completion: { })
+        print("\(error)")
     }
     
     func preFetch() {

@@ -18,15 +18,19 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
 
         if Constants.API_KEY == "##API_KEY##" {
-            showAlert(title: "Create an API Key!", message: "The application will be closed because you do not have the API Key. Please create a Key.", completion: { exit(0) })
+            showAlert(title: "Create an API Key!", message: "The application will be closed because you don't have the API Key. Please create a Key.", completion: { exit(0) })
         }
         
+        
+        configureBaseVC()
+        setupActivityIndicatorView()
+    }
+    
+     private func configureBaseVC() {
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         let statusBarColor = UIColor.black
         statusBarView.backgroundColor = statusBarColor
         view.addSubview(statusBarView)
-        
-        setupActivityIndicatorView()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

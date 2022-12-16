@@ -77,7 +77,10 @@ final class GameDetailVC: BaseVC {
         } else {
             isFavourite = true
             CoreDataManager.shared.saveFavourite(gameId: model!.id)
-            tabBarController?.selectedIndex = 1
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "favouriteListVC") as? FavouriteListVC else { return }
+            navigationController?.popToRootViewController(animated: true)
+            navigationController?.pushViewController(vc, animated: true)
+            
         }
         favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
     }

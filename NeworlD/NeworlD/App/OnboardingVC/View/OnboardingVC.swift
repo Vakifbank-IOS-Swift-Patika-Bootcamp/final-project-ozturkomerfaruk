@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class OnboardingVC: UIViewController {
+final class OnboardingVC: BaseVC {
     
     @IBOutlet private weak var btnNext: UIButton!
     @IBOutlet private weak var pageControl: UIPageControl!

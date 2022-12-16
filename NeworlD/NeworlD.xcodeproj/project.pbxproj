@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040B3D1A294C9967009AA592 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B3D19294C9967009AA592 /* NotificationManager.swift */; };
 		042F640729424D18008FA670 /* GameCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F640529424D18008FA670 /* GameCustomCell.swift */; };
 		042F640829424D18008FA670 /* GameCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042F640629424D18008FA670 /* GameCustomCell.xib */; };
 		04358B1B2948825600E96399 /* FavouriteListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04358B1A2948825600E96399 /* FavouriteListVC.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040B3D19294C9967009AA592 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		042F640529424D18008FA670 /* GameCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCustomCell.swift; sourceTree = "<group>"; };
 		042F640629424D18008FA670 /* GameCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCustomCell.xib; sourceTree = "<group>"; };
 		04358B1A2948825600E96399 /* FavouriteListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListVC.swift; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				043A7AA92941CB9200936AA3 /* Constants.swift */,
 				04DED7B329428AE100B9CCDD /* Extension.swift */,
 				04F7D723294AEDAE00818A1A /* LottieManager.swift */,
+				040B3D19294C9967009AA592 /* NotificationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				04DEFB2429467C510082ED02 /* AddNoteVC.swift in Sources */,
 				047585F9294344DC0083205A /* GameDetailModel.swift in Sources */,
 				043A7AA22941CAC500936AA3 /* ShortScreenshotsModel.swift in Sources */,
+				040B3D1A294C9967009AA592 /* NotificationManager.swift in Sources */,
 				043A79F62941AAA400936AA3 /* SceneDelegate.swift in Sources */,
 				04DED7B429428AE100B9CCDD /* Extension.swift in Sources */,
 				04DCE0912944EDE90086AB20 /* RatingsCustomCell.swift in Sources */,

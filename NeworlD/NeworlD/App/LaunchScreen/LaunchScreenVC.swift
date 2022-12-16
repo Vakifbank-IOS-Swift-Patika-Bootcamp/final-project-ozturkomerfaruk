@@ -15,6 +15,11 @@ class LaunchScreenVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureLaunchScreen()
+        NotificationManager.shared.addLocalNotification()
+    }
+    
+    private func configureLaunchScreen() {
         LottieManager.shared.playLottie(view: lottieView, lottieName: LottieNames.gameController.rawValue)
         lottieView.backgroundColor = .black
         
@@ -24,8 +29,6 @@ class LaunchScreenVC: BaseVC {
             guard let self = self else { return }
             self.appNameLabel.alpha = 1
         }
-        
-        
     }
     
     override func viewDidLayoutSubviews() {
