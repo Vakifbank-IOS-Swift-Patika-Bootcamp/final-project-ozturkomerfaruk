@@ -169,9 +169,11 @@
                 <outlet property="gameName" destination="w8A-08-1CQ" id="cyS-ES-Pxx"/>
                 <outlet property="gameRating" destination="fdA-BI-3vM" id="2mO-nb-C7y"/>
                 <outlet property="gameReleaseDate" destination="hrR-Qr-M5I" id="f9K-MN-Lej"/>
+                <outlet property="genreLabel" destination="ctg-uD-gUO" id="VHL-1F-p7I"/>
                 <outlet property="linuxIcon" destination="O2c-tw-e0g" id="mbt-ix-6cv"/>
                 <outlet property="nintendoIcon" destination="oY6-4u-iaq" id="JhJ-P8-xO1"/>
                 <outlet property="psIcon" destination="cqh-KE-Heg" id="Kld-TL-Hul"/>
+                <outlet property="releaseLabel" destination="yO0-hn-yTa" id="ik6-Pl-6MX"/>
                 <outlet property="webIcon" destination="0cI-KG-t3J" id="DdQ-Ng-WlR"/>
                 <outlet property="windowsIcon" destination="I7P-bQ-GQh" id="TT2-3c-49p"/>
                 <outlet property="xboxIcon" destination="8We-ja-ro4" id="vqA-vV-gaV"/>

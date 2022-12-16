@@ -13,16 +13,14 @@ final class OnboardingVC: BaseVC {
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    
-    
     private var viewModel = OnboardingViewModel()
     private var currentPage = 0 {
         didSet{
             pageControl.currentPage = currentPage
             if currentPage == viewModel.countSlide() - 1 {
-                btnNext.setTitle("Play Time 🎮", for: .normal)
+                btnNext.setTitle("gameTime".localized(), for: .normal)
             } else {
-                btnNext.setTitle("Next 👾", for: .normal)
+                btnNext.setTitle("next".localized(), for: .normal)
             }
         }
     }
@@ -37,10 +35,11 @@ final class OnboardingVC: BaseVC {
         collectionView.delegate = self
         collectionView.dataSource = self
         btnNext.layer.cornerRadius = btnNext.frame.height / 2
- 
-        viewModel.appendSlide(model: OnboardingModel(title: "Neworld GameS", description: "There are millions of game content.", lottieViewStr: LottieNames.games.rawValue))
-        viewModel.appendSlide(model: OnboardingModel(title: "Favourites", description: "You can add games to favourite view.", lottieViewStr: LottieNames.favourites.rawValue))
-        viewModel.appendSlide(model: OnboardingModel(title: "Notes", description: "You can add and update special notes for each game.", lottieViewStr: LottieNames.notes.rawValue))
+        btnNext.setTitle("next".localized(), for: .normal)
+        
+        viewModel.appendSlide(model: OnboardingModel(title: "Neworld GameS", description: "onboardingModel1".localized(), lottieViewStr: LottieNames.games.rawValue))
+        viewModel.appendSlide(model: OnboardingModel(title: "favourites".localized(), description: "onboardingModel2".localized(), lottieViewStr: LottieNames.favourites.rawValue))
+        viewModel.appendSlide(model: OnboardingModel(title: "notes".localized(), description: "onboardingModel3".localized(), lottieViewStr: LottieNames.notes.rawValue))
         pageControl.numberOfPages = viewModel.countSlide()
     }
     

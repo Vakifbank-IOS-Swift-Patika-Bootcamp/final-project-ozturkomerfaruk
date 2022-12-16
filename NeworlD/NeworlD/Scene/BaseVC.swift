@@ -18,7 +18,7 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
 
         if Constants.API_KEY == "##API_KEY##" {
-            showAlert(title: "Create an API Key!", message: "The application will be closed because you don't have the API Key. Please create a Key.", completion: { exit(0) })
+            showAlert(title: "createAPI".localized(), message: "APIWarning".localized(), completion: { exit(0) })
         }
         
         
@@ -38,14 +38,14 @@ class BaseVC: UIViewController {
     }
     
     func showAlert(title: String, message: String, completion: @escaping () -> Void) {
-        SwiftAlertView.show(title: title, message: message, buttonTitles: ["Ok"]).onButtonClicked {
+        SwiftAlertView.show(title: title, message: message, buttonTitles: ["ok".localized()]).onButtonClicked {
             _, _ in
             completion()
         }
     }
     
     func showAlertWithCancel(title: String, message: String, completion: @escaping ( _ buttonIndex: Int) -> Void) {
-        SwiftAlertView.show(title: title, message: message, buttonTitles: ["Ok", "Cancel"]).onButtonClicked {
+        SwiftAlertView.show(title: title, message: message, buttonTitles: ["ok".localized(), "cancel".localized()]).onButtonClicked {
             _, buttonIndex in
             completion(buttonIndex)
         }

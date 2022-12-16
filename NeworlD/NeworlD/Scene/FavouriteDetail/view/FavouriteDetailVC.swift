@@ -22,6 +22,7 @@ final class FavouriteDetailVC: BaseVC {
     @IBOutlet private weak var lblUserReviews: UILabel!
     @IBOutlet private weak var btnFavouriteOutler: UIButton!
     
+    
     private var iconImageViews: [UIImageView] = []
     @IBOutlet private weak var androidIcon: UIImageView!
     @IBOutlet private weak var appleIcon: UIImageView!
@@ -64,10 +65,11 @@ final class FavouriteDetailVC: BaseVC {
         viewModel.fetchFavourites()
         
         imgGame.layer.cornerRadius = 10
+        btnFavouriteOutler.setTitle("removeFromFavourites".localized(), for: .normal)
     }
     
     @IBAction func removeFromFavouritesButtonAction(_ sender: Any) {
-        showAlertWithCancel(title: "Warning!", message: "Really remove this game from your favourites?") { [weak self] buttonIndex in
+        showAlertWithCancel(title: "warning".localized(), message: "removingFavourites".localized()) { [weak self] buttonIndex in
             guard let self = self else { return }
             if buttonIndex == 0 {
                 for (i, fav) in self.viewModel.getFavourites().enumerated() {

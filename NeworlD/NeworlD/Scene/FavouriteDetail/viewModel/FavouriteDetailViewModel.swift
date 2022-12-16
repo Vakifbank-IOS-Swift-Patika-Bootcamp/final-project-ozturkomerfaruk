@@ -80,7 +80,7 @@ final class FavouriteDetailViewModel: FavouriteDetailViewModelProtocol {
     func getLblUserReviews() -> String? {
         let rating = model?.ratings.first
         
-        return "\(rating?.title.capitalized ?? "") | \(rating?.count ?? -1) User Reviews"
+        return "\(rating?.title.capitalized ?? "") | \(rating?.count ?? -1) " + "userReviews".localized()
     }
     
     func getParentPlatform() -> [ParentPlatformsBaseModel] {

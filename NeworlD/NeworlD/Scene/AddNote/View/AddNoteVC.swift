@@ -24,7 +24,8 @@ final class AddNoteVC: BaseVC {
     @IBOutlet private weak var cancelButtonOutlet: UIButton!
     @IBOutlet private weak var gameSearchNameTextField: UITextField!
     @IBOutlet private weak var gameNameLabel: UILabel!
-
+    @IBOutlet private weak var searchAGameLabel: UILabel!
+    
     private var viewModel = AddNoteViewModel()
     
     override func viewDidLoad() {
@@ -39,20 +40,24 @@ final class AddNoteVC: BaseVC {
         saveOutlet.layer.cornerRadius = saveOutlet.frame.height / 3
         bodyTextView.textContainerInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
         titleTextField.changeColorPlaceholder(tf: titleTextField, string: "...", color: .lightText)
-        titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "type..", color: .lightText)
+        titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "type".localized(), color: .lightText)
+        cancelButtonOutlet.setTitle("cancel".localized(), for: .normal)
+        saveOutlet.setTitle("save".localized(), for: .normal)
+        gameNameLabel.text = "selectGame".localized()
+        searchAGameLabel.text = "searchAGame".localized()
         
         if gameNote != nil {
             titleTextField.text = gameNote?.title
             bodyTextView.text = gameNote?.body
             viewModel.fetchGamesWithId(id: Int(gameNote!.gameId))
-            saveOutlet.setTitle("Update", for: .normal)
+            saveOutlet.setTitle("update".localized(), for: .normal)
         }
         
         viewModel.delegate = self
     }
 
     @IBAction func cancelAction(_ sender: Any) {
-        showAlertWithCancel(title: "Warning!", message: "It will be canceled") { [weak self] buttonIndex in
+        showAlertWithCancel(title: "warning".localized(), message: "cancelled".localized()) { [weak self] buttonIndex in
             guard let self = self else { return }
             if buttonIndex == 0 {
                 self.dismiss(animated: true)
@@ -62,7 +67,7 @@ final class AddNoteVC: BaseVC {
     
     @IBAction func saveAction(_ sender: Any) {
         if gameId == nil || titleTextField.text!.isEmpty || bodyTextView.text!.isEmpty {
-            showAlert(title: "Warning!", message: "Please complete all required fields!", completion: { })
+            showAlert(title: "warning".localized(), message: "filledAllRequest".localized(), completion: { })
         } else {
             if gameNote != nil {
                 delegate?.updateCoreData(title: titleTextField.text!, body: bodyTextView.text!, gameId: gameId ?? -1, model: gameNote!)
@@ -90,7 +95,7 @@ extension AddNoteVC: AddNoteViewModelDelegate {
     }
     
     func gamesFailed(error: Error) {
-        showAlert(title: "Error!", message: "\(error)", completion: { })
+        showAlert(title: "error", message: "\(error)", completion: { })
     }
     
     func preFetch() {

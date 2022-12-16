@@ -23,6 +23,7 @@ extension UIImageView {
 }
 
 //MARK: Date Format
+//MARK: Localization
 extension String {
     func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
         let inputFormatter = DateFormatter()
@@ -34,6 +35,14 @@ extension String {
             return outputFormatter.string(from: date)
         }
         return nil
+    }
+    
+    func localized() -> String {
+        return NSLocalizedString(self,
+                                 tableName: "Localizable",
+                                 bundle: .main,
+                                 value: self,
+                                 comment: self)
     }
 }
 

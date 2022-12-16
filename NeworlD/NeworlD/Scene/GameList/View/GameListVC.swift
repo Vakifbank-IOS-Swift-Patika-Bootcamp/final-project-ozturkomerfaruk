@@ -29,12 +29,12 @@ extension GameListVC {
         
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.tintColor = .white
-        self.title = "Game List"
+        self.title = "gameList".localized()
         
         //MARK: SearchController
         let search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
-        search.searchBar.placeholder = "Search game by name"
+        search.searchBar.placeholder = "searchByName".localized()
         navigationItem.searchController = search
     }
     
@@ -47,37 +47,37 @@ extension GameListVC {
     }
     
     private func sortDeclaration() {
-        let sortAtoZ = UIAction(title: "Sort By Name A - Z") { [weak self] action in
+        let sortAtoZ = UIAction(title: "sortAZ".localized()) { [weak self] action in
             guard let self = self else { return }
             self.viewModel.sortedAtoZ()
             self.viewModel.delegate = self
         }
-        let sortZtoA = UIAction(title: "Sort By Name Z - A") { [weak self] action in
+        let sortZtoA = UIAction(title: "sortZA".localized()) { [weak self] action in
             guard let self = self else { return }
             self.viewModel.sortedZtoA()
             self.viewModel.delegate = self
         }
-        let sortNewest = UIAction(title: "Sort By Newest Release Date") { [weak self] action in
+        let sortNewest = UIAction(title: "sortNewest".localized()) { [weak self] action in
             guard let self = self else { return }
             self.viewModel.fetchGameListOrderingNewest()
             self.viewModel.delegate = self
         }
-        let sortOldest = UIAction(title: "Sort By Oldest Release Date") { [weak self] action in
+        let sortOldest = UIAction(title: "sortOldest".localized()) { [weak self] action in
             guard let self = self else { return }
             self.viewModel.fetchGameListOrderingOldest()
             self.viewModel.delegate = self
         }
-        let sortHighest = UIAction(title: "Sort By Highest Rating") { [weak self] action in
+        let sortHighest = UIAction(title: "sortHighest".localized()) { [weak self] action in
             guard let self = self else { return }
             self.viewModel.fetchGameListOrderingHighest()
             self.viewModel.delegate = self
         }
-        let sortLowest = UIAction(title: "Sort By Lowest Rating") { [weak self] action in
+        let sortLowest = UIAction(title: "sortLowest".localized()) { [weak self] action in
             guard let self = self else { return }
             self.viewModel.fetchGameListOrderingLowest()
             self.viewModel.delegate = self
         }
-        let menu = UIMenu(title: "", children: [sortAtoZ, sortZtoA, sortNewest, sortOldest, sortHighest, sortLowest])
+        let menu = UIMenu(title: "filterMenu".localized(), children: [sortAtoZ, sortZtoA, sortNewest, sortOldest, sortHighest, sortLowest])
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, image: UIImage(named: "filter"), primaryAction: nil, menu: menu)
     }
     

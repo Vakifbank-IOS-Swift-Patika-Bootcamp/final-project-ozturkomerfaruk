@@ -13,13 +13,18 @@ final class GameDetailVC: BaseVC {
     @IBOutlet private weak var tagsTableView: UITableView!
     @IBOutlet private weak var ratingsTableView: UITableView!
     
-    @IBOutlet private weak var descriptionRaw: UILabel!
+    @IBOutlet private weak var descriptionRaw: UITextView!
     @IBOutlet private weak var gameName: UILabel!
     @IBOutlet private weak var gamePublisher: UILabel!
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var oppsImage: UIImageView!
     
     @IBOutlet private weak var favouriteOutletButton: UIButton!
+    
+    
+    @IBOutlet private weak var tagLabel: UILabel!
+    @IBOutlet private weak var aboutGameLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
     
     private var isFavourite = false
     
@@ -59,7 +64,7 @@ final class GameDetailVC: BaseVC {
     
     @IBAction func favouriteActionButton(_ sender: Any) {
         if isFavourite {
-            showAlertWithCancel(title: "Warning!", message: "Are you sure you want to remove from the favourites?", completion: { [weak self] buttonIndex in
+            showAlertWithCancel(title: "warning".localized(), message: "removingFavourites".localized(), completion: { [weak self] buttonIndex in
                 guard let self = self else { return }
                 if buttonIndex == 0 {
                     for i in self.viewModel.getFavourites() {
@@ -89,7 +94,7 @@ final class GameDetailVC: BaseVC {
 extension GameDetailVC {
     private func configureGameDetailVC() {
         setConfigureTableView()
-        
+        descriptionRaw.isEditable = false
         favouriteOutletButton.layer.cornerRadius = favouriteOutletButton.frame.height / 2
         
         view.addSubview(myCarousel)
@@ -99,7 +104,11 @@ extension GameDetailVC {
         myCarousel.type = .rotary
         myCarousel.autoscroll = -0.3
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Game Website", style: .plain, target: self, action: #selector(goToWebsite))
+        tagLabel.text = "tags".localized()
+        aboutGameLabel.text = "aboutGame".localized()
+        ratingLabel.text = "rating".localized()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "gameWebsite".localized(), style: .plain, target: self, action: #selector(goToWebsite))
         navigationItem.rightBarButtonItem?.tintColor = .white
         
         navigationController?.navigationBar.barStyle = UIBarStyle.black
@@ -134,7 +143,6 @@ extension GameDetailVC {
         ratingsTableView.dataSource = self
         ratingsTableView.register(UINib(nibName: "RatingsCustomCell", bundle: nil), forCellReuseIdentifier: "ratingsCustomCell")
         
-        //Boş olduğu zaman tableview boşa yer kaplamaması için hidden yaptım.
         if model?.tags.count == 0 {
             tagsTableView.isHidden = true
         }
@@ -201,7 +209,7 @@ extension GameDetailVC: GameDetailViewModelDelegate {
     }
     
     func gamesFailed(error: Error) {
-        showAlert(title: "Error", message: "\(error)", completion: { })
+        showAlert(title: "error".localized(), message: "\(error)", completion: { })
     }
     
     func preFetch() {

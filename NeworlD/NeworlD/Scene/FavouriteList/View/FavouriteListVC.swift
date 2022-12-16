@@ -10,7 +10,6 @@ import UIKit
 final class FavouriteListVC: BaseVC {
     
     @IBOutlet private weak var favouritesCollectionView: UICollectionView!
-    
     @IBOutlet private weak var titleLabel: UILabel!
     
     private var viewModel = FavouriteListViewModel()
@@ -66,14 +65,14 @@ extension FavouriteListVC: UICollectionViewDelegate, UICollectionViewDataSource 
 extension FavouriteListVC: FavouriteListDelegate {
     func favouritesLoaded() {
         favouritesCollectionView.reloadData()
-        titleLabel.text = viewModel.isArrayEmpty() ? "You don't have any favourite Games" : "Favourites"
+        titleLabel.text = viewModel.isArrayEmpty() ? "anyFavourite".localized() : "favourites".localized()
         if viewModel.isArrayEmpty() {
             titleLabel.textAlignment = viewModel.isArrayEmpty() ? .center : .left
         }
     }
     
     func favouritesFailed(error: Error) {
-        showAlert(title: "Error!", message: "\(error)", completion: { })
+        showAlert(title: "error".localized(), message: "\(error)", completion: { })
     }
     
     func preFetch() {
