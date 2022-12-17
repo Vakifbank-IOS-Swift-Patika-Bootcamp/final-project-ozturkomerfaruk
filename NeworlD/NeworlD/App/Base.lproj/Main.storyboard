@@ -67,14 +67,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHA-dL-Jw8">
                                                 <rect key="frame" x="0.0" y="0.0" width="379" height="200"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Counter Strike Global Offensive" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvf-0k-pj0">
-                                                        <rect key="frame" x="12" y="12" width="355" height="81.666666666666671"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qvf-0k-pj0">
+                                                        <rect key="frame" x="12" y="12" width="355" height="0.0"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Valve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvL-gr-0NE">
-                                                        <rect key="frame" x="12" y="99.666666666666686" width="355" height="33.666666666666657"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvL-gr-0NE">
+                                                        <rect key="frame" x="12" y="18" width="355" height="0.0"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -89,14 +89,18 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukI-EU-ml6">
-                                                        <rect key="frame" x="316.33333333333331" y="144" width="50.666666666666686" height="50"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <rect key="frame" x="296" y="124" width="70" height="70"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="amw-uM-gnp"/>
+                                                            <constraint firstAttribute="width" constant="70" id="20F-5j-lkH"/>
+                                                            <constraint firstAttribute="height" constant="70" id="amw-uM-gnp"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                         <color key="tintColor" systemColor="systemRedColor"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title=""/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="">
+                                                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="favouriteActionButton:" destination="ST6-Lf-Y1D" eventType="touchUpInside" id="d5V-UW-fZy"/>
                                                         </connections>
@@ -108,7 +112,7 @@
                                                     <constraint firstItem="VCe-v9-0MF" firstAttribute="trailing" secondItem="hvL-gr-0NE" secondAttribute="trailing" constant="12" id="0GM-2c-ezX"/>
                                                     <constraint firstItem="FtF-fS-M0W" firstAttribute="leading" secondItem="VCe-v9-0MF" secondAttribute="leading" constant="12" id="0uZ-W7-7QF"/>
                                                     <constraint firstItem="hvL-gr-0NE" firstAttribute="leading" secondItem="VCe-v9-0MF" secondAttribute="leading" constant="12" id="7Ks-ih-L6y"/>
-                                                    <constraint firstItem="ukI-EU-ml6" firstAttribute="leading" secondItem="FtF-fS-M0W" secondAttribute="trailing" constant="184.33333333333331" id="GnP-aB-gJk"/>
+                                                    <constraint firstItem="ukI-EU-ml6" firstAttribute="leading" secondItem="FtF-fS-M0W" secondAttribute="trailing" constant="164" id="GnP-aB-gJk"/>
                                                     <constraint firstAttribute="height" constant="200" id="GwZ-wG-58u"/>
                                                     <constraint firstItem="hvL-gr-0NE" firstAttribute="top" secondItem="Qvf-0k-pj0" secondAttribute="bottom" constant="6" id="PoY-uF-6Za"/>
                                                     <constraint firstItem="VCe-v9-0MF" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ukI-EU-ml6" secondAttribute="trailing" id="Q9q-py-N4F"/>
@@ -940,7 +944,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4kw-S1-32k">
-                                <rect key="frame" x="20" y="718.33333333333337" width="295.33333333333337" height="34"/>
+                                <rect key="frame" x="20" y="718.33333333333337" width="295.33333333333331" height="34"/>
                                 <color key="backgroundColor" red="0.058823529411764705" green="0.058823529411764705" blue="0.058823529411764705" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1002,6 +1006,7 @@
                         <outlet property="gameNameLabel" destination="mId-Du-cko" id="9qO-TJ-N5U"/>
                         <outlet property="gameSearchNameTextField" destination="4kw-S1-32k" id="f7U-EY-Gzr"/>
                         <outlet property="saveOutlet" destination="8ot-Gj-uye" id="dk9-Bq-Tcy"/>
+                        <outlet property="searchAGameLabel" destination="Fe1-Ty-Opy" id="u6S-VW-xgQ"/>
                         <outlet property="titleTextField" destination="s8r-My-cNF" id="voj-uc-s49"/>
                     </connections>
                 </viewController>

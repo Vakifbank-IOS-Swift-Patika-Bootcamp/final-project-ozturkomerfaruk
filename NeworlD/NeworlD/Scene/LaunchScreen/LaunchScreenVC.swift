@@ -34,7 +34,7 @@ class LaunchScreenVC: BaseVC {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if LaunchOnboardingManager.shared.isNewUser() {
+        if !LaunchOnboardingManager.shared.isNewUser() {
             DispatchQueue.main.asyncAfter(deadline: .now()+2) { [weak self] in
                 guard let self = self else { return }
                 guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController else { return }

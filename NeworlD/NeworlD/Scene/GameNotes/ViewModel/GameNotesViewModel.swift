@@ -39,7 +39,6 @@ final class GameNotesViewModel: GameNotesViewModelProtocol {
         self.delegate?.notesLoaded()
         if notes?.count == 0 {
             delegate?.preFetch()
-            print(notes!.count)
         } else {
             delegate?.postFetch()
         }

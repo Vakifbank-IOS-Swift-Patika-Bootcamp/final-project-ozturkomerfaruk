@@ -16,7 +16,7 @@ final class TagsCustomCell: UITableViewCell {
     func configureTagsCustomCell(tagModel: TagsModel) {
         name.text = tagModel.name
         gamesCount.text = String(tagModel.gamesCount) + "\ngames found"
-        language.text = tagModel.language == "eng" ? "English" : ""
+        language.text = tagModel.language
     }
     
     override func layoutSubviews() {

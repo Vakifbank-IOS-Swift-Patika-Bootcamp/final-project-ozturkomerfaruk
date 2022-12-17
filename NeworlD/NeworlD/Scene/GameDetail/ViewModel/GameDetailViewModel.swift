@@ -5,7 +5,7 @@
 //  Created by Ömer Faruk Öztürk on 9.12.2022.
 //
 
-import Foundation
+import Foundation 
 
 protocol GameDetailViewModelProtocol {
     var delegate: GameListViewModelDelegate? { get set }
@@ -42,7 +42,7 @@ final class GameDetailViewModel {
     func getFavourites() -> [FavouritesEntity] {
         return favourites ?? []
     }
-    
+     
     func fetchGameDetail(id: Int) {
         delegate?.preFetch()
         Client.getGameDetail(gameID: id) { [weak self] viewModelDetail, error in

@@ -66,7 +66,6 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(viewModel.getGameNotes(index: indexPath.row))
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "addNoteVC") as? AddNoteVC else { return }
         vc.delegate = self
         vc.gameNote = viewModel.getGameNotes(index: indexPath.row)
