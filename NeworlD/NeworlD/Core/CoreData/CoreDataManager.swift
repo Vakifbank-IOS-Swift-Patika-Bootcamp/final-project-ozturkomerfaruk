@@ -40,7 +40,7 @@ final class CoreDataManager {
         
         do {
             try managedContext.save()
-            print("Saved to Core Data")
+                ("Saved to Core Data")
             return note as? GameNoteEntity
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")

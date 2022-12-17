@@ -38,7 +38,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func fetchGameList() {
         delegate?.preFetch()
-        Client.getGameList(page: 1, pageSize: 50) { [weak self] games, error in
+        Client.getGameList(page: 1, pageSize: 20) { [weak self] games, error in
             guard let self = self else { return }
             if let error = error {
                 self.delegate?.gamesFailed(error: error)
@@ -53,7 +53,6 @@ final class GameListViewModel: GameListViewModelProtocol {
     }
     
     func getGame(at index: Int) -> GameModel? {
-
         return games?[index]
     }
     
@@ -75,7 +74,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func fetchGameListOrderingNewest() {
         delegate?.preFetch()
-        Client.getGameListOrderingNewest(page: 1, pageSize: 50) { [weak self] games, error in
+        Client.getGameListOrderingNewest(page: 1, pageSize: 20) { [weak self] games, error in
             guard let self = self else { return }
             if let error = error {
                 self.delegate?.gamesFailed(error: error)
@@ -88,7 +87,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func fetchGameListOrderingOldest() {
         delegate?.preFetch()
-        Client.getGameListOrderingOldest(page: 1, pageSize: 50) { [weak self] games, error in
+        Client.getGameListOrderingOldest(page: 1, pageSize: 20) { [weak self] games, error in
             guard let self = self else { return }
             if let error = error {
                 self.delegate?.gamesFailed(error: error)
@@ -101,7 +100,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func fetchGameListOrderingHighest() {
         delegate?.preFetch()
-        Client.getGameListOrderingHighest(page: 1, pageSize: 50) { [weak self] games, error in
+        Client.getGameListOrderingHighest(page: 1, pageSize: 20) { [weak self] games, error in
             guard let self = self else { return }
             if let error = error {
                 self.delegate?.gamesFailed(error: error)
@@ -114,7 +113,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func fetchGameListOrderingLowest() {
         delegate?.preFetch()
-        Client.getGameListOrderingLowest(page: 1, pageSize: 50) { [weak self] games, error in
+        Client.getGameListOrderingLowest(page: 1, pageSize: 20) { [weak self] games, error in
             guard let self = self else { return }
             if let error = error {
                 self.delegate?.gamesFailed(error: error)
@@ -127,7 +126,7 @@ final class GameListViewModel: GameListViewModelProtocol {
     
     func fetchGameListOrderingRecentlyAdded() {
         delegate?.preFetch()
-        Client.getGameListOrderingRecentlyAdded(page: 1, pageSize: 50) { [weak self] games, error in
+        Client.getGameListOrderingRecentlyAdded(page: 1, pageSize: 20) { [weak self] games, error in
             guard let self = self else { return }
             if let error = error {
                 self.delegate?.gamesFailed(error: error)

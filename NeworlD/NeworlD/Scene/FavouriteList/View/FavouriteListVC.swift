@@ -90,13 +90,26 @@ extension FavouriteListVC: FavouriteListDelegate {
 
 extension FavouriteListVC: FavouriteCustomCellDelegate {
     func deleteFavourite(index: Int) {
-        viewModel.deleteFavourites(index: index)
-       
+        showAlertWithCancel(title: "warning".localized(), message: "removingFavourites".localized()) {
+            [weak self] buttonIndex in
+            guard let self = self else { return }
+            if buttonIndex == 0 {
+                self.viewModel.deleteFavourites(index: index)
+                
+            }
+        }
     }
 }
 
 extension FavouriteListVC: FavouriteDetailVCDelegate {
     func favoruiteDetailLoaded(index: Int) {
-        viewModel.deleteFavourites(index: index)
+        showAlertWithCancel(title: "warning".localized(), message: "removingFavourites".localized()) {
+            [weak self] buttonIndex in
+            guard let self = self else { return }
+            if buttonIndex == 0 {
+                self.viewModel.deleteFavourites(index: index)
+                
+            }
+        }
     }
 }

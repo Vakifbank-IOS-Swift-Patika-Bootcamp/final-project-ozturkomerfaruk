@@ -49,7 +49,6 @@ final class OnboardingVC: BaseVC {
             vc.modalPresentationStyle = .fullScreen
             vc.modalTransitionStyle = .coverVertical
             LaunchOnboardingManager.shared.setIsNotNewUser()
-            print(LaunchOnboardingManager.shared.setIsNotNewUser())
             present(vc, animated: true, completion: nil)
             
         } else {
@@ -68,7 +67,6 @@ extension OnboardingVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "onboardingCustomCell", for: indexPath) as! OnboardingCustomCell
-        print(viewModel.getSlideModel(at: indexPath.row))
         cell.configureCustomCell(viewModel.getSlideModel(at: indexPath.row))
         return cell
     }

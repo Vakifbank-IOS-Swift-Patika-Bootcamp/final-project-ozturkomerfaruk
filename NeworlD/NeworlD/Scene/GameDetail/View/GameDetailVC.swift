@@ -12,16 +12,12 @@ final class GameDetailVC: BaseVC {
     
     @IBOutlet private weak var tagsTableView: UITableView!
     @IBOutlet private weak var ratingsTableView: UITableView!
-    
     @IBOutlet private weak var descriptionRaw: UITextView!
     @IBOutlet private weak var gameName: UILabel!
     @IBOutlet private weak var gamePublisher: UILabel!
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var oppsImage: UIImageView!
-    
     @IBOutlet private weak var favouriteOutletButton: UIButton!
-    
-    
     @IBOutlet private weak var tagLabel: UILabel!
     @IBOutlet private weak var aboutGameLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
@@ -47,7 +43,6 @@ final class GameDetailVC: BaseVC {
 
         viewModel.fetchFavourites()
         for i in viewModel.getFavourites() {
-            print(i.gameId)
             if i.gameId == model!.id {
                 isFavourite = true
                 break
@@ -58,7 +53,6 @@ final class GameDetailVC: BaseVC {
         if viewModel.getFavourites().isEmpty {
             isFavourite = false
         }
-        print(isFavourite)
         favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
     }
     
@@ -74,9 +68,7 @@ final class GameDetailVC: BaseVC {
                             self.favouriteOutletButton.setImage(UIImage(systemName: self.isFavourite ? "heart.fill" : "heart"), for: .normal)
                         }
                     }
-                } else {
-                    self.dismiss(animated: true)
-                }
+                } 
             })
             
         } else {
@@ -93,6 +85,7 @@ final class GameDetailVC: BaseVC {
 
 extension GameDetailVC {
     private func configureGameDetailVC() {
+        favouriteOutletButton.imageView?.contentMode = .scaleAspectFill
         setConfigureTableView()
         descriptionRaw.isEditable = false
         favouriteOutletButton.layer.cornerRadius = favouriteOutletButton.frame.height / 2

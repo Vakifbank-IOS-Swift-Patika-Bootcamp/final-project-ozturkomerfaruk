@@ -88,7 +88,6 @@ final class FavouriteDetailVC: BaseVC {
 
 extension FavouriteDetailVC: FavouriteDetailViewModelDelegate {
     func gameLoaded() {
-        print(gameId!)
         lblName.text = viewModel.getLblName()
         imgGame.load(url: URL(string: viewModel.getImgGame()!)!)
         lblDescription.text = viewModel.getLblDescription()
