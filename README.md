@@ -10,7 +10,7 @@ Kendi repomda bizden istenen iki kitabın özetlerini paylaştım.
 
 ## Önemli Not!!
 
-Proje içerisinde API_KEY kullanımına izin vermedim. Bunun için App klasörünün altında bulunan Utils klasorüne gidip Constants dosyasında kendi API_KEY'inizi oluşturunuz lütfen.
+Proje içerisinde API_KEY kullanımına izin vermedim. Bunun için App klasörünün altında bulunan Utils klasorüne gidip Constants dosyasında kendi API_KEY'inizi oluşturunuz ekleyiniz lütfen. Aksi takdirde uygulamaya giriş yaptığınızda uygulamanız sonlanacaktır.
 
 <img width="276" alt="image" src="https://user-images.githubusercontent.com/56068905/208318476-c4877f9e-a3f3-45f0-80fd-0d5078908eac.png">
 
