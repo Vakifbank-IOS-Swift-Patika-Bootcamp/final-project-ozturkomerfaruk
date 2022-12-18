@@ -1,5 +1,13 @@
 # NeworlD Oyun Uygulaması
 
+## Kitap Özetleri
+
+Bootcamp boyunda özelde kendi repomu açarak ödevlerimi, ders tekralarımı notlar alarak paylaşıyordum. Benim için orası bootcamp rehberi gibi oldu. Bootcamp boyunca öğrendiğim yüzlerce yeni şey bulunmakta ve başlangıçta çok az şey biliyordum. Notlar alarak ilerledim ve bundan çok da mutluyum.
+
+Kendi repomda bizden istenen iki kitabın özetlerini paylaştım.
+
+[The Pragmatic Programmer](https://github.com/ozturkomerfaruk/Patika-Vakifbank-iOS-Bootcamp/tree/master/Kitaplar/Pragramatic%20Programmer) kitabının özeti için linke tıklayabilirsiniz. Aynı şekilde [Clean Code](https://github.com/ozturkomerfaruk/Patika-Vakifbank-iOS-Bootcamp/tree/master/Kitaplar/Clean%20Code) kitabına ulaşmak için linke tıklayabilirsiniz. Ben çok keyif alarak okudum bu kitapları ve çok şey öğrendim. Bu kitapları bize tavsiye ettiği için Kaan hocama tekrardan teşekkür ediyorum.
+
 ## İçindekiler
 
 ...
