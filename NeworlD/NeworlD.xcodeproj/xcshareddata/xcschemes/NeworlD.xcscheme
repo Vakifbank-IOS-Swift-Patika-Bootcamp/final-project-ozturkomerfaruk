@@ -32,9 +32,9 @@
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "043A7A082941AAA500936AA3"
-            BuildableName = "NeworlDTests.xctest"
-            BlueprintName = "NeworlDTests"
+            BlueprintIdentifier = "043A79EF2941AAA400936AA3"
+            BuildableName = "NeworlD.app"
+            BlueprintName = "NeworlD"
             ReferencedContainer = "container:NeworlD.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
@@ -67,7 +67,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "en"
+      language = "tr"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"

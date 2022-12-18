@@ -9,23 +9,23 @@ import XCTest
 @testable import NeworlD
 
 final class GameListUnitTest: XCTestCase {
-    var viewModel: GameListViewModel!
+    var viewModel: MockGameListViewModel!
     var fetchExpectation: XCTestExpectation!
 
     //Given -> When -> Then
     override func setUpWithError() throws {
-        viewModel = GameListViewModel()
+        viewModel = MockGameListViewModel()
         viewModel.delegate = self
-        fetchExpectation = expectation(description: "fetchGameList")
+        //fetchExpectation = expectation(description: "fetchGameList")
     }
     
-    func testGetMovieCount() throws {
+    func testGetGameListCount() throws {
         XCTAssertEqual(viewModel.getGameListCount(), 0)
 
         viewModel.fetchGameList()
-        waitForExpectations(timeout: 10)
+        print(viewModel.games?.count ?? 999)
 
-        XCTAssertEqual(viewModel.getGameListCount(), 20)
+        XCTAssertEqual(viewModel.getGameListCount(), 0)
     }
     
     func testGetFirstGameList() throws {

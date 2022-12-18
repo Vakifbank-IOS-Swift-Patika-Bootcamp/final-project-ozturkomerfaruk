@@ -22,6 +22,14 @@ struct TagsModel: Decodable {
         case gamesCount = "games_count"
     }
     
+    init(id: Int, name: String, slug: String, language: String, gamesCount: Int) {
+        self.id = id
+        self.name = name
+        self.slug = slug
+        self.language = language
+        self.gamesCount = gamesCount
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1

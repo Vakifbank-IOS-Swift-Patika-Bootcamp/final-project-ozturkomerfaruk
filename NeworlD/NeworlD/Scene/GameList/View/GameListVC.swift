@@ -9,10 +9,14 @@ import UIKit
 
 final class GameListVC: BaseVC {
     
-    @IBOutlet weak var gameListTableView: UITableView!
+    private let loadingActivityIndicator = UIActivityIndicatorView(style: .large)
     
+    @IBOutlet private weak var gameListTableView: UITableView!
     private var viewModel = GameListViewModel()
     private var lottieView = LottieView()
+    private var fetchingMore = false
+    private var pageSize = 1
+    private var perPage: Int = 25
     
     override func viewDidLoad() {
         super.viewDidLoad()
