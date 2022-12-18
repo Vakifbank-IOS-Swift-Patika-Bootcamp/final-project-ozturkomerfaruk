@@ -16,7 +16,7 @@ Proje içerisinde API_KEY kullanımına izin vermedim. Bunun için App klasörü
 
 Oluşturacağınız RawG sitesi aşağıdaki ekran görüntüsüdür. Siteye gitmek için [tıklayabilirsiniz](https://rawg.io/apidocs).
 
-<img width="1435" alt="image" src="https://user-images.githubusercontent.com/56068905/208318496-b5e51dd3-c882-4973-9c3e-2232befc7fbb.png">
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/56068905/208318496-b5e51dd3-c882-4973-9c3e-2232befc7fbb.png">
 
 
 ## İçindekiler
