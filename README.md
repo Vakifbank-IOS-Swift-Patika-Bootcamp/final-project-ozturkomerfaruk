@@ -93,6 +93,13 @@
 
 ## Trello
 
-Ekran görüntüsünü proje bitiminde koyacağım.
+Backlog - To Do - Doing - Done formatında projeyi yürütmeye çalıştım. İçimde kalan 2 eksik kısım bulunmakta. Biri sonsuz tableview içeriği yani Pagination diğeri de MVVM Mock test uygulanması. Ancak Unit testlerim hazır sadece canlıda çalışmaktadırlar.
+
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/56068905/208318106-3e2b5483-5437-4c49-bf3d-d183de4d4e8a.png">
+
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/56068905/208318135-4cf79a18-b8de-4a96-b0fd-410fdcc953ef.png">
+
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/56068905/208318141-64111b3c-bc81-40e8-a331-038d8d0d487d.png">
+
 
 Agile-Scrum metodolojisinde projeyi yönetmeye çalıştığım, Trello uygulamasında hazırladığım yol haritasını görüntülemek için [tıklayabilirsiniz](https://trello.com/invite/b/ks1phjdB/ATTI5093c6e9e92d387f878ac715a4fe56373521F70F/neworld).
