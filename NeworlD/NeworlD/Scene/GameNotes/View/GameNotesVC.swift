@@ -38,6 +38,7 @@ final class GameNotesVC: BaseVC {
     @IBAction func addNoteAction(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "addNoteVC") as? AddNoteVC else { return }
         vc.delegate = self
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
 }
@@ -70,7 +71,7 @@ extension GameNotesVC: UITableViewDelegate, UITableViewDataSource {
         vc.delegate = self
         vc.gameNote = viewModel.getGameNotes(index: indexPath.row)
         vc.gameId = Int(viewModel.getGameNotes(index: indexPath.row).gameId)
-        vc.modalPresentationStyle = .pageSheet
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
         
     }

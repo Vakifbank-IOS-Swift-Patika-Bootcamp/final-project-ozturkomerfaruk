@@ -43,4 +43,6 @@
 "releaseDate" = "Release Date";
 "genres" = "Genres";
 "stopDontLeave" = "Stop, Don't leave";
-"cutWatermelon" = "We're going to cut a watermelon now don't go anywhere";
+"cutWatermelon" = "We're going to cut a watermelon now don't go anywhere \nI don't care if you're leaving :)";
+"changeGameAddNote" = "You can change your game";
+"change" = "change...";

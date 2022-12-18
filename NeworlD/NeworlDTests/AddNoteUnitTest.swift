@@ -9,26 +9,30 @@ import XCTest
 @testable import NeworlD
 
 final class AddNoteUnitTest: XCTestCase {
-    var viewModel: AddNoteViewModel!
+    var sut: AddNoteViewModel!
     var fetchExpectation: XCTestExpectation!
 
     //Given -> When -> Then
     override func setUpWithError() throws {
-        viewModel = AddNoteViewModel()
-        viewModel.delegate = self
+        sut = AddNoteViewModel()
+        sut.delegate = self
         fetchExpectation = expectation(description: "addNote")
     }
     
+    override func tearDownWithError() throws {
+        sut = nil
+    }
+    
     func testGetGameWithId() {
-        XCTAssertNil(viewModel.getGameWithId())
+        XCTAssertNil(sut.getGameWithId())
         
-        viewModel.fetchGamesWithId(id: 3328)
+        sut.fetchGamesWithId(id: 3328)
         waitForExpectations(timeout: 10)
     
 
-        XCTAssertEqual(viewModel.getGameWithId()?.id, 3328)
-        XCTAssertEqual(viewModel.getGameWithId()?.name, "The Witcher 3: Wild Hunt")
-        XCTAssertEqual(viewModel.getGameWithId()?.backgroundImage, "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg")
+        XCTAssertEqual(sut.getGameWithId()?.id, 3328)
+        XCTAssertEqual(sut.getGameWithId()?.name, "The Witcher 3: Wild Hunt")
+        XCTAssertEqual(sut.getGameWithId()?.backgroundImage, "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg")
     }
 }
 

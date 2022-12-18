@@ -20,6 +20,8 @@ final class GameListVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationManager.shared.addLocalNotification()
         configureGameListVC()
         configureTableView()
         sortDeclaration()

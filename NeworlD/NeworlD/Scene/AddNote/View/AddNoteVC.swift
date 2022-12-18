@@ -40,11 +40,10 @@ final class AddNoteVC: BaseVC {
         saveOutlet.layer.cornerRadius = saveOutlet.frame.height / 3
         bodyTextView.textContainerInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
         titleTextField.changeColorPlaceholder(tf: titleTextField, string: "...", color: .lightText)
-        titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "type".localized(), color: .lightText)
         cancelButtonOutlet.setTitle("cancel".localized(), for: .normal)
         saveOutlet.setTitle("save".localized(), for: .normal)
         gameNameLabel.text = "selectGame".localized()
-        searchAGameLabel.text = "searchAGame".localized()
+        
         
         if gameNote != nil {
             titleTextField.text = gameNote?.title
@@ -91,7 +90,13 @@ final class AddNoteVC: BaseVC {
 extension AddNoteVC: AddNoteViewModelDelegate {
     func gamesLoaded() {
         gameNameLabel.text = viewModel.getGameWithId()?.name ?? ""
-        
+        if gameNameLabel.text == "Please Select a Game" {
+            titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "type".localized(), color: .lightText)
+            searchAGameLabel.text = "selectGame".localized()
+        } else {
+            titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "change".localized(), color: .lightText)
+            searchAGameLabel.text = "changeGameAddNote".localized()
+        }
     }
     
     func gamesFailed(error: Error) {

@@ -16,7 +16,6 @@ class LaunchScreenVC: BaseVC {
         super.viewDidLoad()
         
         configureLaunchScreen()
-        NotificationManager.shared.addLocalNotification()
     }
     
     private func configureLaunchScreen() {

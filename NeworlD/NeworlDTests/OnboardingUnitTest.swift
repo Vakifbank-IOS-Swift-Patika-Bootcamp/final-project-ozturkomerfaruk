@@ -9,28 +9,32 @@ import XCTest
 @testable import NeworlD
 
 final class OnboardingUnitTest: XCTestCase {
-    var viewModel: OnboardingViewModel!
+    var sut: OnboardingViewModel!
 
     //Given -> When -> Then
     override func setUpWithError() throws {
-        viewModel = OnboardingViewModel()
+        sut = OnboardingViewModel()
+    }
+    
+    override func tearDownWithError() throws {
+        sut = nil
     }
     
     func testGetCountSlide() {
-        XCTAssertEqual(viewModel.countSlide(), 0)
+        XCTAssertEqual(sut.countSlide(), 0)
         
-        viewModel.appendSlide(model: OnboardingModel(title: "title", description: "description", lottieViewStr: "lottieViewStr"))
+        sut.appendSlide(model: OnboardingModel(title: "title", description: "description", lottieViewStr: "lottieViewStr"))
         
-        XCTAssertEqual(viewModel.countSlide(), 1)
+        XCTAssertEqual(sut.countSlide(), 1)
     }
     
     func testGetSlideModel() {
-        XCTAssertEqual(viewModel.countSlide(), 0)
+        XCTAssertEqual(sut.countSlide(), 0)
         
-        viewModel.appendSlide(model: OnboardingModel(title: "title", description: "description", lottieViewStr: "lottieViewStr"))
+        sut.appendSlide(model: OnboardingModel(title: "title", description: "description", lottieViewStr: "lottieViewStr"))
         
-        XCTAssertEqual(viewModel.getSlideModel(at: 0).title, "title")
-        XCTAssertEqual(viewModel.getSlideModel(at: 0).description, "description")
-        XCTAssertEqual(viewModel.getSlideModel(at: 0).lottieViewStr, "lottieViewStr")
+        XCTAssertEqual(sut.getSlideModel(at: 0).title, "title")
+        XCTAssertEqual(sut.getSlideModel(at: 0).description, "description")
+        XCTAssertEqual(sut.getSlideModel(at: 0).lottieViewStr, "lottieViewStr")
     }
 }

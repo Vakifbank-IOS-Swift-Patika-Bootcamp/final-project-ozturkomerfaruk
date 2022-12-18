@@ -9,31 +9,35 @@ import XCTest
 @testable import NeworlD
 
 final class GamesForNotesUnitTest: XCTestCase {
-    var viewModel: GamesForNotesViewModel!
+    var sut: GamesForNotesViewModel!
     var fetchExpectation: XCTestExpectation!
 
     //Given -> When -> Then
     override func setUpWithError() throws {
-        viewModel = GamesForNotesViewModel()
-        viewModel.delegate = self
+        sut = GamesForNotesViewModel()
+        sut.delegate = self
         fetchExpectation = expectation(description: "gamesForNotes")
     }
     
+    override func tearDownWithError() throws {
+        sut = nil
+    }
+    
     func testGetSearchGamesCount() {
-        XCTAssertEqual(viewModel.getSearchGamesCount(), 0)
+        XCTAssertEqual(sut.getSearchGamesCount(), 0)
         
-        viewModel.fetchSearchGames(searchGameName: "Minecraft")
+        sut.fetchSearchGames(searchGameName: "Minecraft")
         waitForExpectations(timeout: 10)
     
-        XCTAssertEqual(viewModel.getSearchGamesCount(), 20)
+        XCTAssertEqual(sut.getSearchGamesCount(), 20)
     }
     
     func testGetSearchGame() {
-        XCTAssertNil(viewModel.getSearchGame(at: 0))
+        XCTAssertNil(sut.getSearchGame(at: 0))
         
-        viewModel.fetchSearchGames(searchGameName: "Minecraft")
+        sut.fetchSearchGames(searchGameName: "Minecraft")
         waitForExpectations(timeout: 10)
-        let game = viewModel.getSearchGame(at: 0)
+        let game = sut.getSearchGame(at: 0)
         XCTAssertEqual(game?.id, 22509)
         XCTAssertEqual(game?.slug, "minecraft")
         XCTAssertEqual(game?.name, "Minecraft")

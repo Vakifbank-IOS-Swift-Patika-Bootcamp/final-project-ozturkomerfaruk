@@ -66,6 +66,10 @@ final class FavouriteListViewModel: FavouriteListProtocol {
         }
     }
     
+    func deleteFavouritesFromArray(index: Int) {
+        favourites?.remove(at: index)
+    }
+    
     func isArrayEmpty() -> Bool {
         return favourites?.count == 0 ? true : false
     }

@@ -51,7 +51,7 @@ final class GameDetailViewModel {
             self.delegate?.gamesLoaded()
         }
         
-    }
+    } 
     
     func iCorouselImagesCount(model: GameModel) ->Int {
         var ssArray = [String]()

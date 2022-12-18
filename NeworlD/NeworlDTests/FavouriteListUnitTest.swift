@@ -11,21 +11,17 @@ import XCTest
 final class FavouriteListUnitTest: XCTestCase {
 
     
-    var viewModel: FavouriteListViewModel!
-    var fetchExpectation: XCTestExpectation!
+    var sut: FavouriteListViewModel!
     
     //Given -> When -> Then
     override func setUpWithError() throws {
-        viewModel = FavouriteListViewModel()
-        fetchExpectation = expectation(description: "fetchGameList")
+        sut = FavouriteListViewModel()
+    }
+    
+    override func tearDownWithError() throws {
+        sut = nil
     }
     
     func testGetGameListCount() throws {
-        XCTAssertNil(viewModel.getFavourites(index: 0))
-
-        viewModel.appendFavourites(gameId: 999)
-        waitForExpectations(timeout: 10)
-
-        XCTAssertEqual(viewModel.getFavourites(index: 0).gameId, 999)
     }
 }

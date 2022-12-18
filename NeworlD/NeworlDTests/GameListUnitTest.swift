@@ -9,32 +9,36 @@ import XCTest
 @testable import NeworlD
 
 final class GameListUnitTest: XCTestCase {
-    var viewModel: MockGameListViewModel!
+    var sut: GameListViewModel!
     var fetchExpectation: XCTestExpectation!
 
     //Given -> When -> Then
     override func setUpWithError() throws {
-        viewModel = MockGameListViewModel()
-        viewModel.delegate = self
-        //fetchExpectation = expectation(description: "fetchGameList")
+        sut = GameListViewModel()
+        sut.delegate = self
+        fetchExpectation = expectation(description: "fetchGameList")
+    }
+    
+    override func tearDownWithError() throws {
+        sut = nil
     }
     
     func testGetGameListCount() throws {
-        XCTAssertEqual(viewModel.getGameListCount(), 0)
+        XCTAssertEqual(sut.getGameListCount(), 0)
 
-        viewModel.fetchGameList()
-        print(viewModel.games?.count ?? 999)
+        sut.fetchGameList()
+        waitForExpectations(timeout: 10)
 
-        XCTAssertEqual(viewModel.getGameListCount(), 0)
+        XCTAssertEqual(sut.getGameListCount(), 20)
     }
     
     func testGetFirstGameList() throws {
-        XCTAssertNil(viewModel.getGame(at: 0))
+        XCTAssertNil(sut.getGame(at: 0))
         
-        viewModel.fetchGameList()
+        sut.fetchGameList()
         waitForExpectations(timeout: 10)
         
-        let firstItem = viewModel.getGame(at: 0)
+        let firstItem = sut.getGame(at: 0)
         XCTAssertEqual(firstItem?.id, 3498)
         XCTAssertEqual(firstItem?.slug, "grand-theft-auto-v")
         XCTAssertEqual(firstItem?.name, "Grand Theft Auto V")

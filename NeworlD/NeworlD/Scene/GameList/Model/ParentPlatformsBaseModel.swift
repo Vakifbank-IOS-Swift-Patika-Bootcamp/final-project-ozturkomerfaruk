@@ -13,10 +13,6 @@ struct ParentPlatformsBaseModel: Decodable {
     enum CodingKeys: String, CodingKey {
         case platform
     }
-    
-    init(platform: PlatformModel) {
-        self.platform = platform
-    }
   
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -33,12 +29,6 @@ struct PlatformModel: Decodable {
         case id
         case name
         case slug
-    }
-    
-    init(id: Int, name: String, slug: String) {
-        self.id = id
-        self.name = name
-        self.slug = slug
     }
     
     init(from decoder: Decoder) throws {
