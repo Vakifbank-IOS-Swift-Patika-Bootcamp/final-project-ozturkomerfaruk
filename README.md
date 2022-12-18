@@ -27,28 +27,43 @@
 |Swift|5.7.2|
 |iOS|16.1|
 
-## Ekran Videoları ve Yaklaşımları
-
-### Giriş
+## Ekran Görüntüleri
 
 |Sayfa Görüntüleri|Sayfa Hakkında|
 |---|---|
-|![1](https://user-images.githubusercontent.com/56068905/208310529-601e24d2-8d34-4e5a-bef3-945fcda55159.gif)|asdasd|
-|![2](https://user-images.githubusercontent.com/56068905/208310540-919102cd-6f4b-469d-b791-3899997c7ca2.gif)|asd|
-|![3](https://user-images.githubusercontent.com/56068905/208310698-084e041c-67e7-42fc-bf33-c73949bde06d.gif)|asdasd|
-|![detay](https://user-images.githubusercontent.com/56068905/208311332-1ccebc40-0c48-4fef-8af9-d682c3cfd09c.gif)|123|
-|![favori](https://user-images.githubusercontent.com/56068905/208311337-bf9f4957-fa4a-4ed3-9227-512ab6d66520.gif)|123123|
-|![6](https://user-images.githubusercontent.com/56068905/208310895-19a4d902-6c50-4434-b452-39130f0157ed.gif)||
-|![7](https://user-images.githubusercontent.com/56068905/208310905-d1e6963d-5b0d-4d4c-ab61-8610871a0f7c.gif)||
-|![ezgif com-gif-maker](https://user-images.githubusercontent.com/56068905/208310951-fe5f5747-fab5-4b52-952b-b0282a64730d.gif)||
- 
+|![1](https://user-images.githubusercontent.com/56068905/208310529-601e24d2-8d34-4e5a-bef3-945fcda55159.gif)|Launch Ekranı ve Onboarding Ekranı. Burada kullan|
+|![2](https://user-images.githubusercontent.com/56068905/208310540-919102cd-6f4b-469d-b791-3899997c7ca2.gif)|Oyun listeleme ekranı ve listede filtreleme özelliği|
+|![3](https://user-images.githubusercontent.com/56068905/208310698-084e041c-67e7-42fc-bf33-c73949bde06d.gif)|Oyun listesinde arama özelliği|
+|![detay](https://user-images.githubusercontent.com/56068905/208311332-1ccebc40-0c48-4fef-8af9-d682c3cfd09c.gif)|Oyun detay ekranı|
+|![favori](https://user-images.githubusercontent.com/56068905/208311337-bf9f4957-fa4a-4ed3-9227-512ab6d66520.gif)|Favoriler ekranı|
+|![6](https://user-images.githubusercontent.com/56068905/208310895-19a4d902-6c50-4434-b452-39130f0157ed.gif)|Notlar listesi, not silme, not ekleme ve güncelleme sayfası|
+|![7](https://user-images.githubusercontent.com/56068905/208310905-d1e6963d-5b0d-4d4c-ab61-8610871a0f7c.gif)|Local notification özelliği|
+|![ezgif com-gif-maker](https://user-images.githubusercontent.com/56068905/208310951-fe5f5747-fab5-4b52-952b-b0282a64730d.gif)|Türkçe ve İngilizce Localization özelliği|
 
-  
+## Kullanılan Dizayn Patern Mimarisi
 
+**Protocol Oriented MVVM**
 
+## Kullanılan Harici Kütüphaneler
 
+* Alamofire
+* iCarousel
+* MaterialActivityIndicator
+* SwiftAlertView ~> 2.2.1
+* lottie-ios
 
+## Network Endpoints
 
+|URL|Manası|
+|---|---|
+|/games?key=##API_KEY##&page={page}&page_size={pageSize}|Sayfa numarası ve sayfa saysında gösterilecek oyun sayısı|
+|/games/{gameID}?key=##API_KEY##|Oyun ID si ile birlikte oyun detay sayfası|
+|/games?key=##API_KEY##&page={page}&page_size={pageSize}&ordering=-released|Yayım tarihine göre en yeni oyunlar|
+|/games?key=##API_KEY##&page={page}&page_size={pageSize}&ordering=released|Yayım tarihine göre en eski oyunlar|
+|/games?key=##API_KEY##&page={page}&page_size={pageSize}&ordering=-rating|Değerlendirmeye göre en yüksek oyunlar|
+|/games?key=##API_KEY##&page={page}&page_size={pageSize}&ordering=rating|Değerlendirmeye göre en eski oyunlar|
+|/games?key=##API_KEY##&page={page}&page_size={pageSize}&ordering=added|Favoriye göre listelenen oyunlar|
+|/games?key=##API_KEY##&search={searchString}| Girilen oyun adına göre arama yapma|
 
 ## Trello
 
