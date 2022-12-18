@@ -8,6 +8,17 @@ Kendi repomda bizden istenen iki kitabın özetlerini paylaştım.
 
 [The Pragmatic Programmer](https://github.com/ozturkomerfaruk/Patika-Vakifbank-iOS-Bootcamp/tree/master/Kitaplar/Pragramatic%20Programmer) kitabının özeti için linke tıklayabilirsiniz. Aynı şekilde [Clean Code](https://github.com/ozturkomerfaruk/Patika-Vakifbank-iOS-Bootcamp/tree/master/Kitaplar/Clean%20Code) kitabına ulaşmak için linke tıklayabilirsiniz. Ben çok keyif alarak okudum bu kitapları ve çok şey öğrendim. Bu kitapları bize tavsiye ettiği için Kaan hocama tekrardan teşekkür ediyorum.
 
+## Önemli Not!!
+
+Proje içerisinde API_KEY kullanımına izin vermedim. Bunun için App klasörünün altında bulunan Utils klasorüne gidip Constants dosyasında kendi API_KEY'inizi oluşturunuz lütfen.
+
+<img width="276" alt="image" src="https://user-images.githubusercontent.com/56068905/208318476-c4877f9e-a3f3-45f0-80fd-0d5078908eac.png">
+
+Oluşturacağınız RawG sitesi aşağıdaki ekran görüntüsüdür. Siteye gitmek için [tıklayabilirsiniz](https://rawg.io/apidocs).
+
+<img width="1435" alt="image" src="https://user-images.githubusercontent.com/56068905/208318496-b5e51dd3-c882-4973-9c3e-2232befc7fbb.png">
+
+
 ## İçindekiler
 
 ...
