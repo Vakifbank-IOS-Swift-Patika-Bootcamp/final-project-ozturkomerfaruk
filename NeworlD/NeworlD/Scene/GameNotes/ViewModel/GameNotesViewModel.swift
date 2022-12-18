@@ -23,12 +23,12 @@ protocol GameNotesViewModelDelegate: AnyObject {
     func notesFailed(error: Error)
     
     func preFetch()
-    func postFetch()
+    func postFetch() 
 }
 
 final class GameNotesViewModel: GameNotesViewModelProtocol {
     weak var delegate: GameNotesViewModelDelegate?
-    private var notes: [GameNoteEntity]?
+    var notes: [GameNoteEntity]?
     
     func getGameNotesCount() -> Int {
         return notes?.count ?? 0

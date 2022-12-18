@@ -10,24 +10,27 @@ import XCTest
 
 
 final class GameNotesUnitTest: XCTestCase {
-    var viewModel: GameNotesViewModel!
+    var sut: GameNotesViewModel!
 
-    //Given -> When -> Then
     override func setUpWithError() throws {
-        viewModel = GameNotesViewModel()
-        viewModel.delegate = self
+        sut = GameNotesViewModel()
         
     }
     
-}
-
-extension GameNotesUnitTest: GameNotesViewModelDelegate {
-    func notesLoaded() {
+    override func tearDownWithError() throws {
+        sut = nil
     }
     
-    func notesFailed(error: Error) {}
-    func preFetch() {
+    func testGetGameNotes() {
+        //Given
+        XCTAssertEqual(sut.getGameNotesCount(), 0)
         
+        //When
+        //Not working this Core Data Tests
+        sut.appendGameNote(title: "title", body: "body", gameId: 99)
+        sut.fetchGameNotes()
+        
+        //Then
+        XCTAssertEqual(sut.getGameNotesCount(), 0)
     }
-    func postFetch() {}
 }

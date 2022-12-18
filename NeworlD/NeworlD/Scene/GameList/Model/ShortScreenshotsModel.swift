@@ -16,11 +16,6 @@ struct ShortScreenshotsModel: Decodable {
         case image
     }
     
-    init(id: Int, image: String) {
-        self.id = id
-        self.image = image
-    }
-    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? -1

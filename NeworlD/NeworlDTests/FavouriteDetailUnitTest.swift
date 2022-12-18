@@ -9,50 +9,54 @@ import XCTest
 @testable import NeworlD
 
 final class FavouriteDetailUnitTest: XCTestCase {
-    var viewModel: FavouriteDetailViewModel!
+    var sut: FavouriteDetailViewModel!
     var fetchExpectation: XCTestExpectation!
 
     //Given -> When -> Then
     override func setUpWithError() throws {
-        viewModel = FavouriteDetailViewModel()
-        viewModel.delegate = self
+        sut = FavouriteDetailViewModel()
+        sut.delegate = self
         fetchExpectation = expectation(description: "favouriteDetail")
     }
     
+    override func tearDownWithError() throws {
+        sut = nil
+    }
+    
     func testGetLblName() {
-        XCTAssertNil(viewModel.getLblName())
+        XCTAssertNil(sut.getLblName())
         
-        viewModel.fetchFavouriteGameDetail(gameId: 22509)
+        sut.fetchFavouriteGameDetail(gameId: 22509)
         waitForExpectations(timeout: 10)
         
-        XCTAssertEqual(viewModel.getLblName(), "Minecraft")
+        XCTAssertEqual(sut.getLblName(), "Minecraft")
     }
     
     func testGetImgGame() {
-        XCTAssertEqual(viewModel.getImgGame(), "https://thumbs.dreamstime.com/z/oops-sticky-note-yellow-pinned-red-push-pin-cork-board-92680037.jpg")
+        XCTAssertEqual(sut.getImgGame(), "https://thumbs.dreamstime.com/z/oops-sticky-note-yellow-pinned-red-push-pin-cork-board-92680037.jpg")
         
-        viewModel.fetchFavouriteGameDetail(gameId: 22509)
+        sut.fetchFavouriteGameDetail(gameId: 22509)
         waitForExpectations(timeout: 10)
         
-        XCTAssertEqual(viewModel.getImgGame(), "https://media.rawg.io/media/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg")
+        XCTAssertEqual(sut.getImgGame(), "https://media.rawg.io/media/games/b4e/b4e4c73d5aa4ec66bbf75375c4847a2b.jpg")
     }
     
     func testGetLblRelease() {
-        XCTAssertNil(viewModel.getLblRelease())
+        XCTAssertNil(sut.getLblRelease())
         
-        viewModel.fetchFavouriteGameDetail(gameId: 22509)
+        sut.fetchFavouriteGameDetail(gameId: 22509)
         waitForExpectations(timeout: 10)
         
-        XCTAssertEqual(viewModel.getLblRelease(), "Jan 05, 2009")
+        XCTAssertEqual(sut.getLblRelease(), "Jan 05, 2009")
     }
     
     func testGetLblUserReviews() {
-        XCTAssertEqual(viewModel.getLblUserReviews(), " | -1 User Reviews")
+        XCTAssertEqual(sut.getLblUserReviews(), " | -1 User Reviews")
         
-        viewModel.fetchFavouriteGameDetail(gameId: 22509)
+        sut.fetchFavouriteGameDetail(gameId: 22509)
         waitForExpectations(timeout: 10)
         
-        XCTAssertEqual(viewModel.getLblUserReviews(), "Exceptional | 1410 User Reviews")
+        XCTAssertEqual(sut.getLblUserReviews(), "Exceptional | 1410 User Reviews")
     }
 }
 

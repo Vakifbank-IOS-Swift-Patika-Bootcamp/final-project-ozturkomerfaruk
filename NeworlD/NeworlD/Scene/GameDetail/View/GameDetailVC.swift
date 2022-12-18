@@ -74,9 +74,7 @@ final class GameDetailVC: BaseVC {
         } else {
             isFavourite = true
             CoreDataManager.shared.saveFavourite(gameId: model!.id)
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "favouriteListVC") as? FavouriteListVC else { return }
-            navigationController?.popToRootViewController(animated: true)
-            navigationController?.pushViewController(vc, animated: true)
+            tabBarController?.selectedIndex = 1
             
         }
         favouriteOutletButton.setImage(UIImage(systemName: isFavourite ? "heart.fill" : "heart"), for: .normal)
@@ -176,7 +174,7 @@ extension GameDetailVC: iCarouselDataSource {
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width/1.13, height: 250))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width/1.13, height: 200))
         view.backgroundColor = .systemGray
         let imageview = UIImageView(frame: view.bounds)
         view.addSubview(imageview)

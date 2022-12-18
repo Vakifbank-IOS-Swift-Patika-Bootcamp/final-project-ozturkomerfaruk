@@ -43,4 +43,6 @@
 "releaseDate" = "Yayımlanma Tarihi";
 "genres" = "Türler";
 "stopDontLeave" = "Dur, Ayrılma Bir yere";
-"cutWatermelon" = "Daha karpuz kesecez, gitme bir yere";
+"cutWatermelon" = "Daha karpuz kesecez, gitme bir yere \nGidiyorsan da ilgilenmiyorum :)";
+"changeGameAddNote" = "Oynunuzu değiştirebilirsiniz";
+"change" = "değiştir...";

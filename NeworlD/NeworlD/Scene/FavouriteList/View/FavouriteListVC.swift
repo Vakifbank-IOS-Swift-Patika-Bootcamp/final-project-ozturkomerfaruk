@@ -103,13 +103,6 @@ extension FavouriteListVC: FavouriteCustomCellDelegate {
 
 extension FavouriteListVC: FavouriteDetailVCDelegate {
     func favoruiteDetailLoaded(index: Int) {
-        showAlertWithCancel(title: "warning".localized(), message: "removingFavourites".localized()) {
-            [weak self] buttonIndex in
-            guard let self = self else { return }
-            if buttonIndex == 0 {
-                self.viewModel.deleteFavourites(index: index)
-                
-            }
-        }
+        viewModel.deleteFavourites(index: index)
     }
 }

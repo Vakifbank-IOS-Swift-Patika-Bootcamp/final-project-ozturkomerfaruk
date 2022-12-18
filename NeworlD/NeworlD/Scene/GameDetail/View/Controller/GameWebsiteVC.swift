@@ -22,7 +22,7 @@ final class GameWebsiteVC: UIViewController, WKNavigationDelegate {
         gameWebView.tintColor = .purple
         
         let url = URL(string: gameWebsiteURLString!)
-        let request = URLRequest(url: url!)
+        let request = URLRequest(url: url ?? URL(string: Constants.OPPSImageURL)!)
         gameWebView.load(request)
         gameWebView.allowsBackForwardNavigationGestures = true
     }

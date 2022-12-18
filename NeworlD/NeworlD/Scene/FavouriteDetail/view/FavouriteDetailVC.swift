@@ -69,18 +69,13 @@ final class FavouriteDetailVC: BaseVC {
     }
     
     @IBAction func removeFromFavouritesButtonAction(_ sender: Any) {
-        showAlertWithCancel(title: "warning".localized(), message: "removingFavourites".localized()) { [weak self] buttonIndex in
-            guard let self = self else { return }
-            if buttonIndex == 0 {
-                for (i, fav) in self.viewModel.getFavourites().enumerated() {
-                    if fav.gameId == self.gameId! {
-                        self.viewModel.deleteFavourite(fav: fav, index: i)
-                        self.delegate?.deleteFavourite(index: i)
-                    }
-                }
-                self.dismiss(animated: true)
+        for (i, fav) in self.viewModel.getFavourites().enumerated() {
+            if fav.gameId == self.gameId! {
+                self.viewModel.deleteFavourite(fav: fav, index: i)
+                self.delegate?.deleteFavourite(index: i)
             }
         }
+        self.dismiss(animated: true)
     }
     
     
