@@ -29,21 +29,26 @@
 
 ## Ekran Videoları ve Yaklaşımları
 
-https://user-images.githubusercontent.com/56068905/208310025-b75b9b18-4401-4030-8d8b-f8d4e642435e.mov
+### Giriş
 
-https://user-images.githubusercontent.com/56068905/208310078-8566d8c4-8aa2-42b3-b4de-914f6d4609b2.mov
+|Sayfa Görüntüleri|Sayfa Hakkında|
+|---|---|
+|![1](https://user-images.githubusercontent.com/56068905/208310529-601e24d2-8d34-4e5a-bef3-945fcda55159.gif)|asdasd|
+|![2](https://user-images.githubusercontent.com/56068905/208310540-919102cd-6f4b-469d-b791-3899997c7ca2.gif)|asd|
+|![3](https://user-images.githubusercontent.com/56068905/208310698-084e041c-67e7-42fc-bf33-c73949bde06d.gif)|asdasd|
+|![detay](https://user-images.githubusercontent.com/56068905/208311332-1ccebc40-0c48-4fef-8af9-d682c3cfd09c.gif)|123|
+|![favori](https://user-images.githubusercontent.com/56068905/208311337-bf9f4957-fa4a-4ed3-9227-512ab6d66520.gif)|123123|
+|![6](https://user-images.githubusercontent.com/56068905/208310895-19a4d902-6c50-4434-b452-39130f0157ed.gif)||
+|![7](https://user-images.githubusercontent.com/56068905/208310905-d1e6963d-5b0d-4d4c-ab61-8610871a0f7c.gif)||
+|![ezgif com-gif-maker](https://user-images.githubusercontent.com/56068905/208310951-fe5f5747-fab5-4b52-952b-b0282a64730d.gif)||
+ 
 
-https://user-images.githubusercontent.com/56068905/208310184-f2395bcc-8f00-4b4d-b19b-7c80c51cb2f9.mov
+  
 
-https://user-images.githubusercontent.com/56068905/208310308-b4c066e9-c748-461d-9a54-b586e5331c78.mov
 
-https://user-images.githubusercontent.com/56068905/208310328-bd6c8716-6dae-4fdf-9f28-57878edd6e94.mov
 
-https://user-images.githubusercontent.com/56068905/208310347-7c85ac14-3a03-41d4-b81b-ff4e63120031.mov
 
-https://user-images.githubusercontent.com/56068905/208310373-77bfdc59-b348-46db-a4a6-821f3c085600.mov
 
-https://user-images.githubusercontent.com/56068905/208310399-035d3f30-68f9-4a92-9f9e-b2e3e4e19272.mov
 
 ## Trello
 
