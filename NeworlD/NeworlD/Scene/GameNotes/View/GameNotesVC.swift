@@ -32,7 +32,7 @@ final class GameNotesVC: BaseVC {
         addNoteOutlet.layer.cornerRadius = addNoteOutlet.frame.height / 2
         notesTableView.backgroundColor = .clear
         
-        titleName.text = "notes".localized()
+        titleName.text = viewModel.isArrayEmpty() ? "anyNotes".localized() : "notes".localized()
     }
 
     @IBAction func addNoteAction(_ sender: Any) {
