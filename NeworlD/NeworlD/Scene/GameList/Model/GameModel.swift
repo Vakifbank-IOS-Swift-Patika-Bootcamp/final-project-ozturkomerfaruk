@@ -34,6 +34,20 @@ struct GameModel: Decodable {
         case shortScreenshots = "short_screenshots"
     }
     
+    init(id: Int, slug: String, name: String, released: String, backgroundImage: String, rating: Double, parentPlatforms: [ParentPlatformsBaseModel], genres: [GenresModel], stores: [StoresBaseModel], tags: [TagsModel], shortScreenshots: [ShortScreenshotsModel]) {
+        self.id = id
+        self.slug = slug
+        self.name = name
+        self.released = released
+        self.backgroundImage = backgroundImage
+        self.rating = rating
+        self.parentPlatforms = parentPlatforms
+        self.genres = genres
+        self.stores = stores
+        self.tags = tags
+        self.shortScreenshots = shortScreenshots
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(Int.self, forKey: .id) ?? -1

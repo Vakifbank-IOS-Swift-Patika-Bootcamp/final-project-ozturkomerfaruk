@@ -16,6 +16,11 @@ struct StoresBaseModel: Decodable {
         case store
     }
     
+    init(id: Int, store: StoreModel) {
+        self.id = id
+        self.store = store
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try values.decodeIfPresent(Int.self, forKey: .id) ?? -1
@@ -34,6 +39,13 @@ struct StoreModel: Decodable {
         case name
         case slug
         case domain
+    }
+    
+    init(id: Int, name: String, slug: String, domain: String) {
+        self.id = id
+        self.name = name
+        self.slug = slug
+        self.domain = domain
     }
     
     init(from decoder: Decoder) throws {
