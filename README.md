@@ -121,7 +121,7 @@ Oluşturacağınız RawG sitesi aşağıdaki ekran görüntüsüdür. Siteye git
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/56068905/208317608-61943e62-3f20-467a-9420-1a2029bc5654.png">
 
-## Trello
+## Trello Scrum-Agile
 
 Backlog - To Do - Doing - Done formatında projeyi yürütmeye çalıştım. İçimde kalan 2 eksik kısım bulunmakta. Biri sonsuz tableview içeriği yani Pagination diğeri de MVVM Mock test uygulanması. Ancak Unit testlerim hazır sadece canlıda çalışmaktadırlar.
 
