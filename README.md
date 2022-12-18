@@ -32,7 +32,7 @@ Oluşturacağınız RawG sitesi aşağıdaki ekran görüntüsüdür. Siteye git
 * [Kullanılan Yapılar](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-ozturkomerfaruk#kullan%C4%B1lan-yap%C4%B1lar)
 * [Network Endpoints](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-ozturkomerfaruk#network-endpoints)
 * [Unit Test Durumu (En Çok Acemilik Çektiğim Yer)](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-ozturkomerfaruk#unit-test-durumu-en-%C3%A7ok-acemilik-%C3%A7ekti%C4%9Fim-yer)
-* [Trello Agile-Scrum]()
+* [Trello Agile-Scrum](https://github.com/Vakifbank-IOS-Swift-Patika-Bootcamp/final-project-ozturkomerfaruk/blob/main/README.md#trello-scrum-agile)
 
 ## Bitirme Projesi NeworlD uygulama ikonu
 
