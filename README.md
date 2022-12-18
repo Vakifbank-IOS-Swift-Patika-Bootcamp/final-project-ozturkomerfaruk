@@ -133,3 +133,18 @@ Backlog - To Do - Doing - Done formatında projeyi yürütmeye çalıştım. İ�
 
 
 Agile-Scrum metodolojisinde projeyi yönetmeye çalıştığım, Trello uygulamasında hazırladığım yol haritasını görüntülemek için [tıklayabilirsiniz](https://trello.com/invite/b/ks1phjdB/ATTI5093c6e9e92d387f878ac715a4fe56373521F70F/neworld).
+
+# Ödev Sonu Scrum Değerlendirmesi
+
+Projeyi Eduflow'a teslim ettim ve kendim için bir değerlendirme yaptım. Bu değerlendirmeyi paylaşmak istiyorum.
+
+|Sorular|Cevaplar|
+|---|---|
+|Neler öğrendin bu süreçte?|Bitirme projesi kapsamında aslında öğrenmediğim şey yok. Kelimenin tek manasıyla bu. Ben bootcamp öncesinde çok az şey bilgiye sahiptim. Hatta öyle ki, hayatım boyunca hiç iphone kullanmadım. Yaşadığım bazı iş tecrübeleri sayesinde iOS developer olmaya karar verdim ve para biriktirerek, biraz borçla Macbook sahibi oldum daha geçtiğimiz Eylül ayında. Dolayısıyla sadece Swift UIKit tecrübesinden ziyade, ben MAC/iPhone ikilisine yeni adepte olmaya çalışan birisiyim. Bu bootcamp bu sürecimi çok hızlandırdı ve ortaya çok keyif alarak yaptığım bu projeyi ortaya çıkarttı. En başından en sonuna, bu 2 haftalık süreçte her gün 7-8 saat **minimum sürede** geçirdim. Tüm odağım bu ödev oldu ve elimden gelen tüm çabayı göstermek istedim. Bootcamp boyunca bilmediğim, öğrenmediğim ne varsa internetten araştırarak geçti bu süreç ve bundan çok keyif aldım.|
+|Aynı süre verilse neyi iyi yapardın?|Aynı süre şuanki aklımda yeniden verilse bana, tasarıma çok zaman kaybetmezdim. Tasarım konusunda çok az bilgim vardı ve bana çok zaman kaybettirdi. Hele ScrollView kullanımı tam felaketti benim için. Ancak günün sonunda mantıklarını oturttuğuma inanıyorum. MVVM mimarisini daha sade yazmayı çok isterdim ama maalesef buna gerçek manada çalışma tecrübesi lazım. Soru sorabileceğim, kod inceleyebileceğim en ufak bir şey yok. İnternette kaynakların hepsi ya çok profosyonel ya da çok basit düzeyde. Arasını yakalayamadım maalesef. Aynı şekilde Test kullanımını da söyleyebilirim. Unit Test de çok fazla içerik gördüm ama tam manasıyla istediğim sonuçları elde edemedim. Yine de elimden geldiğince test etmeye çalıştım. Bu süreçleri daha iyi yönetebilirdim belki ama yine de bir tecrübe şart bu konuda.|
+
+
+Evet iki soru ve iki cevap. Ben bu süreçten dediğim gibi çok keyif aldım. Bu bootcampt'de olmaktan dolayı çok mutlu oldum. Çok şey öğrendiğime inanıyor ve hayatım boyunca unutmayacağım bir eğitim sürecinde olduğumu düşünüyorum. Bana bu imkanı sağlayan Patika.dev ekibine tekrardan çok teşekkür ederim. Bizlere en iyi şekilde öğretmenlik yapan, harika bir insan olan, Kaan Yıldırım hocama tekrardan çok teşekkür ederim. Bizleri Vakıfbank çatısı altında toplayan Vakıfbank'a çok teşekkür ederim ve son olarak, bootcampte yer alan bütün arkadaşlara çok teşekkür ederim. Bazen onlara sorular sordum bazen onlar sorular sordu birlikte cevaplar aradık. Bu süreçte tanıştığım arkadaşlıkların uzun ömürlü olmasını çok isterim.
+
+Teşekkürler
+Ömer Faruk Öztürk
