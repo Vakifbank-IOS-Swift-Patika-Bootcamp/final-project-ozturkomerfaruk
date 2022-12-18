@@ -52,6 +52,28 @@
 * SwiftAlertView ~> 2.2.1
 * lottie-ios
 
+## Sayfa Tasarım Haritası
+
+<img width="532" alt="image" src="https://user-images.githubusercontent.com/56068905/208312797-f8df5308-9394-4ea3-8ccd-97c4a60306b5.png">
+
+## Kullanılan Bileşenler
+
+* UILabel
+* UICollectionView
+* UIPageControl
+* UIView
+* UIImageView
+* UITableView
+* UIButton
+* UITextField
+* UITextView
+* UIScrollView
+
+## Kullanılan Yapılar
+
+* UserDefaults
+* CoreData
+
 ## Network Endpoints
 
 |URL|Manası|
