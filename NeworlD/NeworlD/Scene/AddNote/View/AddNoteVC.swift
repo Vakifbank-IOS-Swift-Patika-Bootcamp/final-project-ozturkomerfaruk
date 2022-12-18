@@ -42,8 +42,13 @@ final class AddNoteVC: BaseVC {
         titleTextField.changeColorPlaceholder(tf: titleTextField, string: "...", color: .lightText)
         cancelButtonOutlet.setTitle("cancel".localized(), for: .normal)
         saveOutlet.setTitle("save".localized(), for: .normal)
-        gameNameLabel.text = "selectGame".localized()
-        
+        if gameNameLabel.text == "Please Select a Game" {
+            titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "type".localized(), color: .lightText)
+            searchAGameLabel.text = "selectGame".localized()
+        } else {
+            titleTextField.changeColorPlaceholder(tf: gameSearchNameTextField, string: "change".localized(), color: .lightText)
+            searchAGameLabel.text = "changeGameAddNote".localized()
+        }
         
         if gameNote != nil {
             titleTextField.text = gameNote?.title
