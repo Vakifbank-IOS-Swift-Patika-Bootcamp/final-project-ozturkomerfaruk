@@ -5,7 +5,7 @@
 //  Created by Ömer Faruk Öztürk on 12.12.2022.
 //
 
-import Foundation
+import Foundation 
 import CoreData
 
 protocol GameNotesViewModelProtocol {
@@ -28,7 +28,7 @@ protocol GameNotesViewModelDelegate: AnyObject {
 
 final class GameNotesViewModel: GameNotesViewModelProtocol {
     weak var delegate: GameNotesViewModelDelegate?
-    var notes: [GameNoteEntity]?
+    private var notes: [GameNoteEntity]?
     
     func getGameNotesCount() -> Int {
         return notes?.count ?? 0

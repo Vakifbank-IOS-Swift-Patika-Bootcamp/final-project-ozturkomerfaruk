@@ -33,7 +33,7 @@ final class FavouriteListViewModel: FavouriteListProtocol {
     func getFavouritesCount() -> Int {
         return favourites?.count ?? 0
     }
-    
+     
     func fetchFavourites() {
         favourites = CoreDataManager.shared.getFavourites()
         self.delegate?.favouritesLoaded()

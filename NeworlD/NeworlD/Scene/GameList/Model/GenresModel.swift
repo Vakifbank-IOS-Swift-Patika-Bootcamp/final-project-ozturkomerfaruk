@@ -17,4 +17,6 @@ struct GenresModel: Decodable {
         case slug
         case name
     }
+    
+    
 }

@@ -23,6 +23,19 @@ final class GameDetailUnitTest: XCTestCase {
         sut = nil
     }
     
+    func testGetFavourites() {
+        XCTAssertEqual(sut.getFavourites().count, 0)
+        
+        CoreDataManager.shared.saveFavourite(gameId: 999)
+        sut.fetchFavourites()
+        
+        fetchExpectation.fulfill()
+        waitForExpectations(timeout: 5)
+        let lastIndex = sut.getFavourites().count - 1
+        
+        XCTAssertEqual(sut.getFavourites()[lastIndex].gameId, 999)
+    }
+    
     func testGetGameDetailDescriptionRow() throws {
         XCTAssertEqual(sut.getDescriptionRow(), "")
 
