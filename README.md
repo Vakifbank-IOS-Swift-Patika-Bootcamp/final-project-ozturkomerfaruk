@@ -87,6 +87,10 @@
 |/games?key=##API_KEY##&page={page}&page_size={pageSize}&ordering=added|Favoriye göre listelenen oyunlar|
 |/games?key=##API_KEY##&search={searchString}| Girilen oyun adına göre arama yapma|
 
+## Unit Test Durumu (En Çok Acemilik Çektiğim Yer)
+
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/56068905/208317608-61943e62-3f20-467a-9420-1a2029bc5654.png">
+
 ## Trello
 
 Ekran görüntüsünü proje bitiminde koyacağım.
