@@ -2,7 +2,7 @@
 
 ## Kitap Özetleri
 
-Bootcamp boyunda özelde kendi repomu açarak ödevlerimi, ders tekralarımı notlar alarak paylaşıyordum. Benim için orası bootcamp rehberi gibi oldu. Bootcamp boyunca öğrendiğim yüzlerce yeni şey bulunmakta ve başlangıçta çok az şey biliyordum. Notlar alarak ilerledim ve bundan çok da mutluyum.
+Bootcamp boyunca özelde, kendi repomu açarak ödevlerimi, ders tekrarlarımı notlar alarak paylaşıyordum. Benim için orası bootcamp rehberi gibi oldu. Bootcamp boyunca öğrendiğim yüzlerce yeni şey bulunmakta ve başlangıçta çok az şey biliyordum. Notlar alarak ilerledim ve bundan çok da mutluyum. Son 2 ayda göstermiş olduğum aktiflik Github profilimde yeşilliklere yansımaktadır hatta. Github profilime gitmek için [tıklayabilirsiniz](https://github.com/ozturkomerfaruk).
 
 Kendi repomda bizden istenen iki kitabın özetlerini paylaştım.
 
@@ -10,11 +10,11 @@ Kendi repomda bizden istenen iki kitabın özetlerini paylaştım.
 
 ## Önemli Not!!
 
-Proje içerisinde API_KEY kullanımına izin vermedim. Bunun için App klasörünün altında bulunan Utils klasorüne gidip Constants dosyasında kendi API_KEY'inizi oluşturunuz ekleyiniz lütfen. Aksi takdirde uygulamaya giriş yaptığınızda uygulamanız sonlanacaktır.
+Proje içerisinde API_KEY kullanımına izin vermedim. Bunun için App klasörünün altında bulunan Utils klasorüne gidip Constants dosyasında kendi API_KEY'inizi oluşturup ekleyiniz lütfen. Aksi takdirde uygulamaya giriş yapmak istediğinizde uygulama açılmayacaktır.
 
 <img width="276" alt="image" src="https://user-images.githubusercontent.com/56068905/208318476-c4877f9e-a3f3-45f0-80fd-0d5078908eac.png">
 
-Oluşturacağınız RawG sitesi aşağıdaki ekran görüntüsüdür. Siteye gitmek için [tıklayabilirsiniz](https://rawg.io/apidocs).
+Oluşturacağınız RawG API_KEY aşağıdaki ekran görüntüsündeki internet sitesidir. Siteye gitmek için [tıklayabilirsiniz](https://rawg.io/apidocs).
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/56068905/208318496-b5e51dd3-c882-4973-9c3e-2232befc7fbb.png">
 
@@ -62,7 +62,7 @@ Oluşturacağınız RawG sitesi aşağıdaki ekran görüntüsüdür. Siteye git
 
 |Sayfa Görüntüleri|Sayfa Hakkında|
 |---|---|
-|![1](https://user-images.githubusercontent.com/56068905/208310529-601e24d2-8d34-4e5a-bef3-945fcda55159.gif)|Launch Ekranı ve Onboarding Ekranı. Burada kullan|
+|![1](https://user-images.githubusercontent.com/56068905/208310529-601e24d2-8d34-4e5a-bef3-945fcda55159.gif)|Launch Ekranı ve Onboarding Ekranı|
 |![2](https://user-images.githubusercontent.com/56068905/208310540-919102cd-6f4b-469d-b791-3899997c7ca2.gif)|Oyun listeleme ekranı ve listede filtreleme özelliği|
 |![3](https://user-images.githubusercontent.com/56068905/208310698-084e041c-67e7-42fc-bf33-c73949bde06d.gif)|Oyun listesinde arama özelliği|
 |![detay](https://user-images.githubusercontent.com/56068905/208311332-1ccebc40-0c48-4fef-8af9-d682c3cfd09c.gif)|Oyun detay ekranı|
@@ -141,11 +141,12 @@ Projeyi Eduflow'a teslim ettim ve kendim için bir değerlendirme yaptım. Bu de
 
 |Sorular|Cevaplar|
 |---|---|
-|Neler öğrendin bu süreçte?|Bitirme projesi kapsamında aslında öğrenmediğim şey yok. Kelimenin tek manasıyla bu. Ben bootcamp öncesinde çok az şey bilgiye sahiptim. Hatta öyle ki, hayatım boyunca hiç iphone kullanmadım. Yaşadığım bazı iş tecrübeleri sayesinde iOS developer olmaya karar verdim ve para biriktirerek, biraz borçla Macbook sahibi oldum daha geçtiğimiz Eylül ayında. Dolayısıyla sadece Swift UIKit tecrübesinden ziyade, ben MAC/iPhone ikilisine yeni adepte olmaya çalışan birisiyim. Bu bootcamp bu sürecimi çok hızlandırdı ve ortaya çok keyif alarak yaptığım bu projeyi ortaya çıkarttı. En başından en sonuna, bu 2 haftalık süreçte her gün 7-8 saat **minimum sürede** geçirdim. Tüm odağım bu ödev oldu ve elimden gelen tüm çabayı göstermek istedim. Bootcamp boyunca bilmediğim, öğrenmediğim ne varsa internetten araştırarak geçti bu süreç ve bundan çok keyif aldım.|
+|Neler öğrendin bu süreçte?|Bitirme projesi kapsamında aslında öğrenmediğim şey yok. Kelimenin tek manasıyla bu. Ben bootcamp öncesinde çok az bilgiye sahiptim. Hatta öyle ki, hayatım boyunca hiç iphone kullanmadım. Geçmişte yaşadığım bazı iş tecrübeleri sayesinde iOS developer olmaya karar verdim ve para biriktirerek, biraz borçla Macbook sahibi oldum daha geçtiğimiz Eylül ayında. Dolayısıyla sadece Swift UIKit tecrübesinden ziyade, ben MAC/iPhone ikilisine yeni adepte olmaya çalışan birisiyim. Bu bootcamp bu sürecimi çok hızlandırdı ve ortaya çok keyif alarak yaptığım bu projeyi ortaya çıkarttı. En başından en sonuna, bu 2 haftalık süreçte her gün 7-8 saat **minimum sürede** geçirdim. Tüm odağım bu ödev oldu ve elimden gelen tüm çabayı göstermek istedim. Bootcamp boyunca bilmediğim, öğrenmediğim ne varsa internetten araştırarak geçti bu süreç ve bundan çok keyif aldım.|
 |Aynı süre verilse neyi iyi yapardın?|Aynı süre şuanki aklımda yeniden verilse bana, tasarıma çok zaman kaybetmezdim. Tasarım konusunda çok az bilgim vardı ve bana çok zaman kaybettirdi. Hele ScrollView kullanımı tam felaketti benim için. Ancak günün sonunda mantıklarını oturttuğuma inanıyorum. MVVM mimarisini daha sade yazmayı çok isterdim ama maalesef buna gerçek manada çalışma tecrübesi lazım. Soru sorabileceğim, kod inceleyebileceğim en ufak bir şey yok. İnternette kaynakların hepsi ya çok profosyonel ya da çok basit düzeyde. Arasını yakalayamadım maalesef. Aynı şekilde Test kullanımını da söyleyebilirim. Unit Test de çok fazla içerik gördüm ama tam manasıyla istediğim sonuçları elde edemedim. Yine de elimden geldiğince test etmeye çalıştım. Bu süreçleri daha iyi yönetebilirdim belki ama yine de bir tecrübe şart bu konuda.|
 
 
 Evet iki soru ve iki cevap. Ben bu süreçten dediğim gibi çok keyif aldım. Bu bootcampt'de olmaktan dolayı çok mutlu oldum. Çok şey öğrendiğime inanıyor ve hayatım boyunca unutmayacağım bir eğitim sürecinde olduğumu düşünüyorum. Bana bu imkanı sağlayan Patika.dev ekibine tekrardan çok teşekkür ederim. Bizlere en iyi şekilde öğretmenlik yapan, harika bir insan olan, Kaan Yıldırım hocama tekrardan çok teşekkür ederim. Bizleri Vakıfbank çatısı altında toplayan Vakıfbank'a çok teşekkür ederim ve son olarak, bootcampte yer alan bütün arkadaşlara çok teşekkür ederim. Bazen onlara sorular sordum bazen onlar sorular sordu birlikte cevaplar aradık. Bu süreçte tanıştığım arkadaşlıkların uzun ömürlü olmasını çok isterim.
 
 Teşekkürler
+
 Ömer Faruk Öztürk
